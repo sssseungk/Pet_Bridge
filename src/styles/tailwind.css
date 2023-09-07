@@ -1,6 +1,5 @@
 @import 'tailwindcss/base';
-@import './custom-reset.css';
 @import 'tailwindcss/components.css';
-@import './custom-components.css';
 @import 'tailwindcss/utilities';
+@import './custom-product-detail.css';
 

@@ -1,6 +1,6 @@
 function Nav() {
   return (
-    <div className="text-2xl">navigation</div>
+    <nav>navigation</nav>
   )
 }
 
