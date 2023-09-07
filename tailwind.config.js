@@ -18,7 +18,11 @@ export default {
         'pet-bg': '#FFFDF9',
         'gray-1': '#BBBBBB',
         'gray-2': '#7A7A7A',
+        'pet-ivory' : '#FDF6EE',
       },
+      screens: {
+        'xs' : '360px',
+      }
     },
   },
   plugins: [],
