@@ -8,8 +8,6 @@ function App() {
       <RootLayOut>
         
       </RootLayOut>
-      <ProductDetail>
-      </ProductDetail>
     </>
   )
 }
