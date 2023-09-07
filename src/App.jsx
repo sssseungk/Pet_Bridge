@@ -1,10 +1,15 @@
+import RootLayOut from "./layout/rootlayout"
+import ProductDetail from "./pages/ProductDetail"
+
 function App() {
 
   return (
     <>
-     <h1 className="text-9xl pet-">
-      Hello world!
-    </h1>
+      <RootLayOut>
+        
+      </RootLayOut>
+      <ProductDetail>
+      </ProductDetail>
     </>
   )
 }
