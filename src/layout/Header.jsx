@@ -1,5 +1,4 @@
 import HeaderComp from "@/components/Header/HeaderComp"
-import Nav from './Nav';
 
 function Header() {
   return (
