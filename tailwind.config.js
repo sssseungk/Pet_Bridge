@@ -14,7 +14,7 @@ export default {
         'pet-orange': '#FF9703',
         'pet-black': '#161616',
         'pet-red': '#D15D48',
-        'pet-green': '#FF9703',
+        'pet-green': '#567764',
         'pet-bg': '#FFFDF9',
         'gray-1': '#BBBBBB',
         'gray-2': '#7A7A7A',
