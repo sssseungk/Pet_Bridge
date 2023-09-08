@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 function HeaderComp({title='펫:브릿지', showLogo=false, showSearchIcon=false, showCartIcon=false}) {
   return (
     <>
-      <div className="max-w-3xl mx-auto p-5 bg-pet-bg border-gray-800 shadow-lg relative z-10">
+      <div className="max-w-4xl mx-auto p-5 bg-pet-bg border-gray-800 shadow-lg relative z-10">
         <div className="flex items-center justify-between">
           <button>
             <img src={prev_icon}/>
@@ -27,7 +27,6 @@ function HeaderComp({title='펫:브릿지', showLogo=false, showSearchIcon=false
         </div>
       </div>
     </>
-
   )
 }
 
