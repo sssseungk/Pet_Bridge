@@ -1,4 +1,3 @@
-import SearchHeaderComp from "@/components/Header/SearchHeaderComp"
 import { useState } from "react";
 
 function SearchProduct() {
@@ -14,7 +13,6 @@ function SearchProduct() {
   return (
 
     <>
-      <SearchHeaderComp/>
       <div className="mt-2 max-w-4xl mx-auto pt-2 pl-3">
         <span className="text-sm font-[600]">친구들이 많이 찾고 있어요!</span>
         <ol className="flex gap-2 mt-3 justify-start">
