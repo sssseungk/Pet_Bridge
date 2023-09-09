@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import prev_icon from '@/assets/icons/prev_icon.svg'
+import prev_icon from '/assets/icons/prev_icon.svg'
 import { useState } from "react";
 
 function SearchHeaderComp() {
@@ -31,7 +31,7 @@ function SearchHeaderComp() {
                 value={search}
                 onChange={onChange}
                 placeholder="상품명을 입력하세요."
-                className="w-full bg-[#E9E9E9] text-[#9DA1B4] py-1 px-2 rounded-lg focus:outline-none"
+                className="w-full bg-[#E9E9E9] text-pet-black py-1 px-2 rounded-lg focus:outline-none"
               />
             </fieldset>
           </form>
