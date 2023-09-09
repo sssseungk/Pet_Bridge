@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['SUIT Variable']
+      'sans': ['SUIT Variable']
       },
       colors: {
         'primary': '#FFD966',
