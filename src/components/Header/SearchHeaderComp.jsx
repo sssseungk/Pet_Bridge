@@ -16,7 +16,7 @@ function SearchHeaderComp() {
 
   return (
     <>
-      <div className="max-w-4xl mx-auto p-5 bg-pet-bg border-gray-800 shadow-lg relative z-10">
+      <div className="max-w-4xl mx-auto pt-5 pb-5 px-4 bg-pet-bg border-gray-800 shadow-lg relative z-10">
         <div className="flex items-center justify-between">
           <button className="flex items-center">
             <img src={prev_icon} alt="Previous" className="mr-2" onClick={handleGoPrevPage}/>
