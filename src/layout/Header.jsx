@@ -1,9 +1,11 @@
 import { useLocation } from 'react-router-dom';
 import HeaderComp from "@/components/Header/HeaderComp"
+import SearchHeaderComp from '@/components/Header/searchHeaderComp';
 
 function Header() {
   const location = useLocation();
   let title, showLogo, showSearchIcon, showCartIcon;
+  let content;
 
   switch(location.pathname) {
     case '/cart':
@@ -23,8 +25,17 @@ function Header() {
       break; 
     // Add more cases for other paths
     default:
-      title = "펫:브릿지";
-      showLogo = true;
+      if (location.pathname === "/search") {
+        content = <SearchHeaderComp />;
+        return (
+          <header>
+            {content}
+          </header>
+        );
+      }
+      
+    title = "펫:브릿지";
+    showLogo=true;	
   }
 
   return (
