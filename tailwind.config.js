@@ -6,8 +6,16 @@ export default {
   ],
   theme: {
     extend: {
+      screens:{
+        'pet-864': '864px',
+        'pet-520': '520px',
+        'pet-360': '360px',
+      },
+      aspectRatio: {
+        '200/140' : '200 / 140',
+      },
       fontFamily: {
-      'suit': ['SUIT Variable']
+      'sans': ['SUIT Variable']
       },
       colors: {
         'primary': '#FFD966',
