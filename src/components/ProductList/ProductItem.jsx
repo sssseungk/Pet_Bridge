@@ -1,7 +1,7 @@
-import comment_icon from '@/assets/icons/comment_icon.svg';
-import heart_empty_icon from '@/assets/icons/heart_empty_icon.svg';
-import heart_fill_icon from '@/assets/icons/heart_fill_icon.svg';
-import product1 from '@/assets/imgs/product1.png';
+import comment_icon from '/assets/icons/comment_icon.svg';
+import heart_empty_icon from '/assets/icons/heart_empty_icon.svg';
+import heart_fill_icon from '/assets/icons/heart_fill_icon.svg';
+import product1 from '/assets/imgs/product1.png';
 import { useState } from 'react';
 
 function ProductItem() {
@@ -14,7 +14,7 @@ function ProductItem() {
   return (
     <div className='bg-[#FDF6EE] bg-pet-ivory rounded-[10px] w-full pet-360:w-[calc(50%/1-1rem)] pet-864:w-[calc(50%-1rem)] aspect-200/140'>
       <div className="flex-col items-center justify-center pt-3 px-3">
-        <div className="relative sm:transi">
+        <div className="relative">
           <img src={product1} className="w-full h-3/2 rounded-[10px] transition-width duration-300"/>
           {
             addWish ? (
