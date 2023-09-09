@@ -1,7 +1,7 @@
-import cup from '@/assets/imgs/1.jpg';
+import cup from '@/assets/imgs/cup_product.jpg';
 import minus from '@/assets/icons/minus.svg';
 import plus from '@/assets/icons/plus.svg';
-import detail1 from '@/assets/imgs/2.jpg';
+import detail1 from '@/assets/imgs/cupDetail_detail.jpg';
 
 function ProductDetail() {
   return (
