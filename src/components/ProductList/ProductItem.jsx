@@ -1,22 +1,11 @@
-import { useEffect } from 'react';
 import comment_icon from '/assets/icons/comment_icon.svg';
 import heart_empty_icon from '/assets/icons/heart_empty_icon.svg';
 import heart_fill_icon from '/assets/icons/heart_fill_icon.svg';
 import { useState } from 'react';
-import {pb} from '@/api/pocketbase';
 import { getPbImageURL } from '@/utils/getPbImageUrl';
 import { PropTypes } from 'prop-types';
 
-const renderProductList = await pb.collection('product').getFullList();
 function ProductItem({product}) {
-
-  useEffect(() => {
-    try {
-      renderProductList;
-    } catch (error){
-      throw new Error('error');
-    }
-  }, []);
 
   const [addWish, setAddWish] = useState(false);
   const handleWishBtn = () => {
