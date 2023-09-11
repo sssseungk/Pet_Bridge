@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-function HeaderComp({title, showLogo, showSearchIcon, showCartIcon, showPrevIcon}) {
+function HeaderComp({title, showLogo, showSearchIcon, showCartIcon}) {
   
   const navigate = useNavigate();
   const handleGoPrevPage = () => {
@@ -18,7 +18,7 @@ function HeaderComp({title, showLogo, showSearchIcon, showCartIcon, showPrevIcon
       <div className="max-w-4xl mx-auto p-5 bg-pet-bg border-gray-800 shadow-lg relative z-10">
         <div className="flex items-center justify-between">
         <button onClick={handleGoPrevPage}>
-            {showPrevIcon && <img src={prev_icon}/>}
+            <img src={prev_icon}/>
           </button>
           <h1 className="flex items-center gap-1 font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl">
             {showLogo && <img src={logo_header_icon} className="w-5 h-5"/>}
@@ -51,5 +51,4 @@ HeaderComp.propTypes = {
   showLogo: PropTypes.bool,
   showSearchIcon: PropTypes.bool,
   showCartIcon: PropTypes.bool,
-  showPrevIcon: PropTypes.bool
 }
