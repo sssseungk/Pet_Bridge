@@ -34,7 +34,7 @@ function ProductList() {
   }
 
   return (
-    <div className="bg-pet-bg">
+    <div className="bg-pet-bg pb-16">
       <ProductListNav onCategorySelect={setSelectedCategory}/>
       <ol className="bg-pet-bg flex flex-wrap max-w-4xl mx-auto justify-start mt-5 gap-2">
         {displayProducts.map(product => (
