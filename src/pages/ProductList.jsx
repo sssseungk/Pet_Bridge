@@ -26,9 +26,9 @@ function ProductList() {
   if (selectedCategory === '무료배송') {
     displayProducts = productList.filter(product => product.delivery_free);
   } else if (selectedCategory === '신상품') {
-    displayProducts = productList.slice().sort((a, b) => b.product_date.localeCompare(a.product_date)).slice(0,10);
+    displayProducts = productList.slice().sort((a, b) => b.product_date.localeCompare(a.product_date)).slice(0,7);
   } else if (selectedCategory === '베스트') {
-    displayProducts = productList.slice().sort((a, b) => b.total_sale - a.total_sale);
+    displayProducts = productList.slice().sort((a, b) => b.total_sale - a.total_sale).slice(0, 10);
   } else {
     displayProducts = productList;
   }
