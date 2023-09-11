@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div className="font-suit text-xs text-gray-2 bg-gray-1 text-center flex-col gap-6 flex pt-6 pb-13">
+    <footer className="font-suit text-xs text-gray-2 bg-gray-1 text-center flex-col gap-6 flex pt-6 pb-13">
       <p>
         <span className="font-semibold">COMPANY:</span> 펫브릿지스튜디오 <br />
         <span className="font-semibold">ADDRESS:</span> 서울 종랑구 연목로 42길
@@ -22,7 +22,7 @@ function Footer() {
         ></img>
         펫:브릿지
       </div>
-    </div>
+    </footer>
   );
 }
 

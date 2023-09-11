@@ -23,6 +23,9 @@ function Header() {
       showSearchIcon = true;
       showCartIcon = true;
       break; 
+    case '/map':
+      title = "내 주변 보호소 찾기";
+      break;
     // Add more cases for other paths
     default:
       if (location.pathname === "/search") {
