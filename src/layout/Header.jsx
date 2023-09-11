@@ -4,27 +4,40 @@ import SearchHeaderComp from '@/components/Header/searchHeaderComp';
 
 function Header() {
   const location = useLocation();
-  let title, showLogo, showSearchIcon, showCartIcon;
+  let title, showLogo, showSearchIcon, showCartIcon, showPrevIcon;
   let content;
 
   switch(location.pathname) {
+    case '/':
+      title = "펫:브릿지";
+      showLogo = true;
+      showCartIcon = true;
+      showSearchIcon = true;
+      showPrevIcon = false;
+      break;
+
     case '/cart':
       title = "장바구니";
+      showPrevIcon = true;
       break;
     case '/place':
       title = "유기동물 봉사활동";
+      showPrevIcon = true;
       break;
     case '/productdetail':
       title = "상품상세정보";
+      showPrevIcon = true;
       showCartIcon = true;
       break;
     case '/productlist':
       title = "후원 상품";
+      showPrevIcon = true;
       showSearchIcon = true;
       showCartIcon = true;
       break; 
     case '/map':
       title = "내 주변 보호소 찾기";
+      showPrevIcon = true;
       break;
     // Add more cases for other paths
     default:
@@ -36,9 +49,10 @@ function Header() {
           </header>
         );
       }
-      
-    title = "펫:브릿지";
-    showLogo=true;	
+
+    title="상품상세정보"
+    showPrevIcon = true;
+    showCartIcon = true;
   }
 
   return (
@@ -48,6 +62,7 @@ function Header() {
             showLogo={showLogo} 
             showSearchIcon={showSearchIcon} 
             showCartIcon={showCartIcon}
+            showPrevIcon = {showPrevIcon}
         />
      </header>
    )
