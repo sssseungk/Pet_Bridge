@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getPbImageURL } from "@/utils/getPbImageUrl";
 import minus from '/assets/icons/minus_icon.svg'
 import plus from '/assets/icons/plus_icon.svg'
+import Heart from "@/components/ProductDetail/Heart";
 
 function ProductDetail() {
   const { productTitle } = useParams();
@@ -15,18 +16,25 @@ function ProductDetail() {
       </div>
       <div className="text-xl pt-5">{data.title}</div>
       <div className="flex justify-between">
-        <div className="text-xl pt-5">{data.price}</div>
-        <div className="count__btn flex h-[30px] w-[84px] flex-row flex-nowrap end items-center justify-start border-[1px] border-gray-2">
-          <button type="button" className="border-0 bg-transparent p-0 ">
-            <img src={minus} alt="수량 삭제" />
+        <div className="text-xl pt-5">{data.price} 원</div>
+        
+        <div className="flex items-center gap-4">
+          <button>
+            <Heart/>
           </button>
-          <span className="count mx-[8px] text-[16px] font-semibold text-black">
-            1
-          </span>
-          <button type="button" className="border-0 bg-transparent p-0">
-            <img src={plus} alt="수량 추가" />
-          </button>
+          <div className="flex h-7 w-[5.25rem] items-center justify-start border border-gray-500">
+            <button type="button" className="border-0 bg-transparent p-0 ">
+              <img src={minus} alt="수량 삭제" />
+            </button>
+            <span className="count mx-[8px] text-[16px] font-semibold text-black">
+              1
+            </span>
+            <button type="button" className="border-0 bg-transparent p-0">
+              <img src={plus} alt="수량 추가" />
+            </button>
           </div>
+        </div>
+        
       </div>
       <div className='m-auto h-[1px] bg-black mt-4'></div>
         <img src={getPbImageURL(data,'photo_detail')} alt="상품사진" className=" m-auto pt-4" />
@@ -59,7 +67,7 @@ function ProductDetail() {
            </p>
           </div>        
         </div>
-        <button className="w-full h-12 bg-pet-orange rounded-lg items-center text-sm">
+        <button className="w-full m-auto h-12 bg-pet-orange rounded-lg items-center mb-3 text-sm bottom-16 left-0 right-0 sticky">
           장바구니
         </button>
     </div>
