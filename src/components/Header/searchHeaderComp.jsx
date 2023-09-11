@@ -21,7 +21,7 @@ function SearchHeaderComp() {
           <button className="flex items-center">
             <img src={prev_icon} alt="Previous" className="mr-2" onClick={handleGoPrevPage}/>
           </button>
-          <form action='/search' className="ml-4 w-full">
+          <form action='/' className="ml-4 w-full">
             <fieldset>
               <legend className="sr-only">검색 폼</legend>
               <label className="sr-only" htmlFor="search">검색</label>
