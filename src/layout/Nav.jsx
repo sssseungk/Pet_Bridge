@@ -1,7 +1,7 @@
-import home from '/assets/icons/home2.svg';
-import shop from '/assets/icons/shop2.svg';
-import map from '/assets/icons/map2.svg';
-import myPage from '/assets/icons/mypage2.svg';
+import home from '/assets/icons/home2_icon.svg';
+import shop from '/assets/icons/shop2_icon.svg';
+import map from '/assets/icons/map2_icon.svg';
+import myPage from '/assets/icons/mypage2_icon.svg';
 
 
 function Nav() {
