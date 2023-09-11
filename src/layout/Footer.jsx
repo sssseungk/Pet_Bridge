@@ -1,5 +1,3 @@
-import './Footer.css';
-
 function Footer() {
   return (
     <div className="font-suit text-xs text-gray-2 bg-gray-1 text-center flex-col gap-6 flex pt-6 pb-13">
@@ -18,7 +16,10 @@ function Footer() {
         All rights reserved.
       </p>
       <div className="bg-gray-2 text-gray-1 py-3 text-xl font-bold flex items-center justify-center">
-        <img src="/src/assets/logo_footer_icon.svg" className="w-5 m-1"></img>
+        <img
+          src="public/assets/icons/Logo_footer_icon.svg"
+          className="w-5 m-1"
+        ></img>
         펫:브릿지
       </div>
     </div>
