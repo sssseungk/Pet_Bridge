@@ -1,12 +1,25 @@
+import { pb } from '@/api/pocketbase';
+import { getPbImageURL } from '@/utils/getPbImageUrl';
+import { useEffect } from "react";
+import { Link } from 'react-router-dom';
+import callIcon from "/assets/icons/call_icon.svg";
+import PlaceIcon from "/assets/icons/place_icon.svg";
 import PlaceBg from "/assets/imgs/catbg_place.png";
 import PlaceHome from "/assets/imgs/pet_house_place.png";
 import shelter from "/assets/imgs/shelter_place.png";
-import sample from "/assets/imgs/sample_place.png";
-import callIcon from "/assets/icons/call_icon.svg";
-import PlaceIcon from "/assets/icons/place_icon.svg";
-import { Link } from 'react-router-dom';
+
+const renderPlaceList = await pb.collection('place').getFullList();
 
 function Place() {
+  
+  useEffect(() => {
+    try{
+      renderPlaceList;
+    } catch(error){
+      throw new Error('error');
+    }
+  }, []);
+
   return (
     <>
       <article className="max-w-4xl mx-auto my-0 relative bg-pet-bg">
@@ -44,26 +57,18 @@ function Place() {
         <section className="w-[92%] mx-auto my-0 pb-[25%]">
           <h2 className="font-bold mt-[14%] mb-[3%] mx-0 text-sm">더보기</h2>
           <ul>
-            <li>
-              <button className="bg-white flex overflow-hidden items-center mb-[5%] rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
-                <img className="w-[35%] h-auto" src={sample} alt="" />
-                <dl className="pl-[2.5%] text-left">
-                  <dt className="text-sm font-bold mb-[3%]">고양시 동물보호센터</dt>
-                  <dd className="text-xs">주소: 경기도 고양시 덕양구 고양대로 1695</dd>
-                  <dd className="text-xs">Tel : 042-825-1118</dd>
-                </dl>
-              </button>
-            </li>
-            <li>
-              <button className="bg-white flex overflow-hidden items-center mb-[5%] rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
-                <img className="w-[35%] h-auto" src={sample} alt="" />
-                <dl className="pl-[2.5%] text-left">
-                  <dt className="text-sm font-bold mb-[3%]">고양시 동물보호센터</dt>
-                  <dd className="text-xs">주소: 경기도 고양시 덕양구 고양대로 1695</dd>
-                  <dd className="text-xs">Tel : 042-825-1118</dd>
-                </dl>
-              </button>
-            </li>
+            {renderPlaceList.map(place => (
+              <li key={place.id}>
+                <button className="bg-white flex overflow-hidden items-center mb-[5%] rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
+                  <img className="w-[35%] h-auto" src={getPbImageURL(place,'photo')} alt="" />
+                  <dl className="pl-[2.5%] text-left">
+                    <dt className="text-sm font-bold mb-[3%]">{place.title}</dt>
+                    <dd className="text-xs">주소: {place.address}</dd>
+                    <dd className="text-xs">Tel : {place.tel}</dd>
+                  </dl>
+                </button>
+              </li>
+            ))}
           </ul>
         </section>
       </article>
