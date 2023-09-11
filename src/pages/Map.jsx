@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 function Map() {
-  // map과 locPosition을 상위 스코프에 선언
+
   let map;
   let locPosition;
 
@@ -24,7 +24,6 @@ const initMap = () => {
     level: 3
   };
 
-// 이 부분에서는 이미 선언된 변수에 값을 할당하므로 let 키워드를 제거합니다.
 map=new kakao.maps.Map(container,options);
 
 if (navigator.geolocation) { 
@@ -35,10 +34,9 @@ if (navigator.geolocation) {
    var message='<div style="padding:5px;">여기에 계신가요?!</div>';
    displayMarker(locPosition,message); 
 
-   //장소검색 객체 생성
    var ps=new kakao.maps.services.Places(map);
 
-   //키워드로 장소를 검색합니다.
+   //키워드 장소 검색
    ps.keywordSearch('동물보호',placesSearchCB);
  });
 
@@ -49,9 +47,9 @@ if (navigator.geolocation) {
              displayPlaceMarker(data[i]);
          }
          
-         // 다시 사용자의 현재 위치로 중심 이동 및 확대 레벨 조정
+
          map.setCenter(locPosition);
-         map.setLevel(2); // 원하는 확대 레벨로 설정
+         map.setLevel(2); // 원하는 확대 레벨 설정
      }
  }
 
@@ -91,7 +89,7 @@ content : '<div style="padding:5px;font-size:12px;">' + place.place_name + '</di
 removable : true
 });
 
-// 마커에 클릭이벤트를 등록합니다
+// 마커에 클릭이벤트 등록
 kakao.maps.event.addListener(marker, 'click', function() {
 if (infowindow.getMap()) {
     infowindow.close();
