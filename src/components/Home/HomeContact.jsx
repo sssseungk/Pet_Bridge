@@ -1,10 +1,11 @@
 import EmailLink from './EmailLink';
+import PropTypes from 'prop-types';
 
-function HomeContact() {
+function HomeContact(props) {
   return (
     <section className="px-5 py-3 flex gap-3 flex-col">
       <div className="flex justify-between items-center">
-        <h2 className="font-bold inline">도움이 필요한 유기동물이 있나요?</h2>
+        <h2 className="font-bold inline">{props.title}</h2>
         <span className="text-xs">더보기 &gt;</span>
       </div>
       <div className="bg-[#67B5D7] rounded-lg px-4 py-3 flex flex-col items-end gap-3 relative">
@@ -23,5 +24,9 @@ function HomeContact() {
     </section>
   );
 }
+
+HomeContact.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default HomeContact;
