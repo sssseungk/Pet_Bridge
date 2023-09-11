@@ -9,6 +9,8 @@ import Home from "./pages/Home";
 import Place from "./pages/Place";
 import ProductDetail from "./pages/ProductDetail";
 import ProductList from "./pages/ProductList";
+import SearchProduct from "./pages/SearchProduct";
+import Map from "./pages/Map";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,7 +19,10 @@ const router = createBrowserRouter(
       <Route path="cart" element={<Cart/>} />
       <Route path="place" element={<Place/>} />
       <Route path="productlist" element={<ProductList />} />
-      <Route path="productdetail" element={<ProductDetail />} />
+      {/* <Route path="productdetail" element={<ProductDetail />} /> */}
+      <Route path="productlist/detail/:productTitle" element={<ProductDetail />} />
+      <Route path="search" element={<SearchProduct />} />
+      <Route path="map" element={<Map/>} />
     </Route>
   )
 );
