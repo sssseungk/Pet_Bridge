@@ -6,43 +6,59 @@ import { getPbImageURL } from '@/utils/getPbImageUrl';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 
-function ProductItem({product}) {
-
+function ProductItem({ product }) {
   const [addWish, setAddWish] = useState(false);
   const handleWishBtn = (e) => {
     e.preventDefault();
     setAddWish(!addWish);
-  }
+  };
 
   return (
-    <div className='bg-[#FDF6EE] bg-pet-ivory rounded-[10px] w-full pet-360:w-[calc(50%/1-1rem)] pet-864:w-[calc(50%-1rem)] aspect-200/140'>
+    <div className="bg-[#FDF6EE] rounded-[10px] w-full pet-s:w-[calc(50%/1-0.25rem)] pet-l:w-[calc(33.3%-0.33rem)] aspect-200/140">
       <Link to={`/productlist/detail/${product.id}`}>
         <div className="flex-col items-center justify-center pt-3 px-3">
           <div className="relative">
-            <img src={getPbImageURL(product,'photo')} className="w-full h-3/2 rounded-[10px] transition-width duration-300"/>
-            {
-              addWish ? (
-                <img src={heart_fill_icon} onClick={handleWishBtn} className="transition-all duration-300 hover:scale-125 cursor-pointer absolute pet-520:w-8 pet-520:top-4 pet-520:right-3 pet-864:w-12 pet-864:top-7 pet-864:right-6 top-[0.75rem] right-[0.75rem]"/>
-              ) : (
-                <img src={heart_empty_icon} onClick={handleWishBtn} className="transition-all duration-300 hover:scale-125 cursor-pointer absolute pet-520:w-8 pet-520:top-4 pet-520:right-3 pet-864:w-12 pet-864:top-7 pet-864:right-6 top-[0.75rem] right-[0.75rem]"/>
-              )
-            }
+            <img
+              src={getPbImageURL(product, 'photo')}
+              className="pet-l:h-64 w-full h-3/2 rounded-[10px] transition-width duration-300"
+            />
+            {addWish ? (
+              <img
+                src={heart_fill_icon}
+                onClick={handleWishBtn}
+                className="transition-all duration-300 hover:scale-125 cursor-pointer absolute pet-m:w-8 pet-m:top-4 pet-m:right-3 pet-l:w-10 pet-l:top-7 pet-l:right-6 top-[0.75rem] right-[0.75rem]"
+              />
+            ) : (
+              <img
+                src={heart_empty_icon}
+                onClick={handleWishBtn}
+                className="transition-all duration-300 hover:scale-125 cursor-pointer absolute pet-m:w-8 pet-m:top-4 pet-m:right-3 pet-l:w-10 pet-l:top-7 pet-l:right-6 top-[0.75rem] right-[0.75rem]"
+              />
+            )}
           </div>
-          <h1 className="transition-all duration-300 pet-520:text-base pet-864:text-2xl text-[12px] text-pet-black pt-2">{product.title}</h1>
-          <h2 className="transition-all duration-300 pet-520:text-sm pet-864:text-xl text-[10px] font-bold text-pet-red pt-1">{product.price.toLocaleString('ko-KR')}원</h2>
-          <div className="flex gap-1 justify-end pb-1 pt-2 pet-864:gap-2 pet-864:pr-3 pet-864:pb-3">
-            <img src={comment_icon} className="transition-all duration-300 pet-520:w-4 pet-864:w-5"/>
-            <span className="transition-all duration-300 text-gray-2 text-[8px] pet-520:text-sm pet-864:text-2xl">82</span>
+          <span className="block transition-all duration-300 pet-m:text-base pet-l:text-2xl text-[12px] text-pet-black pt-2">
+            {product.title}
+          </span>
+          <span className="block transition-all duration-300 pet-m:text-sm pet-l:text-xl text-[10px] font-bold text-pet-red pt-1">
+            {product.price.toLocaleString('ko-KR')}원
+          </span>
+          <div className="flex gap-1 justify-end pb-1 pt-2 pet-l:gap-2 pet-l:pr-3 pet-l:pb-3">
+            <img
+              src={comment_icon}
+              className="transition-all duration-300 pet-m:w-4 pet-l:w-5"
+            />
+            <span className="transition-all duration-300 text-gray-2 text-[8px] pet-m:text-sm pet-l:text-2xl">
+              82
+            </span>
           </div>
         </div>
       </Link>
     </div>
-  )
+  );
 }
 
-export default ProductItem
-
+export default ProductItem;
 
 ProductItem.propTypes = {
   product: PropTypes.object,
-}
+};
