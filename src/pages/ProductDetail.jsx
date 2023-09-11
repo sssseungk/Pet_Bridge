@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getPbImageURL } from "@/utils/getPbImageUrl";
 import Heart from "@/components/ProductDetail/Heart";
 import CountButton from "@/components/ProductDetail/CountButton";
-
+import { Link } from 'react-router-dom';    
 
 
 
@@ -62,11 +62,11 @@ function ProductDetail() {
            </p>
           </div>        
         </div>
-
+        <Link to={`/Cart`} >
           <button className="w-full m-auto h-12 bg-pet-orange rounded-lg items-center mb-3 text-sm bottom-16 left-0 right-0 sticky">
             장바구니
           </button>
-
+        </Link>
     </div>
   )
 }
