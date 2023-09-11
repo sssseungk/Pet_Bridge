@@ -1,13 +1,18 @@
 import useProductItem from "@/utils/useProductItem";
 import { useParams } from "react-router-dom";
 import { getPbImageURL } from "@/utils/getPbImageUrl";
-import minus from '/assets/icons/minus_icon.svg'
-import plus from '/assets/icons/plus_icon.svg'
 import Heart from "@/components/ProductDetail/Heart";
+import CountButton from "@/components/ProductDetail/CountButton";
+
+
+
 
 function ProductDetail() {
   const { productTitle } = useParams();
   const { data } = useProductItem(productTitle);
+
+  
+
 
   return (
     <div className="max-w-4xl m-auto pt-3 px-5">
@@ -22,17 +27,7 @@ function ProductDetail() {
           <button>
             <Heart/>
           </button>
-          <div className="flex h-7 w-[5.25rem] items-center justify-start border border-gray-500">
-            <button type="button" className="border-0 bg-transparent p-0 ">
-              <img src={minus} alt="수량 삭제" />
-            </button>
-            <span className="count mx-[8px] text-[16px] font-semibold text-black">
-              1
-            </span>
-            <button type="button" className="border-0 bg-transparent p-0">
-              <img src={plus} alt="수량 추가" />
-            </button>
-          </div>
+          <CountButton/>
         </div>
         
       </div>
@@ -67,9 +62,11 @@ function ProductDetail() {
            </p>
           </div>        
         </div>
-        <button className="w-full m-auto h-12 bg-pet-orange rounded-lg items-center mb-3 text-sm bottom-16 left-0 right-0 sticky">
-          장바구니
-        </button>
+
+          <button className="w-full m-auto h-12 bg-pet-orange rounded-lg items-center mb-3 text-sm bottom-16 left-0 right-0 sticky">
+            장바구니
+          </button>
+
     </div>
   )
 }
