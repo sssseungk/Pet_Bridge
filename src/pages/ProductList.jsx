@@ -7,7 +7,7 @@ import { useState } from "react";
 
 function ProductList() {
   const [productList, setProductList] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('베스트');
+  const [selectedCategory, setSelectedCategory] = useState('전체');
   let displayProducts = productList;
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function ProductList() {
     displayProducts = productList.slice().sort((a, b) => b.product_date.localeCompare(a.product_date)).slice(0,10);
   } else if (selectedCategory === '베스트') {
     displayProducts = productList.slice().sort((a, b) => b.total_sale - a.total_sale);
-  } else{
+  } else {
     displayProducts = productList;
   }
 
