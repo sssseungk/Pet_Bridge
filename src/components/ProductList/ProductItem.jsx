@@ -14,7 +14,7 @@ function ProductItem({ product }) {
   };
 
   return (
-    <div className="bg-[#FDF6EE] rounded-[10px] w-full pet-s:w-[calc(50%/1-0.25rem)] pet-l:w-[calc(33.3%-0.33rem)] aspect-200/140">
+    <li className="bg-[#FDF6EE] rounded-[10px] w-full pet-s:w-[calc(50%/1-0.25rem)] pet-l:w-[calc(33.3%-0.33rem)] aspect-200/140">
       <Link to={`/productlist/detail/${product.id}`}>
         <div className="flex-col items-center justify-center pt-3 px-3">
           <div className="relative">
@@ -53,7 +53,7 @@ function ProductItem({ product }) {
           </div>
         </div>
       </Link>
-    </div>
+    </li>
   );
 }
 
