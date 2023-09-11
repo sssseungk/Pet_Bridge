@@ -20,7 +20,7 @@ function HeaderComp({title, showLogo, showSearchIcon, showCartIcon}) {
         <button onClick={handleGoPrevPage}>
             <img src={prev_icon}/>
           </button>
-          <h1 className="flex items-center gap-1 font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <h1 className="flex items-center gap-1 font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl">
             {showLogo && <img src={logo_header_icon} className="w-5 h-5"/>}
             {title}
           </h1>
