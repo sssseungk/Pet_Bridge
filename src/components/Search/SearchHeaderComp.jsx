@@ -10,17 +10,17 @@ function SearchHeaderComp({ setSearchTerm}) {
     navigate(-1);
   }
 
-  const [tempSearchTerm, setTempSearchTerm] = useState(""); // 임시 검색어 상태 추가
-  const searchInputRef = useRef(); // 입력 필드 참조 생성
+  const [tempSearchTerm, setTempSearchTerm] = useState("");
+  const searchInputRef = useRef();
 
   const onChange = (e) => {
-    setTempSearchTerm(e.target.value); // 임시 검색어 상태 업데이트
+    setTempSearchTerm(e.target.value);
   }
 
   const onSubmit = (e) => {
-    e.preventDefault(); // form 기본 동작 방지
-    setSearchTerm(tempSearchTerm); // 실제 검색어 상태 업데이트
-    searchInputRef.current.blur(); // 검색 실행 후 입력 필드의 포커스 제거
+    e.preventDefault(); 
+    setSearchTerm(tempSearchTerm); 
+    searchInputRef.current.blur(); 
   }
 
   return (
@@ -31,7 +31,7 @@ function SearchHeaderComp({ setSearchTerm}) {
             <img src={prev_icon} alt="Previous" className="mr-2" onClick={handleGoPrevPage}/>
           </button>
           <form action='/' onSubmit={onSubmit} className="ml-4 w-full flex flex-nowrap">
-            <fieldset style={{ flexGrow: 1 }}> {/* 수정: flexGrow를 1로 설정 */}
+            <fieldset style={{ flexGrow: 1 }}> 
               <legend className="sr-only">검색 폼</legend>
               <label className="sr-only" htmlFor="search">검색</label>
               <input
@@ -41,7 +41,7 @@ function SearchHeaderComp({ setSearchTerm}) {
                 onChange={onChange}
                 placeholder="상품명을 입력하세요."
                 className="w-full bg-[#E9E9E9] text-ellipsis text-pet-black py-1 px-2 rounded-lg focus:outline-none"
-                ref={searchInputRef} // 생성한 참조 연결
+                ref={searchInputRef} 
               />
             </fieldset>
             <button type='submit' 
