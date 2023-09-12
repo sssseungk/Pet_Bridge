@@ -59,7 +59,7 @@ function Place() {
           <ul>
             {renderPlaceList.map(place => (
               <li key={place.id}>
-                <button className="bg-white flex overflow-hidden items-center mb-[5%] rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
+                <button className="w-full bg-white flex overflow-hidden items-center mb-[5%] rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
                   <img className="w-[35%] h-auto" src={getPbImageURL(place,'photo')} alt="" />
                   <dl className="pl-[2.5%] text-left">
                     <dt className="text-sm font-bold mb-[3%]">{place.title}</dt>
