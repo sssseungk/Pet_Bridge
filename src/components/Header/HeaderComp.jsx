@@ -7,11 +7,26 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 function HeaderComp({title, showLogo, showSearchIcon, showCartIcon, showPrevIcon}) {
-  
+
   const navigate = useNavigate();
   const handleGoPrevPage = () => {
-    navigate(-1);
-  }
+    switch (location.pathname) {
+      case '/productdetail':
+        navigate('/productlist');
+        break;
+      case '/place':
+        navigate('/');
+        break;
+      case '/map':
+        navigate('place');
+        break;
+      case '/productlist':
+        navigate('/');
+        break;
+      default:
+        navigate(-1); 
+    }
+  };
 
   return (
     <>

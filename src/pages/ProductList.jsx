@@ -7,6 +7,8 @@ import { useState } from "react";
 
 function ProductList() {
   const [productList, setProductList] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('전체');
+  let displayProducts = productList;
 
   useEffect(() => {
     const getProductList = async () => {
@@ -18,22 +20,29 @@ function ProductList() {
       }
     };
     getProductList();
-  }, []);
+  }, );
   
+
+  if (selectedCategory === '무료배송') {
+    displayProducts = productList.filter(product => product.delivery_free);
+  } else if (selectedCategory === '신상품') {
+    displayProducts = productList.slice().sort((a, b) => b.product_date.localeCompare(a.product_date)).slice(0,7);
+  } else if (selectedCategory === '베스트') {
+    displayProducts = productList.slice().sort((a, b) => b.total_sale - a.total_sale).slice(0, 10);
+  } else {
+    displayProducts = productList;
+  }
+
   return (
-    <div className="bg-pet-bg">
-      <ProductListNav/>
-      <ol className="bg-pet-bg flex flex-wrap max-w-4xl mx-auto justify-start mt-5 gap-2">
-        {productList?.map(product => {
-          return (
-          <>   
+    <div className="bg-pet-bg pb-16">
+      <ProductListNav onCategorySelect={setSelectedCategory}/>
+      <ol className="px-2 bg-pet-bg flex flex-wrap max-w-4xl mx-auto justify-start mt-5 gap-2">
+        {displayProducts.map(product => (
             <ProductItem product={product} key={product.id}/>
-          </>
-          )
-        })}
+         ))}
       </ol>
     </div>
-  )
+   )
 }
 
 export default ProductList

@@ -14,13 +14,13 @@ function ProductItem({ product }) {
   };
 
   return (
-    <div className="bg-[#FDF6EE] rounded-[10px] w-full pet-s:w-[calc(50%/1-0.25rem)] pet-l:w-[calc(33.3%-0.33rem)] aspect-200/140">
-      <Link to={`/productlist/detail/${product.id}`}>
+    <li className="bg-[#FDF6EE] rounded-[10px] w-full pet-s:w-[calc(50%/1-0.25rem)] pet-l:w-[calc(33.3%-0.33rem)] aspect-200/140">
+      <Link to={`/productlist/detail/${product.id}`} onClick={() => window.scrollTo(0, 0)}>
         <div className="flex-col items-center justify-center pt-3 px-3">
           <div className="relative">
             <img
               src={getPbImageURL(product, 'photo')}
-              className="pet-l:h-64 w-full h-3/2 rounded-[10px] transition-width duration-300"
+              className="pet-s:h-36 pet-m:h-52 pet-l:h-64 w-full h-3/2 rounded-[10px] transition-width duration-300"
             />
             {addWish ? (
               <img
@@ -36,24 +36,24 @@ function ProductItem({ product }) {
               />
             )}
           </div>
-          <span className="block transition-all duration-300 pet-m:text-base pet-l:text-2xl text-[12px] text-pet-black pt-2">
+          <span className="block text-ellipsis whitespace-nowrap overflow-hidden transition-all duration-300 pet-m:text-base pet-l:text-xl text-[12px] text-pet-black pt-2">
             {product.title}
           </span>
-          <span className="block transition-all duration-300 pet-m:text-sm pet-l:text-xl text-[10px] font-bold text-pet-red pt-1">
+          <span className="block transition-all duration-300 pet-m:text-sm pet-l:text-lg text-[10px] font-bold text-pet-red pt-1">
             {product.price.toLocaleString('ko-KR')}원
           </span>
           <div className="flex gap-1 justify-end pb-1 pt-2 pet-l:gap-2 pet-l:pr-3 pet-l:pb-3">
             <img
               src={comment_icon}
-              className="transition-all duration-300 pet-m:w-4 pet-l:w-5"
+              className="transition-all duration-300 w-3 pet-m:w-4 pet-l:w-4"
             />
-            <span className="transition-all duration-300 text-gray-2 text-[8px] pet-m:text-sm pet-l:text-2xl">
+            <span className="transition-all duration-300 text-gray-2 text-xs pet-m:text-sm pet-l:text-base">
               82
             </span>
           </div>
         </div>
       </Link>
-    </div>
+    </li>
   );
 }
 
