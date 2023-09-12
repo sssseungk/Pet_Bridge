@@ -1,2 +1,2 @@
 export const getPbImageURL = (item, fileName = 'photo') =>
-  `https://petbridge.pockethost.io/api/files/${item.collectionId}/${item.id}/${item[fileName]}`
+  `${import.meta.env.VITE_PB_URL}/api/files/${item.collectionId}/${item.id}/${item[fileName]}`
