@@ -1,6 +1,6 @@
 import useFetchData from './useFetchData';
 
-const endpoint = `https://petbridge.pockethost.io/api/collections/product/records`;
+const endpoint = `${import.meta.env.VITE_PB_API}/collections/product/records`;
 
 function useProductList() {
   const responseData = useFetchData(endpoint);
