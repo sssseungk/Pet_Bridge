@@ -8,7 +8,7 @@ function Home() {
   return (
     <div className="max-w-screen-pet-l mx-auto ">
       <HomeCumulativeAmount />
-      <HomeBenner />
+      <HomeBenner title={'유기동물에게 희망을 전달하세요!'} />
       <HomeContact title={'도움이 필요한 유기동물이 있나요?'} />
       <HomeListCompo title={'봉사활동 여기는 어떠세요?'} />
     </div>

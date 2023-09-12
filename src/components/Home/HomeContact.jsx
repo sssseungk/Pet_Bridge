@@ -6,9 +6,9 @@ function HomeContact(props) {
     <section className="px-5 py-3 flex gap-3 flex-col">
       <div className="flex justify-between items-center">
         <h2 className="font-bold inline">{props.title}</h2>
-        <span className="text-xs">더보기 &gt;</span>
+        {/* <span className="text-xs">더보기 &gt;</span> */}
       </div>
-      <div className="bg-[#67B5D7] rounded-lg px-4 py-3 flex flex-col items-end gap-3 relative">
+      <div className="bg-primary rounded-lg px-4 py-3 flex flex-col items-end gap-3 relative">
         <p className="text-right text-xl font-semibold">
           주변의 유기동물의 사연을
           <br />
