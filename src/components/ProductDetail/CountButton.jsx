@@ -16,7 +16,7 @@ function CountButton() {
   };
   return (
     <>
-      <div className="flex h-7 w-[5.25rem] items-center justify-start border border-gray-500">
+      <div className="flex h-7 w-[5.25rem] items-center border border-gray-500">
         <button type="button" className="border-0 bg-transparent p-0" onClick={decreaseQuantity}>
           <img src={minus} alt="수량 삭제" />
         </button>
