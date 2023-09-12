@@ -1,3 +1,4 @@
+import SearchHeaderComp from "@/components/Search/SearchHeaderComp";
 import SearchProductList from "@/components/Search/SearchProductList";
 import { useState } from "react";
 
@@ -5,16 +6,21 @@ import { useState } from "react";
 function SearchProduct() {
 
   const [selectedCategory, setSelectedCategory] = useState('');
-    
+  const [searchTerm, setSearchTerm] = useState('')
+
   const handleClickButton = (buttonId) => {
-    setSelectedCategory(buttonId);
+    if (selectedCategory === buttonId) { 
+      setSelectedCategory(''); 
+    } else {
+      setSelectedCategory(buttonId); 
+    }
   }
 
 
   return (
 
     <>
-      <div className="mt-2 max-w-4xl mx-auto pt-2 pl-3">
+      <SearchHeaderComp setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>      <div className="mt-2 max-w-4xl mx-auto pt-2 pl-3">
         <span className="text-lg font-[600]">친구들이 많이 찾고 있어요!</span>
         <ol className="flex flex-wrap gap-2 mt-3 justify-start">
           <li className={`text-base py-1 px-2 border-gray-1 border-[1px] rounded-[20px] ${selectedCategory === 'stationery' ? 'bg-primary' : ''}`}>
@@ -41,7 +47,7 @@ function SearchProduct() {
         </ol>
       </div>
       <div>
-        <SearchProductList selectedCategory={selectedCategory}/>
+        <SearchProductList selectedCategory={selectedCategory} searchTerm={searchTerm}/> {/* 수정 */}
       </div>
     </>
 
