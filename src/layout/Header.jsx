@@ -39,6 +39,10 @@ function Header() {
       break;
     case '/search':
       return null;
+    default:
+      title="상품상세정보"
+      showPrevIcon = true;
+      showCartIcon = true;
   }
 
   return (
