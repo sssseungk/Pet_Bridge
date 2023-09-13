@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { getPbImageURL } from '@/utils/getPbImageUrl';
 
 function HomeItemCompo({ item }) {
   return (
-    <Link to={`${item.url}`}>
+    <a href={item.url} target="_blank" rel="noopener noreferrer">
       <div className="flex gap-1 flex-col w-[90px]">
         <img
           src={getPbImageURL(item, 'photo')}
@@ -13,7 +12,7 @@ function HomeItemCompo({ item }) {
         <p className="text-xs font-bold">{item.title}</p>
         <p className="text-xs">{item.address}</p>
       </div>
-    </Link>
+    </a>
   );
 }
 HomeItemCompo.propTypes = {
