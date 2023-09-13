@@ -14,6 +14,10 @@ import { Link, useLocation } from 'react-router-dom';
 function Nav() {
   const location = useLocation();
 
+  if (location.pathname === '/') {
+    return null;
+  }
+
   // '/place', '/map', '/productlist', '/productdetail' 경로에 진입했다면 
   // 각각의 localStorage 값들을 설정합니다.
   if (['/place', '/map'].includes(location.pathname)) {
