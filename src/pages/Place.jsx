@@ -1,14 +1,13 @@
 import { pb } from '@/api/pocketbase';
+import PlaceModal from '@/components/Place/PlaceModal';
 import { getPbImageURL } from '@/utils/getPbImageUrl';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import callIcon from "/assets/icons/call_icon.svg";
 import PlaceIcon from "/assets/icons/place_icon.svg";
 import PlaceBg from "/assets/imgs/catbg_place.png";
 import PlaceHome from "/assets/imgs/pet_house_place.png";
 import shelter from "/assets/imgs/shelter_place.png";
-import PlaceModal from '@/components/Place/PlaceModal';
-import { useState } from 'react';
 
 
 
@@ -67,18 +66,18 @@ function Place() {
           </div>
         </section>
         <section className="w-[92%] mx-auto my-0 pb-[25%]">
-          <h2 className="font-bold mt-[14%] mb-[3%] mx-0 text-sm">더보기</h2>
+          <h2 className="font-bold mt-[14%] mb-[3%] mx-0 text-sm">보호소 사이트 방문하기</h2>
           <ul>
             {renderPlaceList.map(place => (
               <li key={place.id}>
-                <button className="w-full bg-white flex overflow-hidden items-center mb-[5%] rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
+                <a href={place.url} target='_blank' className="w-full bg-white flex overflow-hidden items-center mb-[5%] rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
                   <img className="w-[35%] h-auto" src={getPbImageURL(place,'photo')} alt="" />
                   <dl className="pl-[2.5%] text-left">
                     <dt className="text-sm font-bold mb-[3%]">{place.title}</dt>
                     <dd className="text-xs">주소: {place.address}</dd>
                     <dd className="text-xs">Tel : {place.tel}</dd>
                   </dl>
-                </button>
+                </a>
               </li>
             ))}
           </ul>
