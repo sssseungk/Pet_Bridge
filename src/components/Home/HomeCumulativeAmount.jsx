@@ -10,7 +10,7 @@ function HomeCumulativeAmount(props) {
       <p className="text-2xl font-black">
         <span>{props.Amount.toLocaleString('ko-KR')}</span>원
       </p>
-      <ul className="absolute flex gap-2 right-5 top-10 hide-on-mobile">
+      <ul className="absolute flex gap-2 right-5 top-10 pet-s:hidden pet-m:flex">
         <li>
           <Link to={`/signin`}>로그인</Link>
         </li>
@@ -18,15 +18,6 @@ function HomeCumulativeAmount(props) {
           <Link to={`/signup`}>회원가입</Link>
         </li>
       </ul>
-      <style>
-        {`
-          @media (max-width: 576px) {
-            .hide-on-mobile {
-              display: none;
-            }
-          }
-        `}
-      </style>
       <div
         className="absolute bottom-0 left-0 w-full h-5 bg-white rounded-t-full "
         style={{ boxShadow: '0px -12px 12px rgba(0, 0, 0, 0.08)' }}
