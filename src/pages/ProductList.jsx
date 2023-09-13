@@ -20,7 +20,7 @@ function ProductList() {
       }
     };
     getProductList();
-  }, );
+  }, []);
   
 
   if (selectedCategory === '무료배송') {
