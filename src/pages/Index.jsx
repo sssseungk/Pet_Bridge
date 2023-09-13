@@ -11,7 +11,7 @@ function Index() {
   return (
     <div className="flex flex-col items-center gap-3 mx-auto max-w-screen-pet-l bg-pet-bg">
       <Swiper
-        className="w-full h-[70vh] rounded-xl"
+        className="w-full h-[72vh] rounded-xl"
         spaceBetween={30}
         slidesPerView={1}
         pagination={{
@@ -33,7 +33,7 @@ function Index() {
 
           <img
             src="/public/assets/imgs/Index_1.png"
-            className="absolute top-[calc(55%)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
+            className="absolute top-[400px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
           />
         </SwiperSlide>
         <SwiperSlide className="relative px-5 ">
@@ -55,7 +55,7 @@ function Index() {
           </p>
           <img
             src="/public/assets/imgs/Index_2.png"
-            className="absolute top-[calc(55%)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
+            className="absolute top-[400px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
           />
         </SwiperSlide>
         <SwiperSlide className="relative px-5 ">
@@ -81,7 +81,7 @@ function Index() {
           </p>
           <img
             src="/public/assets/imgs/Index_3.png"
-            className="absolute top-[calc(55%)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
+            className="absolute top-[400px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
           />
         </SwiperSlide>
         <SwiperSlide className="relative px-5 ">
