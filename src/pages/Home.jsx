@@ -7,7 +7,7 @@ function Home() {
   // const place="내용"
   return (
     <div className="max-w-screen-pet-l mx-auto ">
-      <HomeCumulativeAmount />
+      <HomeCumulativeAmount Amount={2132154} />
       <HomeBenner title={'유기동물에게 희망을 전달하세요!'} />
       <HomeContact title={'도움이 필요한 유기동물이 있나요?'} />
       <HomeListCompo title={'봉사활동 여기는 어떠세요?'} />
