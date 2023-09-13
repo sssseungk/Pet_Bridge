@@ -3,10 +3,13 @@ import { useParams } from "react-router-dom";
 import { getPbImageURL } from "@/utils/getPbImageUrl";
 import CountButton from "@/components/ProductDetail/CountButton";
 import remove from '/assets/icons/close_icon.svg'
+import { useState } from 'react';
+import nocash from '/assets/imgs/product_search_notfound.png'
 
 function Cart() {
   const { productTitle } = useParams();
   const { data } = useProductItem(productTitle);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <>
@@ -43,14 +46,23 @@ function Cart() {
           <p>0,000원</p>
         </div>
 
-
-        <button className="w-full m-auto h-12 bg-primary rounded-lg items-center mb-3 text-base bottom-16 left-0 right-0 sticky">
+        <button className="w-full m-auto h-12 bg-primary rounded-lg items-center mb-3 text-base bottom-16 left-0 right-0 sticky" onClick={() => setShowModal(true)}>
           결제하기
         </button>
-      </div>
+
+      {showModal && (
+        <div className="fixed left-[40%] w-80 top-[35%] m-auto p-6 origin-center bg-pet-bg z-[1000] rounded-2xl">
+          <p>기능 및 페이지가 구현되지 않았습니다. <br/> 확장을 준비중입니다!</p>
+          <img src={nocash} alt="모르겠어용" className="relative left-[17%]" />
+          <button className="w-full m-auto bg-primary rounded-lg text-lg" onClick={() => setShowModal(false)}>닫기</button>
+        </div>
+      )}
+
+      {showModal && (
+        <div className="fixed top-0 bottom-0 left-0 right-0 bg-[rgba(0,0,0,0.7)] z-[999]" onClick={() => setShowModal(false)} />)}</div>
     </>
-    
   )
 }
 
-export default Cart
+
+export default Cart;
