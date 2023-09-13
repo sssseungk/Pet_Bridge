@@ -9,7 +9,7 @@ import { Pagination } from 'swiper/modules';
 function Index() {
   // const place="내용"
   return (
-    <div className="flex flex-col items-center gap-3 mx-auto max-w-screen-pet-l ">
+    <div className="flex flex-col items-center gap-3 mx-auto max-w-screen-pet-l bg-pet-bg">
       <Swiper
         className="w-full h-[70vh] rounded-xl"
         spaceBetween={30}
