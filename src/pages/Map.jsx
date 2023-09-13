@@ -103,7 +103,7 @@ image: markerImage // 기본 마커 이미지 설정
 });
 
 var infowindow=new kakao.maps.InfoWindow({
-content : '<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>',
+content : '<div1 style="padding:5px;font-size:12px;">' + place.place_name + '</div1>',
 removable : true
 });
 
@@ -120,7 +120,8 @@ infowindow.open(map, marker);
 };
 
 return (
-<div id="map" style={{ height:'100vh', width:'100%' }}></div>
+<div className="max-w-4xl mx-auto" id="map" style={{ height:'100vh', width:'100%' }}>
+</div>
 );
 }
 
