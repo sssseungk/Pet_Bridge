@@ -7,10 +7,19 @@ import PlaceIcon from "/assets/icons/place_icon.svg";
 import PlaceBg from "/assets/imgs/catbg_place.png";
 import PlaceHome from "/assets/imgs/pet_house_place.png";
 import shelter from "/assets/imgs/shelter_place.png";
+import PlaceModal from '@/components/Place/PlaceModal';
+import { useState } from 'react';
+
+
 
 const renderPlaceList = await pb.collection('place').getFullList();
 
 function Place() {
+
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
   
   useEffect(() => {
     try{
@@ -47,10 +56,13 @@ function Place() {
                 <img className="inline-block w-[13%] mr-[5%]" src={callIcon} alt="" />
                 전화하기
               </a>
-              <a href="" className="bg-pet-green rounded-[10px] text-white w-[48%] flex justify-center items-center px-0 py-[3%] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
+              <button onClick={openModal} className="bg-pet-green rounded-[10px] text-white w-[48%] flex justify-center items-center px-0 py-[3%] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
                 <img className="inline-block w-[11%] mr-[5%]" src={PlaceIcon} alt="" />
                 위치보기
-              </a>
+              </button>
+              <div id="portal">
+                <PlaceModal isOpen={isModalOpen} onClose={closeModal} />
+              </div>
             </div>
           </div>
         </section>
