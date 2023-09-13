@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
-import { pb } from '@/api/pocketbase';
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { pb } from '@/api/pocketbase';
 import { getPbImageURL } from '@/utils/getPbImageUrl';
+import { useEffect, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/pagination';
+// import './styles.css';
+import { Pagination } from 'swiper/modules';
 
 function HomeBenner(props) {
   const [homeBenner, setHomeBenner] = useState([]);
@@ -22,7 +26,7 @@ function HomeBenner(props) {
   }, []);
 
   return (
-    <section className="px-5 py-3">
+    <section className="px-5 py-3 flex gap-3 flex-col">
       <div className="flex justify-between items-center">
         <h2 className="font-bold inline">{props.title}</h2>
         <Link to={`/productlist`}>
@@ -31,11 +35,14 @@ function HomeBenner(props) {
       </div>
 
       <Swiper
-        className="w-full"
+        className="w-full mySwiper rounded-xl"
         spaceBetween={0}
         slidesPerView={1}
-        centeredSlides={false}
-        loop={false}
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination]}
       >
         {/* Map each place to a swiper slide */}
         {homeBenner?.map((banner) => (
