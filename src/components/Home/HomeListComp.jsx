@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import HomeItemCompo from './HomeItemCompo';
+import HomeItemComp from './HomeItemComp';
 import { pb } from '@/api/pocketbase';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -25,15 +25,15 @@ function HomeListCompo(props) {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 840) {
-        setSlidesPerView(7);
+        setSlidesPerView(7.6);
       } else if (window.innerWidth >= 720) {
-        setSlidesPerView(6);
+        setSlidesPerView(6.6);
       } else if (window.innerWidth >= 600) {
-        setSlidesPerView(5);
+        setSlidesPerView(5.6);
       } else if (window.innerWidth >= 480) {
-        setSlidesPerView(4);
+        setSlidesPerView(4.6);
       } else if (window.innerWidth >= 360) {
-        setSlidesPerView(3);
+        setSlidesPerView(3.6);
       }
     };
     window.addEventListener('resize', handleResize);
@@ -43,9 +43,9 @@ function HomeListCompo(props) {
   }, []);
 
   return (
-    <section className="px-5 py-3 flex gap-3 flex-col">
-      <div className="flex justify-between items-center">
-        <h2 className="font-bold inline">{props.title}</h2>
+    <section className="flex flex-col gap-3 px-5 py-3">
+      <div className="flex items-center justify-between">
+        <h2 className="inline font-bold">{props.title}</h2>
         <Link to={`/place`}>
           <span className="text-xs">더보기 &gt; </span>
         </Link>
@@ -61,7 +61,7 @@ function HomeListCompo(props) {
         {homeList?.map((place) => (
           <SwiperSlide key={place.id} className="">
             {/* {console.log(place)} */}
-            <HomeItemCompo item={place} />
+            <HomeItemComp item={place} />
           </SwiperSlide>
         ))}
       </Swiper>
