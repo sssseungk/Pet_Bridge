@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -10,9 +9,9 @@ import { Pagination } from 'swiper/modules';
 function Index() {
   // const place="내용"
   return (
-    <div className="max-w-screen-pet-l mx-auto flex flex-col items-center gap-3">
+    <div className="flex flex-col items-center gap-3 mx-auto max-w-screen-pet-l ">
       <Swiper
-        className="w-screen h-[70vh] rounded-xl"
+        className="w-full h-[70vh] rounded-xl"
         spaceBetween={30}
         slidesPerView={1}
         pagination={{
@@ -37,7 +36,7 @@ function Index() {
             className="absolute top-[calc(55%)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
           />
         </SwiperSlide>
-        <SwiperSlide className="relative   px-5 ">
+        <SwiperSlide className="relative px-5 ">
           <p className="text-xl font-bold absolute top-[100px]">
             유기동물 후원물품 판매
           </p>
@@ -59,7 +58,7 @@ function Index() {
             className="absolute top-[calc(55%)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
           />
         </SwiperSlide>
-        <SwiperSlide className="relative   px-5 ">
+        <SwiperSlide className="relative px-5 ">
           <p className="text-xl font-bold absolute top-[100px]">
             유기동물 보호소 정보
           </p>
@@ -85,7 +84,7 @@ function Index() {
             className="absolute top-[calc(55%)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
           />
         </SwiperSlide>
-        <SwiperSlide className="relative   px-5 ">
+        <SwiperSlide className="relative px-5 ">
           <p className="text-xl font-bold absolute top-[100px]">
             펫:브릿지를 통해
           </p>
@@ -119,8 +118,8 @@ function Index() {
           </p>
         </SwiperSlide>
       </Swiper>
-      <Link className="font-bold text-pet-orange text-xl">로그인</Link>
-      <Link className="font-bold text-pet-orange text-xl" to={`/home`}>
+      <Link className="text-xl font-bold text-pet-orange">로그인</Link>
+      <Link className="text-xl font-bold text-pet-orange" to={`/home`}>
         건너뛰기
       </Link>
     </div>
