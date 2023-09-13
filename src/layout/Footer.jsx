@@ -15,7 +15,7 @@ function Footer() {
         <br />
         All rights reserved.
       </p>
-      <div className="bg-gray-2 text-gray-1 py-3 text-xl font-bold flex items-center justify-center">
+      <div className="bg-gray-2 text-gray-1 py-3 text-xl font-bold flex items-center justify-center mb-[52px]">
         <img
           src="public/assets/icons/Logo_footer_icon.svg"
           className="w-5 m-1"
