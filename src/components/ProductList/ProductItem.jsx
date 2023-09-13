@@ -15,13 +15,13 @@ function ProductItem({ product }) {
   };
 
   return (
-    <li className="bg-[#FDF6EE] rounded-[10px] w-full pet-s:w-[calc(50%/1-0.25rem)] pet-l:w-[calc(33.3%-0.33rem)] aspect-200/140">
+    <li className="bg-[#FDF6EE] rounded-[10px] pet-s:w-[calc(50%/1-0.25rem)] pet-l:w-[calc(33.3%-0.33rem)] aspect-200/140">
       <Link to={`/productlist/detail/${product.id}`} onClick={() => window.scrollTo(0, 0)}>
         <div className="flex-col items-center justify-center pt-3 px-3">
           <div className="relative">
             <img
               src={getPbImageURL(product, 'photo')}
-              className="pet-s:h-36 pet-m:h-52 pet-l:h-64 w-full h-3/2 rounded-[10px] transition-width duration-300"
+              className="=w-full h-3/2 rounded-[10px] transition-width duration-300"
             />
             {addWish ? (
               <img
