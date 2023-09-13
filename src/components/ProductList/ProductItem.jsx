@@ -10,6 +10,7 @@ function ProductItem({ product }) {
   const [addWish, setAddWish] = useState(false);
   const handleWishBtn = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     setAddWish(!addWish);
   };
 
