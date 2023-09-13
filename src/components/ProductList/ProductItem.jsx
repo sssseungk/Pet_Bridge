@@ -6,7 +6,7 @@ import { getPbImageURL } from '@/utils/getPbImageUrl';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 
-function ProductItem({ product }) {
+function ProductItem({ product, reviewCount }) {
   const [addWish, setAddWish] = useState(false);
   const handleWishBtn = (e) => {
     e.preventDefault();
@@ -48,9 +48,9 @@ function ProductItem({ product }) {
               src={comment_icon}
               className="transition-all duration-300 w-3 pet-m:w-4 pet-l:w-4"
             />
-            <span className="transition-all duration-300 text-gray-2 text-xs pet-m:text-sm pet-l:text-base">
-              82
-            </span>
+              <span className = "transition-all duration-base text-gray2 text-xs sm:text-sm lg:text-base"> 
+               {reviewCount || '0'}
+             </span>
           </div>
         </div>
       </Link>
@@ -62,4 +62,5 @@ export default ProductItem;
 
 ProductItem.propTypes = {
   product: PropTypes.object,
+  reviewCount: PropTypes.number,
 };

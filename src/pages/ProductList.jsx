@@ -7,6 +7,7 @@ import { useState } from "react";
 
 function ProductList() {
   const [productList, setProductList] = useState([]);
+  const [reviewCounts, setReviewCounts] = useState({});
   const [selectedCategory, setSelectedCategory] = useState('전체');
   let displayProducts = productList;
 
@@ -15,6 +16,12 @@ function ProductList() {
       try {
         const productListData = await pb.collection('product').getFullList();
         setProductList(productListData);
+        const reviewsData = await pb.collection('reviews').getFullList();
+        let counts = {};
+        for (let product of productListData) {
+          counts[product.id] = reviewsData.filter(review => review.product_title === product.title).length;
+        }       
+        setReviewCounts(counts);
       } catch (error) {
         throw new Error('Error fetching product list');
       }
@@ -38,8 +45,8 @@ function ProductList() {
       <ProductListNav onCategorySelect={setSelectedCategory}/>
       <ol className="px-2 bg-pet-bg flex flex-wrap max-w-4xl mx-auto justify-start mt-5 gap-2">
         {displayProducts.map(product => (
-            <ProductItem product={product} key={product.id}/>
-         ))}
+           <ProductItem product={product} key={product.id} reviewCount={reviewCounts[product.id]} />
+           ))}
       </ol>
     </div>
    )
