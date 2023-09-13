@@ -51,10 +51,10 @@ function Cart() {
         </button>
 
       {showModal && (
-        <div className="fixed left-[40%] w-80 top-[35%] m-auto p-6 origin-center bg-pet-bg z-[1000] rounded-2xl">
+        <div className="fixed top-40 left-0 right-0 w-80 m-auto p-6 origin-center bg-pet-bg z-[1000] rounded-2xl">
           <p>기능 및 페이지가 구현되지 않았습니다. <br/> 확장을 준비중입니다!</p>
-          <img src={nocash} alt="모르겠어용" className="relative left-[17%]" />
-          <button className="w-full m-auto bg-primary rounded-lg text-lg" onClick={() => setShowModal(false)}>닫기</button>
+          <img src={nocash} alt="모르겠어용" className="relative left-[24%]" />
+          <button className="w-full m-auto h-10 bg-primary rounded-lg text-lg" onClick={() => setShowModal(false)}>닫기</button>
         </div>
       )}
 
