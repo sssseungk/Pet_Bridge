@@ -10,7 +10,7 @@ function ProductListNav({onCategorySelect}) {
   };
 
   return (
-    <ul className="max-w-4xl mx-auto bg-pet-bg font-bold flex gap-4 justify-evenly flex-wrap pt-6 border-gray-1 relative">
+    <ul className="max-w-4xl mx-auto bg-pet-bg font-bold flex gap-4 justify-evenly flex-wrap pt-2 border-gray-1 relative">
       <li
         className={`cursor-pointer ${selectedCategory === '전체' ? 'border-pet-orange border-b-2 z-10 text-pet-orange' : ''} py-2 xs:w-auto`}
         onClick={() => handleCategoryClick('전체')}
