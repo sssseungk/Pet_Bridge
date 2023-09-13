@@ -4,7 +4,7 @@ import { getPbImageURL } from '@/utils/getPbImageUrl';
 
 function HomeItemCompo({ item }) {
   return (
-    <Link>
+    <Link to={`${item.url}`}>
       <div className="flex gap-1 flex-col w-[90px]">
         <img
           src={getPbImageURL(item, 'photo')}
