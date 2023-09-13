@@ -118,8 +118,15 @@ function Index() {
           </p>
         </SwiperSlide>
       </Swiper>
-      <Link className="text-xl font-bold text-pet-orange">로그인</Link>
-      <Link className="text-xl font-bold text-pet-orange" to={`/home`}>
+      <p className="flex gap-2">
+        <Link to={`/signin`} className="text-xl font-bold text-pet-orange">
+          로그인
+        </Link>
+        <Link to={`/signin`} className="text-xl font-bold text-pet-orange">
+          회원가입
+        </Link>
+      </p>
+      <Link className="text-xl font-bold text-gray-1" to={`/home`}>
         건너뛰기
       </Link>
     </div>
