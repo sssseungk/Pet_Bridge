@@ -1,13 +1,15 @@
 import { useLocation } from 'react-router-dom';
-import HeaderComp from "@/components/Header/HeaderComp"
+import HeaderComp from '@/components/Header/HeaderComp';
 
 function Header() {
   const location = useLocation();
   let title, showLogo, showSearchIcon, showCartIcon, showPrevIcon;
 
-  switch(location.pathname) {
+  switch (location.pathname) {
     case '/':
-      title = "펫:브릿지";
+      return null;
+    case '/home':
+      title = '펫:브릿지';
       showLogo = true;
       showCartIcon = true;
       showSearchIcon = true;
@@ -15,47 +17,47 @@ function Header() {
       break;
 
     case '/cart':
-      title = "장바구니";
+      title = '장바구니';
       showPrevIcon = true;
       break;
     case '/place':
-      title = "유기동물 봉사활동";
+      title = '유기동물 봉사활동';
       showPrevIcon = true;
       break;
     case '/productdetail':
-      title = "상품상세정보";
+      title = '상품상세정보';
       showPrevIcon = true;
       showCartIcon = true;
       break;
     case '/productlist':
-      title = "후원 상품";
+      title = '후원 상품';
       showPrevIcon = true;
       showSearchIcon = true;
       showCartIcon = true;
-      break; 
+      break;
     case '/map':
-      title = "내 주변 보호소 찾기";
+      title = '내 주변 보호소 찾기';
       showPrevIcon = true;
       break;
     case '/search':
       return null;
     default:
-      title="상품상세정보"
+      title = '상품상세정보';
       showPrevIcon = true;
       showCartIcon = true;
   }
 
   return (
     <header>
-        <HeaderComp 
-            title={title} 
-            showLogo={showLogo} 
-            showSearchIcon={showSearchIcon} 
-            showCartIcon={showCartIcon}
-            showPrevIcon = {showPrevIcon}
-        />
-     </header>
-   )
+      <HeaderComp
+        title={title}
+        showLogo={showLogo}
+        showSearchIcon={showSearchIcon}
+        showCartIcon={showCartIcon}
+        showPrevIcon={showPrevIcon}
+      />
+    </header>
+  );
 }
 
-export default Header
+export default Header;
