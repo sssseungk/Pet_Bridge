@@ -1,12 +1,21 @@
 import { pb } from "@/api/pocketbase";
+import { useAuth } from "@/contexts/Auth";
 import debounce from "@/utils/debounce";
-import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { kakaoLogin } from "@/utils/kakaoLogin";
+import { faComment, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function SignIn() {
+  const { user } = useAuth();
   const navigate = useNavigate();
+
+    useEffect(() => {
+      if (user) {
+        navigate("/mypage");
+      }
+    }, [user, navigate]);
 
   const [formState, setFormState] = useState({
     email: "",
@@ -36,7 +45,7 @@ function SignIn() {
     setIsPasswordHidden(!isPasswordHidden);
   };
   return (
-    <div className="w-[360px] mx-auto rounded-md flex flex-col items-center my-10">
+    <div className="w-[360px] mx-auto flex flex-col items-center my-10">
       <h2 className="text-3xl text-center pet-black font-semibold">로그인</h2>
       <form onSubmit={handleSignIn} className="flex flex-col gap-2 mt-4 justify-start items-start border-t-2 border-gray-800 pt-6">
         <div className="flex flex-col gap-1 relative">
@@ -60,9 +69,7 @@ function SignIn() {
             onChange={handleInput}
             className="border border-slate-300 p-2 rounded-md focus:ring-slate-500 focus:ring-opacity-50 focus:border-slate-500 focus:outline-none w-[300px]"
           />
-          <span className="cursor-pointer absolute right-[10px] top-[36px] text-gray-500">
-            <FontAwesomeIcon icon={faEyeSlash} onClick={togglePasswordHidden}/>
-          </span>
+            <FontAwesomeIcon icon={isPasswordHidden ? faEyeSlash : faEye} onClick={togglePasswordHidden} className="cursor-pointer absolute right-[10px] top-[40px] text-gray-500"/>
         </div>
         <div className="mt-4 w-full text-center">
           <button
@@ -76,6 +83,12 @@ function SignIn() {
           </Link>
         </div>
       </form>
+      <div className="flex flex-col mt-4 text-center w-[300px] border-t border-gray-800 pt-4">
+        <button onClick={kakaoLogin} className="bg-[#F7E600] cursor-pointer px-10 py-2 rounded-md relative">
+          <FontAwesomeIcon icon={faComment} className="absolute left-[20px] bottom-[12px]"/>
+          카카오계정으로 로그인
+        </button>
+      </div>
     </div>
   );
 }
