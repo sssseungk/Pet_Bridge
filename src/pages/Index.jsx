@@ -9,9 +9,9 @@ import { Pagination } from 'swiper/modules';
 function Index() {
   // const place="내용"
   return (
-    <div className="flex flex-col items-center gap-3 mx-auto max-w-screen-pet-l bg-pet-bg">
+    <div className="flex flex-col items-center h-screen gap-3 mx-auto max-w-screen-pet-l bg-pet-bg">
       <Swiper
-        className="w-full h-[72vh] rounded-xl"
+        className="w-full h-[75vh]  rounded-xl "
         spaceBetween={30}
         slidesPerView={1}
         pagination={{
@@ -20,12 +20,12 @@ function Index() {
         modules={[Pagination]}
       >
         <SwiperSlide className="relative px-5 ">
-          <p className="text-xl font-bold absolute top-[100px]">
+          <p className="text-xl font-bold absolute top-[60px]">
             유기동물과 사랑으로
             <br /> 이어주는 서비스,{' '}
             <span className="text-pet-green">펫:브릿지</span>
           </p>
-          <p className="absolute top-[160px]">
+          <p className="absolute top-[130px]">
             유기동물들에게
             <br /> 손을 내밀고 싶은 사람들에게
             <br /> 기회를 제공해주는 서비스
@@ -33,14 +33,14 @@ function Index() {
 
           <img
             src="/public/assets/imgs/Index_1.png"
-            className="absolute top-[400px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
+            className="absolute top-[350px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
           />
         </SwiperSlide>
         <SwiperSlide className="relative px-5 ">
-          <p className="text-xl font-bold absolute top-[100px]">
+          <p className="text-xl font-bold absolute top-[60px]">
             유기동물 후원물품 판매
           </p>
-          <p className="absolute top-[160px]">
+          <p className="absolute top-[130px]">
             유기동물들의 삶에 밝은
             <br /> 변화를 가져다 주는{' '}
             <span
@@ -55,14 +55,14 @@ function Index() {
           </p>
           <img
             src="/public/assets/imgs/Index_2.png"
-            className="absolute top-[400px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
+            className="absolute top-[350px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
           />
         </SwiperSlide>
         <SwiperSlide className="relative px-5 ">
-          <p className="text-xl font-bold absolute top-[100px]">
+          <p className="text-xl font-bold absolute top-[60px]">
             유기동물 보호소 정보
           </p>
-          <p className="absolute top-[160px]">
+          <p className="absolute top-[130px]">
             <span
               style={{
                 background:
@@ -81,11 +81,11 @@ function Index() {
           </p>
           <img
             src="/public/assets/imgs/Index_3.png"
-            className="absolute top-[400px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
+            className="absolute top-[350px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
           />
         </SwiperSlide>
         <SwiperSlide className="relative px-5 ">
-          <p className="text-xl font-bold absolute top-[100px]">
+          <p className="text-xl font-bold absolute top-[60px]">
             펫:브릿지를 통해
           </p>
           <p className="absolute top-[120px] ">
@@ -118,7 +118,7 @@ function Index() {
           </p>
         </SwiperSlide>
       </Swiper>
-      <p className="flex gap-2">
+      <p className="flex gap-6">
         <Link to={`/signin`} className="text-xl font-bold text-pet-orange">
           로그인
         </Link>
