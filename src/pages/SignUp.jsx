@@ -1,12 +1,20 @@
 import { pb } from '@/api/pocketbase';
+import { useAuth } from '@/contexts/Auth';
 import debounce from "@/utils/debounce";
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from "react";
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 
 function SignUp() {
+  const { user } = useAuth();
   const navigate = useNavigate();
+
+    useEffect(() => {
+      if (user) {
+        navigate("/mypage");
+      }
+    }, [user, navigate]);
 
   const koreaName = /^.{1,9}[가-힣]$/; // 한글 2~10글자
   const nickName = /^.{2,14}[a-z | A-Z]$/; // 영문 3~15글자
@@ -195,9 +203,8 @@ function SignUp() {
               onChange={handleDebounceInput}
               className="border border-gray-300 p-2 rounded-md focus:border-gray-900 focus:outline-none w-[300px]"
             />
-            <span className="cursor-pointer absolute right-[10px] top-[36px] text-gray-500">
-              <FontAwesomeIcon icon={faEyeSlash} onClick={togglePasswordHidden}/>
-            </span>
+              <FontAwesomeIcon icon={isPasswordHidden ? faEyeSlash : faEye} onClick={togglePasswordHidden} 
+              className="cursor-pointer absolute right-[10px] top-[40px] text-gray-500"/>
             {!validationErrors.password && formState.password !== "" && (
               <>
                 <span className="text-green-600 text-xs">
@@ -223,10 +230,9 @@ function SignUp() {
               defaultValue={formState.passwordConfirm}
               onChange={handleDebounceInput}
               className="border border-gray-300 p-2 rounded-md focus:border-gray-900 focus:outline-none w-[300px]"
-            />
-            <span className="cursor-pointer absolute right-[10px] top-[36px] text-gray-500">
-              <FontAwesomeIcon icon={isConfirmPasswordHidden ? faEyeSlash : faEye} onClick={toggleConfirmPasswordHidden}/>
-            </span>
+            />        
+              <FontAwesomeIcon icon={isConfirmPasswordHidden ? faEyeSlash : faEye} onClick={toggleConfirmPasswordHidden}
+              className="cursor-pointer absolute right-[10px] top-[40px] text-gray-500"/>
             {!validationErrors.passwordConfirm &&
               formState.passwordConfirm !== "" && (
                 <>
