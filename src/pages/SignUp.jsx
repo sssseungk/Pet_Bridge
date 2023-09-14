@@ -112,7 +112,7 @@ function SignUp() {
             <label htmlFor="name" className="text-slate-900">
               이름
             </label>
-            <input type="text" name="name" id="name" placeholder="이름을 입력해 주세요."
+            <input type="text" name="name" id="name" placeholder="이름을 입력해 주세요"
               defaultValue={formState.name}
               onChange={handleDebounceInput}
               className="border border-gray-300 p-2 rounded-md focus:border-gray-900 focus:outline-none w-[300px]"
@@ -136,7 +136,7 @@ function SignUp() {
             <label htmlFor="username" className="text-slate-900">
               닉네임 (영문)
             </label>
-            <input type="text" name="username" id="username" placeholder="닉네임을 입력해 주세요." defaultValue={formState.username} onChange={handleDebounceInput}
+            <input type="text" name="username" id="username" placeholder="닉네임을 입력해 주세요" defaultValue={formState.username} onChange={handleDebounceInput}
               className="border border-gray-300 p-2 rounded-md focus:border-gray-900 focus:outline-none w-[300px]"
             />
             {!validationErrors.username && formState.username !== "" && (
@@ -190,7 +190,7 @@ function SignUp() {
               type={isPasswordHidden ? "password" : "text"}
               name="password"
               id="password"
-              placeholder="비밀번호를 입력해 주세요."
+              placeholder="비밀번호를 입력해 주세요"
               defaultValue={formState.password}
               onChange={handleDebounceInput}
               className="border border-gray-300 p-2 rounded-md focus:border-gray-900 focus:outline-none w-[300px]"
@@ -219,7 +219,7 @@ function SignUp() {
               type={isConfirmPasswordHidden ? "password" : "text"}
               name="passwordConfirm"
               id="passwordConfirm"
-              placeholder="비밀번호를 한번 더 입력해 주세요."
+              placeholder="비밀번호를 한번 더 입력해 주세요"
               defaultValue={formState.passwordConfirm}
               onChange={handleDebounceInput}
               className="border border-gray-300 p-2 rounded-md focus:border-gray-900 focus:outline-none w-[300px]"
@@ -248,12 +248,12 @@ function SignUp() {
               className={`px-10 py-2 rounded-md w-full ${
                 isFormValid()
                   ? "bg-primary cursor-pointer"
-                  : "bg-blue-200 cursor-not-allowed"
+                  : "bg-gray-1 cursor-not-allowed"
               }`}
             >
               가입하기
             </button>
-            <Link to="/home" type="button" className="bg-pet-green text-white px-10 py-2 rounded-md w-full mt-4">
+            <Link to="/home" className="block bg-pet-green text-white px-10 py-2 rounded-md w-full mt-4">
               취소
             </Link>
           </div>
