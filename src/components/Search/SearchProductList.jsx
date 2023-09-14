@@ -31,7 +31,7 @@ function SearchProductList({ selectedCategory, searchTerm }) {
 
   
   return (
-    <div className="bg-pet-bg pb-16">
+    <div className="bg-pet-bg">
       <ol className="px-2 bg-pet-bg flex flex-wrap max-w-4xl mx-auto justify-start mt-5 gap-2">
         {filteredProducts.map(product => (
           <ProductItem product={product} key={product.id} />
