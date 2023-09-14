@@ -15,13 +15,13 @@ function HeaderComp({title, showLogo, showSearchIcon, showCartIcon, showPrevIcon
         navigate('/productlist');
         break;
       case '/place':
-        navigate('/');
+        navigate('/home');
         break;
       case '/map':
         navigate('place');
         break;
       case '/productlist':
-        navigate('/');
+        navigate('/home');
         break;
       default:
         navigate(-1); 

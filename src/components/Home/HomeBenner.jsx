@@ -26,10 +26,10 @@ function HomeBenner(props) {
   }, []);
 
   return (
-    <section className="px-5 py-3 flex gap-3 flex-col">
-      <div className="flex justify-between items-center">
-        <h2 className="font-bold inline">{props.title}</h2>
-        <Link to={`/productlist`}>
+    <section className="flex flex-col gap-3 px-5 py-3">
+      <div className="flex items-center justify-between">
+        <h2 className="inline font-bold">{props.title}</h2>
+        <Link to={`/productlist`} onClick={() => window.scrollTo(0, 0)}>
           <span className="text-xs">더보기 &gt; </span>
         </Link>
       </div>
