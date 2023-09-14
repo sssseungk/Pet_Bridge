@@ -12,8 +12,9 @@ import ProductList from './pages/ProductList';
 import SearchProduct from './pages/SearchProduct';
 import Map from './pages/Map';
 import Index from './pages/Index';
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import About from './pages/About';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,6 +33,7 @@ const router = createBrowserRouter(
       />
       <Route path="search" element={<SearchProduct />} />
       <Route path="map" element={<Map />} />
+      <Route path="about" element={<About />} />
     </Route>
   )
 );
