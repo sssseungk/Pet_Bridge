@@ -45,7 +45,7 @@ function SignIn() {
     setIsPasswordHidden(!isPasswordHidden);
   };
   return (
-    <div className="w-[360px] mx-auto flex flex-col items-center my-10">
+    <div className="max-w-4xl mx-auto flex flex-col items-center pt-10 bg-pet-bg">
       <h2 className="text-3xl text-center pet-black font-semibold">로그인</h2>
       <form onSubmit={handleSignIn} className="flex flex-col gap-2 mt-4 justify-start items-start border-t-2 border-gray-800 pt-6">
         <div className="flex flex-col gap-1 relative">

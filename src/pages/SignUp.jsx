@@ -113,7 +113,7 @@ function SignUp() {
   };
 
   return (
-    <div className="w-[360px] mx-auto rounded-md flex flex-col items-center my-10">
+    <div className="w-[360px] mx-auto rounded-md flex flex-col items-center pt-10 bg-pet-bg">
         <h2 className="text-3xl text-center pet-black font-semibold">회원가입</h2>
         <form onSubmit={handleRegister} className="flex flex-col gap-2 mt-4 justify-start items-start border-t-2 border-gray-800 pt-6">
           <div className="flex flex-col gap-1 relative">
