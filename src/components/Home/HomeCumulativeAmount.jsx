@@ -10,10 +10,11 @@ function HomeCumulativeAmount(props) {
       <p className="text-2xl font-black">
         <span>{props.Amount.toLocaleString('ko-KR')}</span>원
       </p>
-      <ul className="absolute flex gap-2 right-5 top-10 pet-s:hidden pet-m:flex">
+      <ul className="absolute flex gap-2 right-5 top-5 pet-s:hidden pet-m:flex">
         <li>
           <Link to={`/signin`}>로그인</Link>
         </li>
+        <li aria-hidden="true">|</li>
         <li>
           <Link to={`/signup`}>회원가입</Link>
         </li>
