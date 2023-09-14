@@ -7,7 +7,13 @@ function Footer() {
     return null;
   }
   return (
-    <footer className="flex flex-col max-w-4xl gap-6 pt-6 m-auto text-xs text-center  font-suit text-gray-2 bg-gray-1 pb-13">
+    <footer className="flex flex-col max-w-4xl gap-6 pt-6 mx-auto mt-10 text-xs text-center font-suit text-gray-2 bg-gray-1 ">
+      <button
+        onClick={() => window.scrollTo(0, 0)}
+        className="absolute float-right w-10 h-10 px-3 rounded-full bg-pet-bg right-5"
+      >
+        <img src="/public/assets/icons/top_icon.svg" alt="최상단 가기" />
+      </button>
       <p>
         <span className="font-semibold">COMPANY:</span> 펫브릿지스튜디오 <br />
         <span className="font-semibold">ADDRESS:</span> 서울 종랑구 연목로 42길
@@ -22,7 +28,7 @@ function Footer() {
         <br />
         All rights reserved.
       </p>
-      <div className="bg-gray-2 text-gray-1 py-3 text-xl font-bold flex items-center justify-center mb-[52px]">
+      <div className="bg-gray-2 text-gray-1 py-3 text-xl font-bold flex items-center justify-center mb-[52px] pb-13">
         <img
           src="public/assets/icons/Logo_footer_icon.svg"
           className="w-5 m-1"
