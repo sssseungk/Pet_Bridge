@@ -13,7 +13,7 @@ function ProductDetail() {
 
   return (
     <div className="max-w-4xl m-auto pt-3 px-5">
-      <img src={getPbImageURL(data,'photo')} alt="상품사진" className=" m-auto h-64" />
+      <img src={getPbImageURL(data,'photo')} alt="상품사진" className="m-auto h-auto" />
       <div className="text-xl pt-5">{data.title}</div>
       <div className="flex justify-between">
       {data.price ? (<div className="text-xl pt-5">{data.price.toLocaleString('ko-KR')} 원</div>
