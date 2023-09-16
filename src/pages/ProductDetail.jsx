@@ -152,22 +152,30 @@ function ProductDetail() {
     return (
     <div className="max-w-4xl m-auto pt-3 px-5">
       <img src={getPbImageURL(data,'photo')} alt="상품사진" className=" m-auto h-64" />
-      <div className="text-xl pt-5">{data.title}</div>
       <div className="flex justify-between">
-      {data.price ? (<div className="text-xl pt-5">{data.price.toLocaleString('ko-KR')} 원</div>
-      ) : (<div className="text-xl pt-5">가격 정보 없음</div>)}
-        <div className="flex items-center gap-4">
-          <button>
-            <Heart/>
-          </button>
-          <CountButton/>
-        </div>   
+        <div className="text-xl mt-5">{data.title}</div>
+        <div className="flex mt-5 mx-3">
+          <Heart/>
+          <div className="ml-4">
+            <CountButton/>  
+          </div>
+        </div>
       </div>
+      
+      <div className="flex justify-between mr-3">
+        {data.price ? (<div className="text-xl mt-4">{data.price.toLocaleString('ko-KR')} 원</div>
+        ) : (<div className="text-xl pt-5">가격 정보 없음</div>)}
+        <button className="bg-primary w-32 h-9 rounded-xl mt-3">장바구니 추가</button>   
+      </div>
+
+
+
+
       <div className='m-auto h-[1px] bg-black mt-4'></div>
       <img src={getPbImageURL(data,'photo_detail')} alt="상품사진" className=" m-auto pt-4" />
       <div className='m-auto h-[1px] bg-black mt-4 mb-2'></div>
       <form className="py-4 mx-4" onSubmit={editingCommentId ? handleEditSubmit : handleCommentSubmit}>
-        <input type="text" value={comment} onChange={(e) => setComment(e.target.value)} placeholder="작성하실 리뷰를 적어주세요" className="border w-60 h-9" />
+        <textarea type="text" value={comment} onChange={(e) => setComment(e.target.value)} placeholder="작성하실 리뷰를 적어주세요" className="border w-60 h-9" />
         <button type="submit" onClick={handleCommentSubmit} className="border ml-5 bg-primary w-14 h-9 rounded-xl" >작성</button>
       </form>
       {reviews.slice().reverse().map((review, index) => {
