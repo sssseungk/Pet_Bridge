@@ -2,7 +2,7 @@ import comment_icon from '/assets/icons/comment_icon.svg';
 import heart_empty_icon from '/assets/icons/heart_empty_icon.svg';
 import heart_fill_icon from '/assets/icons/heart_fill_icon.svg';
 import { useState } from 'react';
-import { getPbImageURL } from '@/utils/getPbImageUrl';
+import getPbImageURL from '@/utils/getPbImageUrl';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -16,7 +16,10 @@ function ProductItem({ product, reviewCount }) {
 
   return (
     <li className="bg-[#FDF6EE] rounded-[10px] pet-s:w-[calc(50%/1-0.25rem)] pet-l:w-[calc(33.3%-0.33rem)] aspect-200/140">
-      <Link to={`/productlist/detail/${product.id}`} onClick={() => window.scrollTo(0, 0)}>
+      <Link
+        to={`/productlist/detail/${product.id}`}
+        onClick={() => window.scrollTo(0, 0)}
+      >
         <div className="flex-col items-center justify-center pt-3 px-3">
           <div className="relative">
             <img
@@ -48,9 +51,9 @@ function ProductItem({ product, reviewCount }) {
               src={comment_icon}
               className="transition-all duration-300 w-3 pet-m:w-4 pet-l:w-4"
             />
-              <span className = "transition-all duration-base text-gray2 text-xs sm:text-sm lg:text-base"> 
-               {reviewCount || '0'}
-             </span>
+            <span className="transition-all duration-base text-gray2 text-xs sm:text-sm lg:text-base">
+              {reviewCount || '0'}
+            </span>
           </div>
         </div>
       </Link>

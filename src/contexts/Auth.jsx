@@ -1,7 +1,7 @@
-import { createContext, useEffect, useState, useContext } from "react";
-import { string, node } from "prop-types";
-import { pb } from "@/api/pocketbase";
-import useStorage from "@/hooks/useStorage";
+import { createContext, useEffect, useState, useContext } from 'react';
+import { string, node } from 'prop-types';
+import pb from '@/api/pocketbase';
+import useStorage from '@/hooks/useStorage';
 
 // Context 생성
 const AuthContext = createContext();
@@ -10,12 +10,12 @@ const AuthContext = createContext();
 const initialAuthState = {
   isAuth: false,
   user: null,
-  token: "",
+  token: '',
 };
 
 // Context.Provider 래퍼 컴포넌트 작성
-function AuthProvider({ displayName = "AuthProvider", children }) {
-  const { storageData } = useStorage("pocketbase_auth");
+function AuthProvider({ displayName = 'AuthProvider', children }) {
+  const { storageData } = useStorage('pocketbase_auth');
 
   // 인증 상태 유지(Persist)
   useEffect(() => {
@@ -31,7 +31,7 @@ function AuthProvider({ displayName = "AuthProvider", children }) {
 
   // 인증 상태
   const [authState, setAuthState] = useState(initialAuthState);
-  console.log(authState);
+
   useEffect(() => {
     // 업데이트 될 때만 상태 변경
     const unsub = pb.authStore.onChange((token, model) => {
@@ -52,12 +52,12 @@ function AuthProvider({ displayName = "AuthProvider", children }) {
   // 회원가입, 로그인, 로그아웃, 가입탈퇴
   // 서버는 대기 시간 (비동기 요청/응답)
   const signUp = async (registerUser) => {
-    return await pb.collection("users").create(registerUser);
+    return await pb.collection('users').create(registerUser);
   };
 
   const signIn = async (usernameOrEmail, password) => {
     return await pb
-      .collection("users")
+      .collection('users')
       .authWithPassword(usernameOrEmail, password);
   };
 
@@ -66,12 +66,12 @@ function AuthProvider({ displayName = "AuthProvider", children }) {
   };
 
   const cancelMembership = async (recordId) => {
-    return await pb.collection("users").delete(recordId);
+    return await pb.collection('users').delete(recordId);
   };
 
   const updateUser = async (recordId, updatedData) => {
     const updatedUser = await pb
-      .collection("users")
+      .collection('users')
       .update(recordId, updatedData);
 
     setAuthState((state) => ({
@@ -107,7 +107,7 @@ export default AuthProvider;
 export const useAuth = () => {
   const authValue = useContext(AuthContext);
   if (!authValue) {
-    throw new Error("useAuth 훅은 AuthProvider 내부에서만 사용할 수 있습니다.");
+    throw new Error('useAuth 훅은 AuthProvider 내부에서만 사용할 수 있습니다.');
   }
 
   return authValue;
