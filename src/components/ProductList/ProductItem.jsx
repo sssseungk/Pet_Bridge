@@ -5,13 +5,56 @@ import { useState } from 'react';
 import getPbImageURL from '@/utils/getPbImageUrl';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
+import pb from '@/api/pocketbase';
+import { useAuth } from '@/contexts/Auth';
+import { useEffect } from 'react';
 
 function ProductItem({ product, reviewCount }) {
+  const { user } = useAuth();
   const [addWish, setAddWish] = useState(false);
-  const handleWishBtn = (e) => {
+
+  useEffect(() => {
+    // 로그인 안했으면 바로 반환
+    if (!user) return;
+    // 포켓베이스에서 product 데이터 가져옴
+    const fetchProductData = async () => {
+      try {
+        const productList = await pb.collection('product').getOne(product.id);
+        if (productList.Liked.includes(user.id)) {
+          setAddWish(true);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchProductData();
+  }, user?.id);
+
+  const handleWishBtn = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    setAddWish(!addWish);
+    if (!user) return;
+    try {
+      const productData = await pb.collection('product').getOne(product.id);
+      let updatedLikedUsers;
+
+      // 하트버튼이 눌렸을 때 기존 찜목록에 추가로 상품 추가
+      if (!addWish) {
+        updatedLikedUsers = [...productData.Liked, user.id];
+        setAddWish(true);
+      } else {
+        // 하트가 취소된 상태이면
+        updatedLikedUsers = productData.Liked.filter(
+          (userId) => userId !== user.id
+        );
+        setAddWish(false);
+      }
+      await pb
+        .collection('product')
+        .update(product.id, { Liked: updatedLikedUsers });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

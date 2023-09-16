@@ -6,12 +6,22 @@ import product_search_notfound from '/assets/imgs/product_search_notfound.png';
 
 function SearchProductList({ selectedCategory, searchTerm }) {
   const [productList, setProductList] = useState([]);
+  const [reviewCounts, setReviewCounts] = useState({});
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const productListData = await pb.collection('product').getFullList();
         setProductList(productListData);
+        const reviewsData = await pb.collection('reviews').getFullList();
+
+        let counts = {};
+        for (let product of productListData) {
+          counts[product.id] = reviewsData.filter(
+            (review) => review.product_title === product.title
+          ).length;
+        }
+        setReviewCounts(counts);
       } catch (error) {
         console.error('Error fetching product list:', error);
       }
@@ -33,7 +43,11 @@ function SearchProductList({ selectedCategory, searchTerm }) {
     <div className="bg-pet-bg">
       <ol className="px-2 bg-pet-bg flex flex-wrap max-w-4xl mx-auto justify-start mt-5 gap-2">
         {filteredProducts.map((product) => (
-          <ProductItem product={product} key={product.id} />
+          <ProductItem
+            product={product}
+            key={product.id}
+            reviewCount={reviewCounts[product.id]}
+          />
         ))}
         {searchTerm && filteredProducts.length === 0 && (
           <div className="relative my-0 mx-auto opacity-60 pet-s:pt-16 pet-m:pt-24">
