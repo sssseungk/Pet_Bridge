@@ -1,12 +1,13 @@
-import { useAuth } from "@/contexts/Auth";
-import DefaultUser from "/assets/imgs/defaultUser.png"; // 기본 사용자 이미지
-import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { pb } from "@/api/pocketbase";
+import { useAuth } from '@/contexts/Auth';
+import DefaultUser from '/assets/imgs/defaultUser.png'; // 기본 사용자 이미지
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import pb from '@/api/pocketbase';
+import getPbImageURL from '@/utils/getPbImageUrl';
 
 const kakaoLogout = async () => {
-      const CLIENT_ID = import.meta.env.VITE_KAKAO_API_KEY;
-      const LOGOUT_REDIRECT_URI = 'http://localhost:5173/'; 
+  const CLIENT_ID = import.meta.env.VITE_KAKAO_API_KEY;
+  const LOGOUT_REDIRECT_URI = 'http://localhost:5173/';
   try {
     location.replace(
       `https://kauth.kakao.com/oauth/logout?client_id=${CLIENT_ID}&logout_redirect_uri=${LOGOUT_REDIRECT_URI}`
@@ -19,25 +20,40 @@ const kakaoLogout = async () => {
 function MyPage() {
   const { user, signOut, cancelMembership, updateUser } = useAuth();
   const navigate = useNavigate();
+  const [userData, setUserData] = useState(null);
 
-    useEffect(() => {
-      if (!user) {
-        navigate("/signin");
-      }
-    }, [user, navigate]);
+  useEffect(() => {
+    if (!user) {
+      // alert('로그인이 필요합니다.');
+      navigate('/signin');
+    } else {
+      const fetchLikedProducts = async () => {
+        try {
+          const data = await pb
+            .collection('users')
+            .getOne(user.id, { expand: 'LikedProducts' });
+          setUserData(data);
+          console.log(data);
+        } catch (error) {
+          console.error('Error: ', error);
+        }
+      };
+      fetchLikedProducts(user.id);
+    }
+  }, [user, navigate]);
 
   // 로그아웃 핸들러
-   const handleSignOut = async () => {
-     await signOut();
-     await kakaoLogout();
-     navigate("/home");
-   };
+  const handleSignOut = async () => {
+    await signOut();
+    await kakaoLogout();
+    navigate('/home');
+  };
 
   // 회원탈퇴 핸들러
   const handleCancelMembership = async () => {
-    if (window.confirm("정말로 탈퇴하시겠습니까?")) {
+    if (window.confirm('정말로 탈퇴하시겠습니까?')) {
       await cancelMembership(user.id);
-      navigate("/home");
+      navigate('/home');
     }
   };
 
@@ -54,12 +70,12 @@ function MyPage() {
 
   useEffect(() => {
     setUpdatedUser({
-      username: user?.username || "",
-      email: user?.email || "",
+      username: user?.username || '',
+      email: user?.email || '',
       avatar: user?.avatar || DefaultUser,
     });
   }, [user]);
-  console.log(user);
+
   // 프로필(이미지X) 변경 핸들러
   const handleProfileChange = (e) => {
     setUpdatedUser({ ...updatedUser, [e.target.name]: e.target.value });
@@ -78,18 +94,18 @@ function MyPage() {
   const handleSaveProfile = async () => {
     try {
       const formData = new FormData();
-      formData.append("username", updatedUser.username);
-      formData.append("email", updatedUser.email);
+      formData.append('username', updatedUser.username);
+      formData.append('email', updatedUser.email);
 
       if (updatedUser.avatarFile) {
-        formData.append("avatar", updatedUser.avatarFile);
+        formData.append('avatar', updatedUser.avatarFile);
       }
 
       // 사용자 정보 업데이트
       await updateUser(user.id, formData);
 
       // 업데이트된 사용자 정보 다시 불러오기
-      const refreshedUser = await pb.collection("users").getOne(user.id);
+      const refreshedUser = await pb.collection('users').get(user.id);
       const avatarUrl = pb.files.getUrl(refreshedUser, refreshedUser.avatar);
 
       setUpdatedUser({
@@ -98,7 +114,7 @@ function MyPage() {
         avatarFile: null,
       });
 
-      alert("저장 완료!");
+      alert('저장 완료!');
       setIsEditMode(false);
     } catch (error) {
       console.error(error);
@@ -127,7 +143,7 @@ function MyPage() {
                 id="avatar"
                 accept=".jpg,.png,.svg,.webp"
                 onChange={handleAvatarChange}
-                style={{ display: "none" }}
+                style={{ display: 'none' }}
               />
               <div className="">
                 <input
@@ -206,9 +222,26 @@ function MyPage() {
       </div>
 
       <div className="bg-white p-[10%] mt-[3rem] mx-auto w-[80%] h-[20rem] flex items-center justify-center">
-        <h3 className="font-semibold text-xl text-center">
-          좋아요 목록 / 찜한 보호소...
-        </h3>
+        <h3 className="font-semibold text-xl text-center"></h3>
+        <div className="text-center">
+          좋아요 목록
+          <div className="flex">
+            {userData && userData.expand && userData.expand.LikedProducts ? (
+              userData.expand.LikedProducts.map((item, index) => (
+                <div key={index} className="">
+                  <img
+                    src={getPbImageURL(item, 'photo')}
+                    alt="상품"
+                    className="w-[100px]"
+                  />
+                  <p>{item.title}</p>
+                </div>
+              ))
+            ) : (
+              <div>데이터가 없습니다.</div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
