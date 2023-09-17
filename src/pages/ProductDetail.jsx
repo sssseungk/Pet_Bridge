@@ -1,13 +1,9 @@
 import useProductItem from '@/utils/useProductItem';
 import { useParams } from 'react-router-dom';
-import {getPbImageURL} from '@/utils/getPbImageUrl';
+import getPbImageURL from '@/utils/getPbImageUrl';
 import Heart from '@/components/ProductDetail/Heart';
 import CountButton from '@/components/ProductDetail/CountButton';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import {pb} from '@/api/pocketbase';
-import { useEffect } from 'react';
-import { useAuth } from '@/contexts/Auth';
 
 function ProductDetail() {
   const { user } = useAuth();
@@ -295,4 +291,8 @@ function ProductDetail() {
   );
 }
 
+<<<<<<< HEAD
 export default ProductDetail;
+=======
+export default ProductDetail;
+>>>>>>> develop
