@@ -1,22 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import click from '/assets/icons/heart_click_icon.svg';
 import unclick from '/assets/icons/heart_unclick_icon.svg';
-import pb from '@/api/pocketbase';
-import { useAuth } from '@/contexts/Auth';
-import { useEffect } from 'react';
+import pb from '@/api/pocketbase'; // 포켓베이스 API import
+import { useAuth } from '@/contexts/Auth'; // Auth context import
 import { PropTypes } from 'prop-types';
 
 function Heart({ productId }) {
   const [addWish, setAddWish] = useState(false);
-  const { user } = useAuth();
+  const { user } = useAuth(); // 현재 로그인한 사용자 정보 가져오기
 
   useEffect(() => {
     if (!user) return;
 
     const fetchProductData = async () => {
       try {
-        const productData = await pb.collection('product').getOne(productId);
-        setAddWish(productData.Liked.includes(user.id));
+        const userData = await pb.collection('users').getOne(user.id);
+        setAddWish(userData.LikedProducts.includes(productId));
       } catch (error) {
         console.log(error);
       }
@@ -30,18 +29,20 @@ function Heart({ productId }) {
     if (!user) return;
 
     try {
-      const productData = await pb.collection('product').getOne(productId);
+      const userData = await pb.collection('users').getOne(user.id);
       let updatedLikedUsers;
 
       if (addWish) {
-        updatedLikedUsers = productData.Liked.filter((id) => id !== user.id);
+        updatedLikedUsers = userData.LikedProducts.filter(
+          (id) => id !== productId
+        );
       } else {
-        updatedLikedUsers = [...productData.Liked, user.id];
+        updatedLikedUsers = [...userData.LikedProducts, productId];
       }
 
       await pb
-        .collection('product')
-        .update(productId, { Liked: updatedLikedUsers });
+        .collection('users')
+        .update(user.id, { LikedProducts: updatedLikedUsers });
 
       setAddWish(!addWish);
     } catch (error) {
