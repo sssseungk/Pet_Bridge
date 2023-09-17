@@ -6,21 +6,22 @@ import { getPbImageURL } from '@/utils/getPbImageUrl';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 
-function ProductItem({ product }) {
+function ProductItem({ product, reviewCount }) {
   const [addWish, setAddWish] = useState(false);
   const handleWishBtn = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     setAddWish(!addWish);
   };
 
   return (
-    <li className="bg-[#FDF6EE] rounded-[10px] w-full pet-s:w-[calc(50%/1-0.25rem)] pet-l:w-[calc(33.3%-0.33rem)] aspect-200/140">
+    <li className="bg-[#FDF6EE] rounded-[10px] pet-s:w-[calc(50%/1-0.25rem)] pet-l:w-[calc(33.3%-0.33rem)] aspect-200/140">
       <Link to={`/productlist/detail/${product.id}`} onClick={() => window.scrollTo(0, 0)}>
         <div className="flex-col items-center justify-center pt-3 px-3">
           <div className="relative">
             <img
               src={getPbImageURL(product, 'photo')}
-              className="pet-s:h-36 pet-m:h-52 pet-l:h-64 w-full h-3/2 rounded-[10px] transition-width duration-300"
+              className="=w-full h-3/2 rounded-[10px] transition-width duration-300"
             />
             {addWish ? (
               <img
@@ -47,9 +48,9 @@ function ProductItem({ product }) {
               src={comment_icon}
               className="transition-all duration-300 w-3 pet-m:w-4 pet-l:w-4"
             />
-            <span className="transition-all duration-300 text-gray-2 text-xs pet-m:text-sm pet-l:text-base">
-              82
-            </span>
+              <span className = "transition-all duration-base text-gray2 text-xs sm:text-sm lg:text-base"> 
+               {reviewCount || '0'}
+             </span>
           </div>
         </div>
       </Link>
@@ -61,4 +62,5 @@ export default ProductItem;
 
 ProductItem.propTypes = {
   product: PropTypes.object,
+  reviewCount: PropTypes.number,
 };
