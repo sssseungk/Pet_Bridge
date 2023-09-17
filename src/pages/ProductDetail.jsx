@@ -1,9 +1,15 @@
+
 import useProductItem from '@/utils/useProductItem';
 import { useParams } from 'react-router-dom';
 import getPbImageURL from '@/utils/getPbImageUrl';
 import Heart from '@/components/ProductDetail/Heart';
 import CountButton from '@/components/ProductDetail/CountButton';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import pb from '@/api/pocketbase';
+import { useEffect } from 'react';
+import { useAuth } from '@/contexts/Auth';
+import profileImg_default from '/assets/imgs/profileImg_default.png';
 
 function ProductDetail() {
   const { user } = useAuth();
@@ -186,7 +192,7 @@ function ProductDetail() {
       <div className="flex justify-between">
         <div className="text-xl pt-5">{data.title}</div>
         <div className="flex mt-5 mx-3">
-          <Heart />
+          <Heart productId={productTitle} />
           <div className="ml-4">
             <CountButton />
           </div>
@@ -248,51 +254,76 @@ function ProductDetail() {
             })
             .replace(/\. /g, '.');
 
-          const user = review.expand && review.expand.users;
+          const commentUser = review.expand && review.expand.users;
           return (
-            <div key={index} className="bg-pet-bg h-auto flex-shrink-0 rounded-2xl shadow-[2px_2px_4px_0px_rgba(0,0,0,0.25)] mb-6">
+            <div
+              key={index}
+              className="bg-pet-bg h-auto flex-shrink-0 rounded-2xl shadow-[2px_2px_4px_0px_rgba(0,0,0,0.25)] mb-6"
+            >
               <div className="py-4 px-6">
                 <div className="flex text-2xl items-center">
-                  {user ? (
-                    <img src={getPbImageURL(user, 'avatar')} alt={getPbImageURL(user, 'name')} className="w-11 h-11 rounded-lg"/>
-                  ) : (
-                    <img src="#" className="w-11 h-11 rounded-lg" />
-                  )}
-                  <p className="pl-2 font-semibold">
-                    {review.name || '알 수 없는 사용자'}
-                  </p>
+                  <img
+                    src={
+                      commentUser.avatar && getPbImageURL(commentUser, 'avatar')
+                        ? getPbImageURL(commentUser, 'avatar')
+                        : profileImg_default
+                    }
+                    alt={getPbImageURL(commentUser, 'name')}
+                    className="w-11 h-11 rounded-lg"
+                  />
+
+                  <p className="pl-2 font-semibold">{review.name}</p>
+                </div>
+                <p className="text-sm font-semibold mb-5">{formattedDate}</p>
+                {editingCommentId === review.id ? (
+                  <>
+                    <textarea
+                      type="text"
+                      value={editingContent}
+                      onChange={handleEditChange}
+                      className="w-full"
+                    />
+                    <button
+                      className="bg-primary w-14 h-9 rounded-xl"
+                      onClick={handleEditSubmit}
+                    >
+                      완료
+                    </button>
+                  </>
+                ) : (
+                  <div>
+                    <p className="text-xl">{review.contents}</p>
+                    <div className="flex justify-end mt-3 gap-3">
+                      {user.name === review.name && (
+                        <>
+                          <button
+                            className="bg-primary w-14 h-9 rounded-xl"
+                            onClick={() => handleCommentEdit(review.id)}
+                          >
+                            수정
+                          </button>
+                          <button
+                            className="bg-primary w-14 h-9 rounded-xl"
+                            onClick={() => handleCommentDelete(review.id)}
+                          >
+                            삭제
+                          </button>
+                        </>
+                      )}
+                    </div>
                   </div>
-                  <p className="text-sm font-semibold mb-5">{formattedDate}</p>
-                    {editingCommentId === review.id ? (
-                      <>
-                        <textarea type="text" value={editingContent} onChange={handleEditChange} className="w-full"/>
-                        <button className="bg-primary w-14 h-9 rounded-xl" onClick={handleEditSubmit}>완료</button>
-                      </>
-                    ) : (
-                      <div>
-                        <p className="text-xl">{review.contents}</p>
-                        <div className='flex justify-end mt-3 gap-3'>
-                          <button className="bg-primary w-14 h-9 rounded-xl" onClick={() => handleCommentDelete(review.id)}>삭제</button>
-                          <button className="bg-primary w-14 h-9 rounded-xl"onClick={() => handleCommentEdit(review.id)}>수정</button>
-                        </div>
-                      </div>
-                    )}
+                )}
               </div>
             </div>
           );
-        }
-        )}
-        <Link to={`/cart`}>
-          <button className="w-full m-auto h-12 bg-primary rounded-lg items-center mb-3 text-base bottom-16 left-0 right-0 sticky">
-            장바구니
-          </button>
-        </Link>
+        })}
+      <Link to={`/cart`}>
+        <button className="w-full m-auto h-12 bg-primary rounded-lg items-center mb-3 text-base bottom-16 left-0 right-0 sticky">
+          장바구니
+        </button>
+      </Link>
     </div>
   );
 }
 
-<<<<<<< HEAD
 export default ProductDetail;
-=======
-export default ProductDetail;
->>>>>>> develop
