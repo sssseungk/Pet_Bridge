@@ -29,6 +29,11 @@ function Header() {
       showPrevIcon = true;
       showCartIcon = true;
       break;
+    case '/mypage':
+      title = '마이 페이지';
+      showPrevIcon = true;
+      showCartIcon = true;
+      break;
     case '/productlist':
       title = '후원 상품';
       showPrevIcon = true;
@@ -40,6 +45,10 @@ function Header() {
       showPrevIcon = true;
       break;
     case '/search':
+      return null;
+    case '/signin':
+      return null;
+    case '/signup':
       return null;
     default:
       title = '상품상세정보';
