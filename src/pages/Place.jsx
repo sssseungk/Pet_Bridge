@@ -1,6 +1,6 @@
-import { pb } from '@/api/pocketbase';
+import pb from '@/api/pocketbase';
 import PlaceModal from '@/components/Place/PlaceModal';
-import { getPbImageURL } from '@/utils/getPbImageUrl';
+import getPbImageURL from '@/utils/getPbImageUrl';
 import { faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
