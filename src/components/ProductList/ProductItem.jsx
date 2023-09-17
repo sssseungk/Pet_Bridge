@@ -19,8 +19,8 @@ function ProductItem({ product, reviewCount }) {
     // 포켓베이스에서 product 데이터 가져옴
     const fetchProductData = async () => {
       try {
-        const productList = await pb.collection('product').getOne(product.id);
-        if (productList.Liked.includes(user.id)) {
+        const userData = await pb.collection('users').getOne(user.id);
+        if (userData.LikedProducts.includes(product.id)) {
           setAddWish(true);
         }
       } catch (error) {
@@ -35,23 +35,23 @@ function ProductItem({ product, reviewCount }) {
     e.stopPropagation();
     if (!user) return;
     try {
-      const productData = await pb.collection('product').getOne(product.id);
+      // 현재 사용자 데이터 가져오기
+      const userData = await pb.collection('users').getOne(user.id);
       let updatedLikedUsers;
-
       // 하트버튼이 눌렸을 때 기존 찜목록에 추가로 상품 추가
       if (!addWish) {
-        updatedLikedUsers = [...productData.Liked, user.id];
+        updatedLikedUsers = [...userData.LikedProducts, product.id];
         setAddWish(true);
       } else {
         // 하트가 취소된 상태이면
-        updatedLikedUsers = productData.Liked.filter(
-          (userId) => userId !== user.id
+        updatedLikedUsers = userData.LikedProducts.filter(
+          (productId) => productId !== product.id
         );
         setAddWish(false);
       }
       await pb
-        .collection('product')
-        .update(product.id, { Liked: updatedLikedUsers });
+        .collection('users')
+        .update(user.id, { LikedProducts: updatedLikedUsers });
     } catch (error) {
       console.log(error);
     }
