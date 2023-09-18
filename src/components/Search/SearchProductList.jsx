@@ -41,7 +41,7 @@ function SearchProductList({ selectedCategory, searchTerm }) {
 
   return (
     <div className="bg-pet-bg">
-      <ol className="px-2 bg-pet-bg flex flex-wrap max-w-4xl mx-auto justify-start mt-5 gap-2">
+      <ul className="px-2 bg-pet-bg flex flex-wrap max-w-4xl mx-auto justify-start mt-5 gap-2">
         {filteredProducts.map((product) => (
           <ProductItem
             product={product}
@@ -53,18 +53,15 @@ function SearchProductList({ selectedCategory, searchTerm }) {
           <div className="relative my-0 mx-auto opacity-60 pet-s:pt-16 pet-m:pt-24">
             <img
               src={product_search_notfound}
+              alt="찾을 수 없는 상품"
               className="absolute pet-s:w-20 pet-s:top-1 pet-s:left-20 pet-m:w-24 pet-m:top-6 pet-m:left-20"
             />
-            <p
-              className="text-center font-bold rounded-[10px] px-8 py-5 border-2 border-pet-black
-
-            "
-            >
+            <p className="text-center font-bold rounded-[10px] px-8 py-5 border-2 border-pet-black">
               관련 상품이 없다는데...요?
             </p>
           </div>
         )}
-      </ol>
+      </ul>
     </div>
   );
 }

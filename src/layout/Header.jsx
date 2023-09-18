@@ -50,6 +50,8 @@ function Header() {
       return null;
     case '/signup':
       return null;
+    case '/about':
+      return null;
     default:
       title = '상품상세정보';
       showPrevIcon = true;
