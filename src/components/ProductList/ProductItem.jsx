@@ -9,7 +9,7 @@ import pb from '@/api/pocketbase';
 import { useAuth } from '@/contexts/Auth';
 import { useEffect } from 'react';
 
-function ProductItem({ product, reviewCount }) {
+function ProductItem({ product, reviewCount, selectedCategory }) {
   const { user } = useAuth();
   const [addWish, setAddWish] = useState(false);
 
@@ -57,6 +57,23 @@ function ProductItem({ product, reviewCount }) {
     }
   };
 
+  let categoryLabels = [];
+  if (
+    new Date(product.product_date) >= new Date('2023-08-01') &&
+    selectedCategory !== '신상품'
+  ) {
+    categoryLabels.push('신상품');
+  }
+  if (product.total_sale > 1200 && selectedCategory !== '베스트') {
+    categoryLabels.push('베스트');
+  }
+  if (product.delivery_free && selectedCategory !== '무료배송') {
+    categoryLabels.push('무료배송');
+  }
+  if (categoryLabels.length === 0) {
+    categoryLabels.push('');
+  }
+
   return (
     <li className="bg-[#FDF6EE] rounded-[10px] pet-s:w-[calc(50%/1-0.25rem)] pet-l:w-[calc(33.3%-0.33rem)] aspect-200/140">
       <Link
@@ -69,19 +86,22 @@ function ProductItem({ product, reviewCount }) {
               src={getPbImageURL(product, 'photo')}
               className="=w-full h-3/2 rounded-[10px] transition-width duration-300"
             />
-            {addWish ? (
-              <img
-                src={heart_fill_icon}
-                onClick={handleWishBtn}
-                className="transition-all duration-300 hover:scale-125 cursor-pointer absolute pet-m:w-8 pet-m:top-4 pet-m:right-3 pet-l:w-10 pet-l:top-7 pet-l:right-6 top-[0.75rem] right-[0.75rem]"
-              />
-            ) : (
-              <img
-                src={heart_empty_icon}
-                onClick={handleWishBtn}
-                className="transition-all duration-300 hover:scale-125 cursor-pointer absolute pet-m:w-8 pet-m:top-4 pet-m:right-3 pet-l:w-10 pet-l:top-7 pet-l:right-6 top-[0.75rem] right-[0.75rem]"
-              />
-            )}
+            <button
+              onClick={handleWishBtn}
+              className="transition-all duration-300 hover:scale-125 cursor-pointer absolute pet-m:top-5 pet-m:right-5 pet-l:top-7 pet-l:right-6 top-[0.75rem] right-[0.75rem]"
+            >
+              {addWish ? (
+                <img
+                  src={heart_fill_icon}
+                  className="pet-s:w-5 pet-m:w-8 pet-l:w-10"
+                />
+              ) : (
+                <img
+                  src={heart_empty_icon}
+                  className="pet-s:w-5 pet-m:w-8 pet-l:w-10"
+                />
+              )}
+            </button>
           </div>
           <span className="block text-ellipsis whitespace-nowrap overflow-hidden transition-all duration-300 pet-m:text-base pet-l:text-xl text-[12px] text-pet-black pt-2">
             {product.title}
@@ -89,6 +109,31 @@ function ProductItem({ product, reviewCount }) {
           <span className="block transition-all duration-300 pet-m:text-sm pet-l:text-lg text-[10px] font-bold text-pet-red pt-1">
             {product.price.toLocaleString('ko-KR')}원
           </span>
+          {categoryLabels.map((label) => {
+            let labelClass;
+            switch (label) {
+              case '신상품':
+                labelClass = 'bg-pet-orange';
+                break;
+              case '베스트':
+                labelClass = 'bg-pet-red';
+                break;
+              case '무료배송':
+                labelClass = 'bg-pet-green';
+                break;
+              default:
+                labelClass = '';
+            }
+            return (
+              <span
+                key={label}
+                className={`mr-1 inline-block px-1 py-[1px] text-[8px] pet-m:text-[14px] rounded-sm font-bold text-pet-bg ${labelClass}`}
+              >
+                {label}
+              </span>
+            );
+          })}
+
           <div className="flex gap-1 justify-end pb-1 pt-2 pet-l:gap-2 pet-l:pr-3 pet-l:pb-3">
             <img
               src={comment_icon}
@@ -109,4 +154,5 @@ export default ProductItem;
 ProductItem.propTypes = {
   product: PropTypes.object,
   reviewCount: PropTypes.number,
+  selectedCategory: PropTypes.string,
 };
