@@ -116,7 +116,7 @@ function ProductDetail() {
   const handleCommentEdit = (commentId) => {
     if (
       !user ||
-      user.name !== reviews.find((review) => review.id === commentId).name
+      user?.name !== reviews.find((review) => review.id === commentId).name
     ) {
       alert('댓글 수정 권한이 없습니다.');
       return;
@@ -294,7 +294,7 @@ function ProductDetail() {
                   <div>
                     <p className="text-xl">{review.contents}</p>
                     <div className="flex justify-end mt-3 gap-3">
-                      {user.name === review.name && (
+                      {user?.name === review?.name && (
                         <>
                           <button
                             className="bg-primary w-14 h-9 rounded-xl"
