@@ -15,7 +15,9 @@ function HomeContact(props) {
           <br />
           펫:브릿지에게 보내주세요
         </p>
-        <EmailLink text={`후원신청하기 >`} />
+        <div className="px-2 py-1 text-xs font-bold border-2 border-black border-solid rounded-2xl">
+          <EmailLink text={`후원신청하기 >`} type="support" />
+        </div>
         <img alt="" src={post_box} className="absolute bottom-0 left-2"></img>
       </div>
     </section>
