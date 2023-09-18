@@ -1,18 +1,30 @@
 import { useLocation } from 'react-router-dom';
+import top_icon from '/assets/icons/top_icon.svg';
+import logo from '/assets/icons/logo_footer_icon.svg';
 
 function Footer() {
   const location = useLocation();
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   if (location.pathname === '/') {
     return null;
   }
   return (
-    <footer className="flex flex-col max-w-4xl gap-6 pt-6 mx-auto mt-10 text-xs text-center font-suit text-gray-2 bg-gray-1 ">
+    <footer className="relative flex flex-col gap-6 pt-6 mx-auto mt-10 text-xs text-center max-w-screen-pet-l font-suit text-gray-2 bg-gray-1 ">
       <button
-        onClick={() => window.scrollTo(0, 0)}
-        className="absolute float-right w-10 h-10 px-3 rounded-full bg-pet-bg right-5"
+        onClick={scrollToTop}
+        className="absolute w-10 h-10 px-3 rounded-full top-5 right-5 bg-pet-bg"
+        style={{
+          transition: '.2s ease-in-out',
+        }}
       >
-        <img src="/public/assets/icons/top_icon.svg" alt="최상단 가기" />
+        <img src={top_icon} alt="최상단 가기" />
       </button>
       <p>
         <span className="font-semibold">COMPANY:</span> 펫브릿지스튜디오 <br />
@@ -28,11 +40,8 @@ function Footer() {
         <br />
         All rights reserved.
       </p>
-      <div className="bg-gray-2 text-gray-1 py-3 text-xl font-bold flex items-center justify-center mb-[52px] pb-13">
-        <img
-          src="public/assets/icons/Logo_footer_icon.svg"
-          className="w-5 m-1"
-        ></img>
+      <div className="flex items-center justify-center py-3 pb-16 text-xl font-bold bg-gray-2 text-gray-1">
+        <img src={logo} className="w-5 m-1"></img>
         펫:브릿지
       </div>
     </footer>
