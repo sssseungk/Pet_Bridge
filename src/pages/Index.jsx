@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
+import CountUp from 'react-countup';
+import { useState, useEffect } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-// import './styles.css';
 import { Pagination } from 'swiper/modules';
 
 import index_1 from '/public/assets/imgs/Index_1.png';
@@ -11,7 +12,15 @@ import index_3 from '/public/assets/imgs/Index_3.png';
 import index_2 from '/public/assets/imgs/Index_2.png';
 
 function Index() {
-  // const place="내용"
+  const [showCountUp, setShowCountUp] = useState(false);
+
+  const handleSlideChange = (swiper) => {
+    // 현재 슬라이드 인덱스가 마지막 슬라이드인 경우 showCountUp 값을 true로 변경
+    if (swiper.isEnd) {
+      setShowCountUp(true);
+    }
+  };
+
   return (
     <div className="flex flex-col items-center h-screen gap-3 mx-auto max-w-screen-pet-l bg-pet-bg">
       <Swiper
@@ -22,6 +31,7 @@ function Index() {
           clickable: true,
         }}
         modules={[Pagination]}
+        onSlideChange={handleSlideChange}
       >
         <SwiperSlide className="relative px-5 ">
           <p className="text-xl font-bold absolute top-[60px]">
@@ -93,29 +103,33 @@ function Index() {
             펫:브릿지를 통해
           </p>
           <p className="absolute top-[120px] ">
-            <span
-              style={{
-                background:
-                  'linear-gradient(to top, #FFD966 30%, transparent 30%)',
-              }}
-              className="text-[50px] font-extrabold"
-            >
-              24,105
-            </span>
+            {showCountUp && (
+              <span
+                style={{
+                  background:
+                    'linear-gradient(to top, #FFD966 30%, transparent 30%)',
+                }}
+                className="text-[50px] font-extrabold"
+              >
+                <CountUp start={0} end={24105} duration={2} separator="," />
+              </span>
+            )}
             <br />
             마리의 유기동물이 <br />
             사랑을 받고 있고,
           </p>
           <p className="absolute top-[240px] ">
-            <span
-              style={{
-                background:
-                  'linear-gradient(to top, #FFD966 30%, transparent 30%)',
-              }}
-              className="text-[50px] font-extrabold"
-            >
-              6,382
-            </span>
+            {showCountUp && (
+              <span
+                style={{
+                  background:
+                    'linear-gradient(to top, #FFD966 30%, transparent 30%)',
+                }}
+                className="text-[50px] font-extrabold"
+              >
+                <CountUp start={0} end={6382} duration={2} separator="," />
+              </span>
+            )}
             <br />
             명의 사용자의 다리를 <br />
             만들어 주었습니다.
