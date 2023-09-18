@@ -32,9 +32,13 @@ function SignIn() {
 
     const { email, password } = formState;
 
-    await pb.collection('users').authWithPassword(email, password);
-
-    navigate('/home');
+    try {
+      await pb.collection('users').authWithPassword(email, password);
+      navigate('/home');
+    } catch (error) {
+      console.error(error);
+      alert('이메일,비밀번호를 확인해주세요.');
+    }
   };
 
   const handleInput = debounce((e) => {
