@@ -42,7 +42,7 @@ function Place() {
           <h2 className="sr-only">내 주변 보호소 찾기</h2>
           <Link
             to={`/map`}
-            className="bg-primary text-2xl pet-m:text-4xl shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] flex justify-between items-center pl-[6%] pr-[3%] pt-[4%] pb-[3%] rounded-[20px]"
+            className="bg-primary text-2xl pet-m:text-4xl  shadow-lg flex justify-between items-center pl-[6%] pr-[3%] pt-[4%] pb-[3%] rounded-[20px]"
           >
             <p className="font-extrabold md:leading-[2.8rem] w-[55%] transition-[0.3s]">
               <span className="text-xs  mb-[0.3rem] pet-m:text-lg pet-l:text-2xl pet-l:mb-[1.3rem] block font-bold leading-[normal] transition-[0.3s]">
@@ -58,7 +58,7 @@ function Place() {
           <h2 className="font-bold mt-[10%] mb-[3%] mx-0 text-sm pet-m:text-lg pet-l:text-xl transition-[0.3s]">
             추천 보호소
           </h2>
-          <div className="bg-white shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] rounded-[15px] p-[4%]">
+          <div className="bg-white  shadow-lg rounded-[15px] p-[4%]">
             <img className="" src={shelter} alt="" />
             <dl>
               <dt className="text-base font-bold mt-[5%] mb-[2%] mx-0 pet-m:text-lg pet-l:text-2xl transition-[0.3s]">
@@ -71,7 +71,7 @@ function Place() {
             <div className="flex justify-between text-sm mt-[5%]">
               <a
                 href="tel:010-4634-4879"
-                className="bg-primary rounded-[10px] w-[48%]  mr-[4%] flex justify-center items-center px-0 py-[3%] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] text-sm pet-m:text-base pet-l:text-xl transition-[0.3s]"
+                className="bg-primary rounded-[10px] w-[48%]  mr-[4%] flex justify-center items-center px-0 py-[3%]  shadow-lg text-sm pet-m:text-base pet-l:text-xl transition-[0.3s]"
               >
                 <FontAwesomeIcon
                   icon={faPhone}
@@ -81,7 +81,7 @@ function Place() {
               </a>
               <button
                 onClick={openModal}
-                className="bg-pet-green rounded-[10px] text-white w-[48%] flex justify-center items-center px-0 py-[3%] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] text-sm pet-m:text-base pet-l:text-xl transition-[0.3s]"
+                className="bg-pet-green rounded-[10px] text-white w-[48%] flex justify-center items-center px-0 py-[3%]  shadow-lg text-sm pet-m:text-base pet-l:text-xl transition-[0.3s]"
               >
                 <FontAwesomeIcon
                   icon={faLocationDot}
@@ -106,7 +106,7 @@ function Place() {
                   href={place.url}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="w-full bg-white flex overflow-hidden items-center mb-[5%] rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
+                  className="w-full bg-white flex overflow-hidden items-center mb-[5%] rounded-[10px]  shadow-lg"
                 >
                   <img
                     className="w-[35%] h-auto"
