@@ -88,7 +88,7 @@ function ProductItem({ product, reviewCount, selectedCategory }) {
             />
             <button
               onClick={handleWishBtn}
-              className="transition-all duration-300 hover:scale-125 cursor-pointer absolute pet-m:top-5 pet-m:right-5 pet-l:top-7 pet-l:right-6 top-[0.75rem] right-[0.75rem]"
+              className="p-3 transition-all duration-300 hover:scale-125 cursor-pointer absolute pet-m:top-2 pet-m:right-2 pet-l:top-4 pet-l:right-4 top-[0.1rem] right-[0.1rem]"
             >
               {addWish ? (
                 <img
@@ -103,10 +103,10 @@ function ProductItem({ product, reviewCount, selectedCategory }) {
               )}
             </button>
           </div>
-          <span className="block text-ellipsis whitespace-nowrap overflow-hidden transition-all duration-300 pet-m:text-base pet-l:text-xl text-[12px] text-pet-black pt-2">
+          <span className="block text-ellipsis whitespace-nowrap overflow-hidden transition-all duration-300 pet-m:text-base pet-l:text-xl text-[14px] text-pet-black pt-2">
             {product.title}
           </span>
-          <span className="block transition-all duration-300 pet-m:text-sm pet-l:text-lg text-[10px] font-bold text-pet-red pt-1">
+          <span className="-mb-1 pet-m:mb-0 block transition-all duration-300 pet-m:text-sm pet-l:text-lg text-[12px] font-bold text-pet-red pt-1">
             {product.price.toLocaleString('ko-KR')}원
           </span>
           {categoryLabels.map((label) => {
