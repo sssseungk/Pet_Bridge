@@ -52,7 +52,11 @@ function HomeBenner(props) {
         {/* Map each place to a swiper slide */}
         {homeBenner?.map((banner) => (
           <SwiperSlide key={banner.id}>
-            <div style={{ width: '100%', height: '150px', overflow: 'hidden' }}>
+            <Link
+              to={`/productlist/detail/${banner.field}`}
+              onClick={() => window.scrollTo(0, 0)}
+              style={{ width: '100%', height: '150px', overflow: 'hidden' }}
+            >
               <img
                 src={getPbImageURL(banner, 'img')}
                 alt="Banner"
@@ -63,7 +67,7 @@ function HomeBenner(props) {
                   objectPosition: 'center',
                 }}
               />
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>
