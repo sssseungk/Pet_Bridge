@@ -24,8 +24,8 @@ function Cart() {
         setUserData(data);
 
         // 초기 수량 설정
-        if (data && data.expand.AddCart) {
-          const initialCounts = new Array(data.expand.AddCart.length).fill(1);
+        if (data && data.expand?.AddCart) {
+          const initialCounts = new Array(data.expand?.AddCart.length).fill(1);
           setCounts(initialCounts);
         }
       } catch (error) {
@@ -51,6 +51,39 @@ function Cart() {
     }
   };
 
+  // 특정 인덱스의 상품 삭제 함수
+  const removeItem = async (index) => {
+    if (userData && userData.expand?.AddCart) {
+      // 제거할 아이템 ID
+      const itemIdToRemove = userData.expand?.AddCart[index].id;
+
+      // 새로운 AddCart 배열 생성 (제거할 아이템 ID 제외)
+      const updatedAddCart = userData.expand?.AddCart.filter(
+        (item) => item.id !== itemIdToRemove
+      );
+
+      try {
+        // 서버에 요청하여 실제 데이터 업데이트
+        await pb
+          .collection('users')
+          .update(user.id, { AddCart: updatedAddCart.map((item) => item.id) });
+
+        // UI 갱신을 위해 userData 및 counts 상태 업데이트
+
+        let updatedCounts = [...counts];
+        updatedCounts.splice(index, 1); // counts 배열에서도 해당 인덱스의 아이템 수량 정보 삭제
+        setCounts(updatedCounts);
+
+        setUserData({
+          ...userData,
+          expand: { ...userData.expand, AddCart: updatedAddCart },
+        });
+      } catch (error) {
+        console.error('Error updating cart:', error);
+      }
+    }
+  };
+
   // 배송비 계산 함수
   const calculateShippingFee = () => {
     let totalPrice = calculateTotalPrice();
@@ -62,21 +95,22 @@ function Cart() {
   const calculateTotalPrice = () => {
     let totalPrice = 0;
 
-    if (userData && userData.expand.AddCart) {
-      userData.expand.AddCart.forEach((item, index) => {
+    if (userData && userData.expand?.AddCart) {
+      userData.expand?.AddCart.forEach((item, index) => {
         totalPrice += item.price * counts[index];
       });
 
       return totalPrice;
     }
 
-    return totalPrice;
+    return totalPrice
   };
   return (
     <>
       <div className="max-w-screen-pet-l h-auto m-auto px-5">
-        {userData &&
-          userData.expand.AddCart.map((item, index) => (
+        
+{userData && userData.expand?.AddCart.length > 0 ? (
+  userData.expand?.AddCart.map((item, index) => (
             <div
               key={index}
               className="h-auto bg-pet-bg mt-14 rounded-xl mb-6 shadow-[4px_4px_8px_0_rgba(0,0,0,0.16)]"
@@ -94,7 +128,10 @@ function Cart() {
                       {item.price.toLocaleString('ko-KR')}원
                     </div>
                   </div>
-                  <button className="absolute top-4 right-4">
+                  <button
+                    className="absolute top-4 right-4"
+                    onClick={() => removeItem(index)}
+                  >
                     <img src={remove} alt="제거버튼" />
                   </button>
                   <div className="absolute right-4 top-12">
@@ -111,7 +148,13 @@ function Cart() {
                 </div>
               </div>
             </div>
-          ))}
+          ))
+          ) : (
+            <div className="text-center mt-10">
+              장바구니에 담긴 상품이 없습니다.
+            </div>
+          )}
+         
 
         <div className="mt-20 flex justify-between">
           <p>상품금액</p>
