@@ -1,11 +1,10 @@
-import ProductItem from "@/components/ProductList/ProductItem"
+import ProductItem from '@/components/ProductList/ProductItem';
 import ProductListNav from './../components/ProductList/ProductListNav';
 import pb from '@/api/pocketbase';
-import { useEffect } from "react";
-import { useState } from "react";
-import Spinner from "@/components/Common/Spinner";
-import { useRef } from "react";
-
+import { useEffect } from 'react';
+import { useState } from 'react';
+import Spinner from '@/components/Common/Spinner';
+import { useRef } from 'react';
 
 function ProductList() {
   const [isLoading, setIsLoading] = useState(false);
@@ -16,10 +15,6 @@ function ProductList() {
   let displayProducts = productList;
 
   useEffect(() => {
-    if(isFirstMountRef.current) {
-      isFirstMountRef.current = false;
-      return;
-    }
     const getProductList = async () => {
       try {
         setIsLoading(true);
@@ -28,8 +23,10 @@ function ProductList() {
         const reviewsData = await pb.collection('reviews').getFullList();
         let counts = {};
         for (let product of productListData) {
-          counts[product.id] = reviewsData.filter(review => review.product_title === product.title).length;
-        }       
+          counts[product.id] = reviewsData.filter(
+            (review) => review.product_title === product.title
+          ).length;
+        }
         setReviewCounts(counts);
       } catch (error) {
         throw new Error('Error fetching product list');
@@ -38,36 +35,51 @@ function ProductList() {
       }
     };
     getProductList();
+
+    if (isFirstMountRef.current) {
+      isFirstMountRef.current = false;
+    }
   }, []);
-  
-  if((isFirstMountRef.current && !productList.length) || isLoading){
+
+  if ((isFirstMountRef.current && !productList.length) || isLoading) {
     return (
       <div className="grid place-content-center h-full">
-        <Spinner size={120} className="mt-8"/>
+        <Spinner size={120} className="mt-8" />
       </div>
     );
   }
 
   if (selectedCategory === '무료배송') {
-    displayProducts = productList.filter(product => product.delivery_free);
+    displayProducts = productList.filter((product) => product.delivery_free);
   } else if (selectedCategory === '신상품') {
-    displayProducts = productList.slice().sort((a, b) => b.product_date.localeCompare(a.product_date)).slice(0,7);
+    displayProducts = productList
+      .slice()
+      .sort((a, b) => b.product_date.localeCompare(a.product_date))
+      .slice(0, 7);
   } else if (selectedCategory === '베스트') {
-    displayProducts = productList.slice().sort((a, b) => b.total_sale - a.total_sale).slice(0, 10);
+    displayProducts = productList
+      .slice()
+      .sort((a, b) => b.total_sale - a.total_sale)
+      .slice(0, 10);
   } else {
     displayProducts = productList;
   }
 
   return (
     <div className="bg-pet-bg max-w-4xl my-0 mx-auto">
-      <ProductListNav onCategorySelect={setSelectedCategory}/>
-      <ol className="px-2 bg-pet-bg flex flex-wrap max-w-4xl mx-auto justify-start mt-5 gap-2">
-        {displayProducts.map(product => (
-           <ProductItem product={product} key={product.id} reviewCount={reviewCounts[product.id]} />
-           ))}
-      </ol>
+      <ProductListNav onCategorySelect={setSelectedCategory} />
+      <li className="list-none px-2 bg-pet-bg flex flex-wrap max-w-4xl mx-auto justify-start mt-5 gap-2">
+        {displayProducts.map((product) => (
+          <ProductItem
+            product={product}
+            key={product.id}
+            reviewCount={reviewCounts[product.id]}
+            selectedCategory={selectedCategory}
+          />
+        ))}
+      </li>
     </div>
-   )
+  );
 }
 
-export default ProductList
+export default ProductList;
