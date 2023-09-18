@@ -1,5 +1,3 @@
-// CategoryButton.js
-
 import { PropTypes } from 'prop-types';
 
 function CategoryButton({

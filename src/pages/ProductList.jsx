@@ -37,7 +37,6 @@ function ProductList() {
     getProductList();
 
     if (isFirstMountRef.current) {
-      // 위치 변경
       isFirstMountRef.current = false;
     }
   }, []);

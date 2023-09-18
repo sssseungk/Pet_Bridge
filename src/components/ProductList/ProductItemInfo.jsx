@@ -54,6 +54,7 @@ function ProductItemInfo({ product, selectedCategory, reviewCount }) {
       <div className="flex gap-1 justify-end pb-1 pt-2 pet-l:gap-2 pet-l:pr-3 pet-l:pb-3">
         <img
           src={comment_icon}
+          alt="댓글 수"
           className="transition-all duration-300 w-3 pet-m:w-4 pet-l:w-4"
         />
         <span className="transition-all duration-base text-gray2 text-xs sm:text-sm lg:text-base">

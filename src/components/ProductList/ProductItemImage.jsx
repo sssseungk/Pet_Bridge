@@ -8,6 +8,7 @@ function ProductItemImage({ product, handleWishBtn, addWish }) {
     <div className="relative">
       <img
         src={getPbImageURL(product, 'photo')}
+        alt="상품 이미지"
         className="=w-full h-3/2 rounded-[10px] transition-width duration-300"
       />
       <button
@@ -17,11 +18,13 @@ function ProductItemImage({ product, handleWishBtn, addWish }) {
         {addWish ? (
           <img
             src={heart_fill_icon}
+            alt="찜버튼 활성화"
             className="pet-s:w-5 pet-m:w-8 pet-l:w-10"
           />
         ) : (
           <img
             src={heart_empty_icon}
+            alt="찜버튼 비활성화"
             className="pet-s:w-5 pet-m:w-8 pet-l:w-10"
           />
         )}
