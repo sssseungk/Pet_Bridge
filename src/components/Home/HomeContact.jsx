@@ -1,5 +1,6 @@
 import EmailLink from './EmailLink';
 import PropTypes from 'prop-types';
+import post_box from '/assets/imgs/post_box.png';
 
 function HomeContact(props) {
   return (
@@ -19,7 +20,7 @@ function HomeContact(props) {
         </div>
         <img
           alt="우체통"
-          src="/public/assets/imgs/post_box.png"
+          src={post_box}
           className="absolute bottom-0 left-2"
         ></img>
       </div>
