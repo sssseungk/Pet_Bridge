@@ -34,7 +34,7 @@ const router = createBrowserRouter(
       />
       <Route path="search" element={<SearchProduct />} />
       <Route path="map" element={<Map />} />
-      <Route path="about" element={<About />} />
+      <Route path="about" element={<About Amount={2132154} />} />
     </Route>
   )
 );
