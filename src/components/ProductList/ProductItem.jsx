@@ -28,7 +28,7 @@ function ProductItem({ product, reviewCount }) {
       }
     };
     fetchProductData();
-  }, user?.id);
+  }, [user?.id]);
 
   const handleWishBtn = async (e) => {
     e.preventDefault();
