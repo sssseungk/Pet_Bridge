@@ -6,6 +6,10 @@ import 'swiper/css/pagination';
 // import './styles.css';
 import { Pagination } from 'swiper/modules';
 
+import index_1 from '/public/assets/imgs/Index_1.png';
+import index_3 from '/public/assets/imgs/Index_3.png';
+import index_2 from '/public/assets/imgs/Index_2.png';
+
 function Index() {
   // const place="내용"
   return (
@@ -32,7 +36,7 @@ function Index() {
           </p>
 
           <img
-            src="/public/assets/imgs/Index_1.png"
+            src={index_1}
             className="absolute top-[350px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
           />
         </SwiperSlide>
@@ -54,7 +58,7 @@ function Index() {
             <br /> 경험을 만나보세요.
           </p>
           <img
-            src="/public/assets/imgs/Index_2.png"
+            src={index_2}
             className="absolute top-[350px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
           />
         </SwiperSlide>
@@ -80,7 +84,7 @@ function Index() {
             동물들에게 큰 도움이 됩니다.
           </p>
           <img
-            src="/public/assets/imgs/Index_3.png"
+            src={index_3}
             className="absolute top-[350px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-xs"
           />
         </SwiperSlide>
@@ -97,7 +101,7 @@ function Index() {
               className="text-[50px] font-extrabold"
             >
               24,105
-            </span>{' '}
+            </span>
             <br />
             마리의 유기동물이 <br />
             사랑을 받고 있고,
@@ -111,7 +115,7 @@ function Index() {
               className="text-[50px] font-extrabold"
             >
               6,382
-            </span>{' '}
+            </span>
             <br />
             명의 사용자의 다리를 <br />
             만들어 주었습니다.
