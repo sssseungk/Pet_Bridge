@@ -55,14 +55,14 @@ function HomeBenner(props) {
             <Link
               to={`/productlist/detail/${banner.field}`}
               onClick={() => window.scrollTo(0, 0)}
-              style={{ width: '100%', height: '150px', overflow: 'hidden' }}
             >
               <img
                 src={getPbImageURL(banner, 'img')}
                 alt="Banner"
                 style={{
                   width: '100%',
-                  height: '100%',
+                  height: '150px',
+                  overflow: 'hidden',
                   objectFit: 'cover',
                   objectPosition: 'center',
                 }}
