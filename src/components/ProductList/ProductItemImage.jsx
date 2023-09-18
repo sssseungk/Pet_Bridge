@@ -38,5 +38,5 @@ export default ProductItemImage;
 ProductItemImage.propTypes = {
   product: PropTypes.object.isRequired,
   handleWishBtn: PropTypes.func.isRequired,
-  addWish: PropTypes.func.isRequired,
+  addWish: PropTypes.bool.isRequired,
 };
