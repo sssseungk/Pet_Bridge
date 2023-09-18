@@ -2,21 +2,67 @@ import comment_icon from '/assets/icons/comment_icon.svg';
 import heart_empty_icon from '/assets/icons/heart_empty_icon.svg';
 import heart_fill_icon from '/assets/icons/heart_fill_icon.svg';
 import { useState } from 'react';
-import { getPbImageURL } from '@/utils/getPbImageUrl';
+import getPbImageURL from '@/utils/getPbImageUrl';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
+import pb from '@/api/pocketbase';
+import { useAuth } from '@/contexts/Auth';
+import { useEffect } from 'react';
 
 function ProductItem({ product, reviewCount }) {
+  const { user } = useAuth();
   const [addWish, setAddWish] = useState(false);
-  const handleWishBtn = (e) => {
+
+  useEffect(() => {
+    // 로그인 안했으면 바로 반환
+    if (!user) return;
+    // 포켓베이스에서 product 데이터 가져옴
+    const fetchProductData = async () => {
+      try {
+        const userData = await pb.collection('users').getOne(user.id);
+        if (userData.LikedProducts.includes(product.id)) {
+          setAddWish(true);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchProductData();
+  }, user?.id);
+
+  const handleWishBtn = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    setAddWish(!addWish);
+    if (!user) return;
+    try {
+      // 현재 사용자 데이터 가져오기
+      const userData = await pb.collection('users').getOne(user.id);
+      let updatedLikedUsers;
+      // 하트버튼이 눌렸을 때 기존 찜목록에 추가로 상품 추가
+      if (!addWish) {
+        updatedLikedUsers = [...userData.LikedProducts, product.id];
+        setAddWish(true);
+      } else {
+        // 하트가 취소된 상태이면
+        updatedLikedUsers = userData.LikedProducts.filter(
+          (productId) => productId !== product.id
+        );
+        setAddWish(false);
+      }
+      await pb
+        .collection('users')
+        .update(user.id, { LikedProducts: updatedLikedUsers });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <li className="bg-[#FDF6EE] rounded-[10px] pet-s:w-[calc(50%/1-0.25rem)] pet-l:w-[calc(33.3%-0.33rem)] aspect-200/140">
-      <Link to={`/productlist/detail/${product.id}`} onClick={() => window.scrollTo(0, 0)}>
+      <Link
+        to={`/productlist/detail/${product.id}`}
+        onClick={() => window.scrollTo(0, 0)}
+      >
         <div className="flex-col items-center justify-center pt-3 px-3">
           <div className="relative">
             <img
@@ -48,9 +94,9 @@ function ProductItem({ product, reviewCount }) {
               src={comment_icon}
               className="transition-all duration-300 w-3 pet-m:w-4 pet-l:w-4"
             />
-              <span className = "transition-all duration-base text-gray2 text-xs sm:text-sm lg:text-base"> 
-               {reviewCount || '0'}
-             </span>
+            <span className="transition-all duration-base text-gray2 text-xs sm:text-sm lg:text-base">
+              {reviewCount || '0'}
+            </span>
           </div>
         </div>
       </Link>

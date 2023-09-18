@@ -56,7 +56,7 @@ function Nav() {
           <Link to="/place">
             <img src={getIcon(['/place', '/map'], map2, map)} alt="Place" />
           </Link>
-          <Link to="/">
+          <Link to="/mypage">
             <img src={getIcon(['/mypage'], myPage2, myPage)} alt="MyPage" />
           </Link>
         </div>
