@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import ProductItemInfo from './ProductItemInfo';
 import ProductItemImage from './ProductItemImage';
 
-function ProductItem({ product, reviewCount, selectedCategory }) {
+function ProductItem({ product, reviewCount, selectedCategory = '' }) {
   const { user } = useAuth();
   const [addWish, setAddWish] = useState(false);
 

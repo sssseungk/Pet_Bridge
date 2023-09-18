@@ -7,7 +7,7 @@ function CategoryButton({
   buttonText,
 }) {
   return (
-    <li
+    <span
       className={`text-base py-1 px-2 border-gray-1 border-[1px] rounded-[20px] ${
         selectedCategory === buttonId ? 'bg-primary' : ''
       }`}
@@ -15,7 +15,7 @@ function CategoryButton({
       <button type="button" onClick={() => handleClickButton(buttonId)}>
         {buttonText}
       </button>
-    </li>
+    </span>
   );
 }
 
