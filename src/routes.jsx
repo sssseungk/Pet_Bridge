@@ -15,6 +15,7 @@ import ProductList from './pages/ProductList';
 import SearchProduct from './pages/SearchProduct';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import About from './pages/About';
 
 const router = createHashRouter(
   createRoutesFromElements(
@@ -33,6 +34,7 @@ const router = createHashRouter(
       />
       <Route path="search" element={<SearchProduct />} />
       <Route path="map" element={<Map />} />
+      <Route path="about" element={<About Amount={2132154} />} />
     </Route>
   )
 );
