@@ -1,9 +1,9 @@
-import { useAuth } from '@/contexts/Auth';
-import DefaultUser from '/assets/imgs/defaultUser.png'; // 기본 사용자 이미지
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import pb from '@/api/pocketbase';
+import { useAuth } from '@/contexts/Auth';
 import getPbImageURL from '@/utils/getPbImageUrl';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import DefaultUser from '/assets/imgs/defaultUser.png'; // 기본 사용자 이미지
 
 const kakaoLogout = async () => {
   const CLIENT_ID = import.meta.env.VITE_KAKAO_API_KEY;
@@ -21,21 +21,30 @@ function MyPage() {
   const { user, signOut, cancelMembership, updateUser } = useAuth();
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
+  const [avatarUrl, setAvatarUrl] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (!user) {
-      // alert('로그인이 필요합니다.');
       navigate('/signin');
     } else {
       const fetchLikedProducts = async () => {
         try {
+          setIsLoading(true);
           const data = await pb
             .collection('users')
             .getOne(user.id, { expand: 'LikedProducts' });
           setUserData(data);
-          console.log(data);
+
+          const refreshedUser = await pb.collection('users').getOne(user.id);
+          const url = pb.files.getUrl(refreshedUser, refreshedUser.avatar);
+
+          // avatarUrl 상태 업데이트
+          setAvatarUrl(url);
         } catch (error) {
           console.error('Error: ', error);
+        } finally {
+          setIsLoading(false); // 데이터 로딩 완료
         }
       };
       fetchLikedProducts(user.id);
@@ -64,7 +73,7 @@ function MyPage() {
   const [updatedUser, setUpdatedUser] = useState({
     username: user?.username,
     email: user?.email,
-    avatar: DefaultUser,
+    avatar: avatarUrl || DefaultUser,
     avatarFile: null,
   });
 
@@ -72,7 +81,7 @@ function MyPage() {
     setUpdatedUser({
       username: user?.username || '',
       email: user?.email || '',
-      avatar: user?.avatar || DefaultUser,
+      avatar: user?.avatar,
     });
   }, [user]);
 
@@ -83,9 +92,12 @@ function MyPage() {
   // 프로필(이미지) 변경 핸들러
   const handleAvatarChange = (e) => {
     if (e.target.files[0]) {
+      const newImageUrl = URL.createObjectURL(e.target.files[0]);
+      setAvatarUrl(newImageUrl); // avatarUrl 상태 업데이트
+
       setUpdatedUser({
         ...updatedUser,
-        avatar: URL.createObjectURL(e.target.files[0]),
+        avatar: newImageUrl, // 새로운 이미지 URL 사용
         avatarFile: e.target.files[0],
       });
     }
@@ -105,7 +117,7 @@ function MyPage() {
       await updateUser(user.id, formData);
 
       // 업데이트된 사용자 정보 다시 불러오기
-      const refreshedUser = await pb.collection('users').get(user.id);
+      const refreshedUser = await pb.collection('users').getOne(user.id);
       const avatarUrl = pb.files.getUrl(refreshedUser, refreshedUser.avatar);
 
       setUpdatedUser({
@@ -122,16 +134,16 @@ function MyPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
-      <div className="p-8 bg-white rounded shadow-lg">
+    <div className="max-w-4xl mx-auto flex flex-col items-center mt-[100px] min-h-screen bg-pet-bg">
+      <div className="p-8 bg-white rounded-[20px] shadow-lg w-[50%] min-w-[300px]">
         {isEditMode ? (
           <>
             <div className="min-w-[18.75rem]">
               <label htmlFor="avatar" className="cursor-pointer">
                 <img
-                  src={updatedUser.avatar ? updatedUser.avatar : DefaultUser}
+                  src={avatarUrl ? avatarUrl : updatedUser.avatar}
                   alt="사용자 프로필"
-                  className="w-24 h-24 rounded-full mb-4"
+                  className="w-24 h-24 rounded-full inline-block"
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = DefaultUser;
@@ -179,16 +191,20 @@ function MyPage() {
           </>
         ) : (
           <>
-            <div className="flex justify-between gap-5">
-              <img
-                src={updatedUser.avatar}
-                alt="사용자 프로필"
-                className="w-24 h-24 rounded-full mb-4"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = DefaultUser;
-                }}
-              />
+            <div className="text-center">
+              {isLoading ? (
+                <div>Loading...</div> // 데이터가 로드되는 동안 표시할 요소 (예: 로딩 스피너)
+              ) : (
+                <img
+                  src={avatarUrl || DefaultUser}
+                  alt="사용자 프로필"
+                  className="w-24 h-24 rounded-full inline-block"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = DefaultUser;
+                  }}
+                />
+              )}
               <div className="mt-4">
                 <h2 className="text-xl font-bold mb-2">{user?.username}</h2>
                 <span className="text-gray-500 mb-6 block">{user?.email}</span>
@@ -198,21 +214,21 @@ function MyPage() {
               <button
                 type="button"
                 onClick={() => setIsEditMode(true)}
-                className="px-4 py-2 text-pet-black bg-primary rounded hover:bg-blue-600"
+                className="px-4 py-2 text-pet-black bg-primary rounded hover:bg-[#FFC71C] transition-[0.3s]"
               >
                 프로필 변경
               </button>
               <button
                 type="button"
                 onClick={handleSignOut}
-                className="px-4 py-2  text-white bg-pet-green rounded hover:bg-green-600"
+                className="px-4 py-2  text-white bg-pet-green rounded hover:bg-[#47A36E] transition-[0.3s]"
               >
                 로그아웃
               </button>
               <button
                 type="button"
                 onClick={handleCancelMembership}
-                className="px-4 py-2 text-white bg-pet-red border-none rounded hover:bg-red-500"
+                className="px-4 py-2 text-white bg-pet-red border-none rounded hover:bg-[#D4452B] transition-[0.3s]"
               >
                 회원탈퇴
               </button>
@@ -228,14 +244,20 @@ function MyPage() {
           <div className="flex">
             {userData && userData.expand && userData.expand.LikedProducts ? (
               userData.expand.LikedProducts.map((item, index) => (
-                <div key={index} className="">
-                  <img
-                    src={getPbImageURL(item, 'photo')}
-                    alt="상품"
-                    className="w-[100px]"
-                  />
-                  <p>{item.title}</p>
-                </div>
+                <Link
+                  key={index}
+                  to={`/productlist/detail/${item.id}`}
+                  onClick={() => window.scrollTo(0, 0)}
+                >
+                  <div className="">
+                    <img
+                      src={getPbImageURL(item, 'photo')}
+                      alt="상품"
+                      className="w-[100px]"
+                    />
+                    <p>{item.title}</p>
+                  </div>
+                </Link>
               ))
             ) : (
               <div>데이터가 없습니다.</div>
