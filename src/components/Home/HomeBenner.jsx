@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 // import './styles.css';
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 function HomeBenner(props) {
   const [homeBenner, setHomeBenner] = useState([]);
@@ -39,10 +39,15 @@ function HomeBenner(props) {
         spaceBetween={0}
         slidesPerView={1}
         loop={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination]}
+        navigation={true}
+        modules={[Autoplay, Pagination]}
       >
         {/* Map each place to a swiper slide */}
         {homeBenner?.map((banner) => (
