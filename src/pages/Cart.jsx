@@ -151,7 +151,7 @@ function Cart() {
           ))
           ) : (
             <div className="text-center mt-10">
-              장바구니에 담긴 상품이 없습니다.
+              장바구니에 담긴 상품이 없습니다.<br/> 상품 꾹꾹 눌러담아 주세요오오오옹!!
             </div>
           )}
          
@@ -183,8 +183,8 @@ function Cart() {
 
         {showModal && (
           <div className="fixed left-[40%] w-80 top-[35%] m-auto p-6 origin-center bg-pet-bg z-[1000] rounded-2xl">
-            <p>
-              기능 및 페이지가 구현되지 않았습니다. <br /> 확장을 준비중입니다!
+            <p className='text-center'>
+              확장을 준비중입니다! <br />조금만 기다려주세요!!!
             </p>
             <img
               src={nocash}
