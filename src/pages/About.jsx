@@ -17,9 +17,9 @@ import CountUp from 'react-countup';
 
 function About(props) {
   return (
-    <div className="flex flex-col px-5 mx-auto max-w-screen-pet-l gap-14">
+    <div className="flex flex-col items-center px-5 mx-auto max-w-screen-pet-l gap-14">
       {/* 메인 */}
-      <section className="relative flex flex-col gap-2 pt-8">
+      <section className="relative flex flex-col gap-2 pt-8 max-w-screen-pet-m">
         <h2 className="text-3xl font-bold">
           About
           <br />
