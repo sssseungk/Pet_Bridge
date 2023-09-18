@@ -42,7 +42,7 @@ function HomeCumulativeAmount(props) {
         </ul>
       )}
       <div
-        className="absolute bottom-0 left-0 w-full h-5 bg-white rounded-t-full "
+        className="absolute bottom-0 left-0 w-full h-5 rounded-t-full bg-pet-bg "
         style={{ boxShadow: '0px -12px 12px rgba(0, 0, 0, 0.08)' }}
       >
         <img

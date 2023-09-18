@@ -6,7 +6,7 @@ import HomeBenner from '@/components/Home/HomeBenner';
 function Home() {
   // const place="내용"
   return (
-    <div className="mx-auto max-w-screen-pet-l ">
+    <div className="mx-auto max-w-screen-pet-l bg-pet-bg">
       <HomeCumulativeAmount Amount={2132154} />
       <HomeBenner title={'유기동물에게 희망을 전달하세요!'} />
       <HomeContact title={'도움이 필요한 유기동물이 있나요?'} />
