@@ -2,15 +2,16 @@ import pb from '@/api/pocketbase';
 import { useAuth } from '@/contexts/Auth';
 import getPbImageURL from '@/utils/getPbImageUrl';
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
-import DefaultUser from '/assets/imgs/defaultUser.png'; // 기본 사용자 이미지
+import DefaultUser from '/assets/imgs/profileImg_default.png'; // 기본 사용자 이미지
 
 const kakaoLogout = async () => {
   const CLIENT_ID = import.meta.env.VITE_KAKAO_API_KEY;
   const LOGOUT_REDIRECT_URI = 'http://localhost:5173/';
   try {
     location.replace(
-      `https://kauth.kakao.com/oauth/logout?client_id=${CLIENT_ID}&logout_redirect_uri=${LOGOUT_REDIRECT_URI}`
+      `https://kauth.kakao.com/oauth/logout?client_id=${CLIENT_ID}&logout_redirect_uri=${LOGOUT_REDIRECT_URI}Pet_Bridge/home`
     );
   } catch (error) {
     throw new Error(error.message);
@@ -23,9 +24,18 @@ function MyPage() {
   const [userData, setUserData] = useState(null);
   const [avatarUrl, setAvatarUrl] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   useEffect(() => {
-    if (!user) {
+    if (!user && !isLoggingOut) {
+      toast('로그인 후 이용해 주세요.', {
+        position: 'top-right',
+        icon: '🙇‍♀️',
+        ariaProps: {
+          role: 'alert',
+          'aria-live': 'polite',
+        },
+      });
       navigate('/signin');
     } else {
       const fetchLikedProducts = async () => {
@@ -48,19 +58,36 @@ function MyPage() {
         }
       };
       fetchLikedProducts(user.id);
+      setIsLoggingOut(false);
     }
-  }, [user, navigate]);
+  }, [user, navigate, isLoggingOut]);
 
   // 로그아웃 핸들러
   const handleSignOut = async () => {
-    await signOut();
-    await kakaoLogout();
+    setIsLoggingOut(true);
+
+    if (user.verified === true) {
+      await kakaoLogout();
+      await signOut();
+    } else {
+      await signOut();
+    }
+
+    toast('정상적으로 로그아웃 되었습니다.', {
+      position: 'top-right',
+      icon: '🐾',
+      ariaProps: {
+        role: 'alert',
+        'aria-live': 'polite',
+      },
+    });
+    setIsLoggingOut(false);
     navigate('/home');
   };
 
   // 회원탈퇴 핸들러
   const handleCancelMembership = async () => {
-    if (window.confirm('정말로 탈퇴하시겠습니까?')) {
+    if (window.confirm('정말로 탈퇴하시겠습니까? 🥲')) {
       await cancelMembership(user.id);
       navigate('/home');
     }
@@ -134,7 +161,7 @@ function MyPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto flex flex-col items-center mt-[100px] min-h-screen bg-pet-bg">
+    <div className="max-w-screen-pet-l mx-auto flex flex-col items-center pt-[100px] min-h-screen bg-pet-bg">
       <div className="p-8 bg-white rounded-[20px] shadow-lg w-[50%] min-w-[300px]">
         {isEditMode ? (
           <>
