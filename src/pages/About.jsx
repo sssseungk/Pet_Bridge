@@ -12,15 +12,22 @@ import handHart from '/assets/icons/handHart_about_icon.svg';
 import book from '/assets/icons/book_about_icon.svg';
 import together from '/assets/icons/together_about_icon.svg';
 import EmailLink from '@/components/Home/EmailLink';
+import cat1 from '/assets/imgs/cat1_about.png';
+import cat2 from '/assets/imgs/cat2_about.png';
+import dog1 from '/assets/imgs/dog1_about.png';
+import dog2 from '/assets/imgs/dog2_about.png';
 
 import CountUp from 'react-countup';
 
+// import { Swiper, div } from 'swiper/react';
+// import { Pagination } from 'swiper/modules';
+
 function About(props) {
   return (
-    <div className="flex flex-col items-center px-5 mx-auto max-w-screen-pet-l gap-14">
+    <div className="flex flex-col items-center px-5 mx-auto max-w-screen-pet-m gap-14 bg-pet-bg">
       {/* 메인 */}
-      <section className="relative flex flex-col gap-2 pt-8 max-w-screen-pet-m">
-        <h2 className="text-3xl font-bold">
+      <section className="relative flex flex-col gap-2 pt-8 ">
+        <h2 className="text-3xl font-extrabold">
           About
           <br />
           <span className="text-2xl">Pet:Bridge</span>
@@ -45,7 +52,7 @@ function About(props) {
 
       {/* 유기동물을 사랑으로 */}
       <section className="flex flex-col items-center gap-7">
-        <h2 className="font-bold">유기동물을 사랑으로</h2>
+        <h2 className="font-extrabold">유기동물을 사랑으로</h2>
         <ul className="flex text-xs text-center gap-14">
           <li className="flex flex-col items-center gap-1">
             <img src={handHart} alt="" />
@@ -71,7 +78,7 @@ function About(props) {
       </section>
       {/* 후원 동참하기 */}
       <section className="flex flex-col items-center gap-7">
-        <h2 className="font-bold">후원 동참하기</h2>
+        <h2 className="font-extrabold">후원 동참하기</h2>
         <ul className="flex flex-row flex-wrap justify-center gap-6 text-xs text-center">
           <li className="flex flex-col items-center gap-2 w-[46%]">
             <FontAwesomeIcon icon={faCartShopping} className="w-10 h-10" />
@@ -127,8 +134,8 @@ function About(props) {
       </section>
 
       <section className="flex flex-col items-center gap-7">
-        <h2 className="font-bold">어떻게 전액 후원이 가능한가요?</h2>
-        <p className="px-5 text-xs max-w-screen-pet-m">
+        <h2 className="font-extrabold">어떻게 전액 후원이 가능한가요?</h2>
+        <p className="text-xs">
           우리는 유기동물 친구들에게 큰 관심을 가지고 있었고, 소비자로서
           수익금의 일부를 후원하는 곳은 많았지만, 그 금액이 정확히 얼마인지도,
           실제로 어떤 도움이 필요한 곳에 사용되는지 항상 의문이었습니다. 그래서
@@ -146,7 +153,43 @@ function About(props) {
         </p>
       </section>
       {/* 멤버소개 */}
-      <section></section>
+      <section className="flex flex-col items-center w-full max-w-screen-pet-m gap-7">
+        <div className="content-center ">
+          <h2 className="font-extrabold">CREAT TEAM</h2>
+          <span className="block text-center">- ilsacheolli -</span>
+        </div>
+
+        <div className="flex flex-row w-full gap-2">
+          <div className="flex flex-col items-center">
+            <img src={dog1} alt="" />
+            <span className="text-sm font-semibold">김승연</span>
+            <span className="text-xs text-center break-all whitespace-normal">
+              ssssseungk@gmail.com
+            </span>
+          </div>
+          <div className="flex flex-col items-center">
+            <img src={cat1} alt="" />
+            <span className="text-sm font-semibold">신동혁</span>
+            <span className="text-xs text-center break-all whitespace-normal">
+              hg971027@gmail.com
+            </span>
+          </div>
+          <div className="flex flex-col items-center">
+            <img src={dog2} alt="" />
+            <span className="text-sm font-semibold">이규정</span>
+            <span className="text-xs text-center break-all whitespace-normal">
+              dlrbwjd7096@gmail.com
+            </span>
+          </div>
+          <div className="flex flex-col items-center">
+            <img src={cat2} alt="" />
+            <span className="text-sm font-semibold">조희정</span>
+            <span className="text-xs text-center break-all whitespace-normal">
+              gmlwjd7731@gmail.com
+            </span>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
