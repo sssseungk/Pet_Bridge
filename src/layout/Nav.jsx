@@ -37,7 +37,7 @@ function Nav() {
     return paths.includes(location.pathname)
       ? ((paths.includes('/place') || paths.includes('/map')) && localStorage.getItem('visitedPlaceOrMap'))
         || ((paths.includes('/productlist') || paths.includes('/productdetail')) && localStorage.getItem('visitedProductListOrDetail'))
-        || ((paths.includes('/myPage') || paths.includes('/home')) && localStorage.getItem('visitedHome'))
+        || ((paths.includes('/home') || paths.includes('/mypage')) && localStorage.getItem('visitedHome'))
         ? activeIcon
         : defaultIcon
       : defaultIcon;
@@ -57,7 +57,7 @@ function Nav() {
             <img src={getIcon(['/place', '/map'], map2, map)} alt="Place" />
           </Link>
           <Link to="/mypage">
-            <img src={getIcon(['/home', '/mypage'], myPage2, myPage)} alt="MyPage" />
+            <img src={getIcon(['/mypage', '/mypage'], myPage2, myPage)} alt="MyPage" />
           </Link>
         </div>
       </nav>
