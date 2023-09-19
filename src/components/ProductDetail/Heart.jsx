@@ -51,13 +51,13 @@ function Heart({ productId }) {
   };
 
   return (
-    <div>
+    <button>
       {addWish ? (
         <img src={click} onClick={handleWishBtn} />
       ) : (
         <img src={unclick} onClick={handleWishBtn} />
       )}
-    </div>
+    </button>
   );
 }
 
