@@ -85,7 +85,7 @@ const PlaceModal = ({ isOpen, onClose, location }) => {
       onClick={onClose}
     >
       <div
-        className="fixed -translate-x-2/4 -translate-y-2/4 z-[1000] w-[85%] h-3/5 p-5 left-2/4 top-2/4 bg-white"
+        className="max-w-[800px] fixed -translate-x-2/4 -translate-y-2/4 z-[1000] w-[85%] h-3/5 p-5 left-2/4 top-2/4 bg-white"
         onClick={onContentClick}
       >
         <button
