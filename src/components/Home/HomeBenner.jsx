@@ -29,8 +29,12 @@ function HomeBenner(props) {
     <section className="flex flex-col gap-3 px-5 py-3">
       <div className="flex items-center justify-between">
         <h2 className="inline font-bold">{props.title}</h2>
-        <Link to={`/productlist`} onClick={() => window.scrollTo(0, 0)}>
-          <span className="text-xs">더보기 &gt; </span>
+        <Link
+          to={`/productlist`}
+          className="text-xs"
+          onClick={() => window.scrollTo(0, 0)}
+        >
+          더보기 &gt;
         </Link>
       </div>
 
@@ -55,14 +59,14 @@ function HomeBenner(props) {
             <Link
               to={`/productlist/detail/${banner.field}`}
               onClick={() => window.scrollTo(0, 0)}
-              style={{ width: '100%', height: '150px', overflow: 'hidden' }}
             >
               <img
                 src={getPbImageURL(banner, 'img')}
                 alt="Banner"
                 style={{
                   width: '100%',
-                  height: '100%',
+                  height: '150px',
+                  overflow: 'hidden',
                   objectFit: 'cover',
                   objectPosition: 'center',
                 }}
