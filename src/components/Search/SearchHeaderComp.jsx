@@ -26,13 +26,8 @@ function SearchHeaderComp({ setSearchTerm }) {
     <>
       <div className="max-w-4xl mx-auto pt-5 pb-5 px-4 bg-pet-bg border-gray-800 shadow-lg relative z-10">
         <div className="flex items-center justify-between w-full">
-          <button className="flex items-center">
-            <img
-              src={prev_icon}
-              alt="뒤로가기 아이콘"
-              className="mr-2"
-              onClick={handleGoPrevPage}
-            />
+          <button className="flex items-center" onClick={handleGoPrevPage}>
+            <img src={prev_icon} alt="뒤로가기 아이콘" className="mr-2" />
           </button>
           <form
             action="/"
@@ -57,7 +52,6 @@ function SearchHeaderComp({ setSearchTerm }) {
             <button
               type="submit"
               className="bg-primary rounded-xl px-4 ml-5 pet-s:w-20"
-              onClick={onSubmit}
             >
               검색
             </button>
@@ -72,5 +66,4 @@ export default SearchHeaderComp;
 
 SearchHeaderComp.propTypes = {
   setSearchTerm: PropTypes.func.isRequired,
-  searchTerm: PropTypes.string.isRequired,
 };
