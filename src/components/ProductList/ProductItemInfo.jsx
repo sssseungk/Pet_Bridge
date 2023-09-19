@@ -2,21 +2,21 @@ import { PropTypes } from 'prop-types';
 import comment_icon from '/assets/icons/comment_icon.svg';
 
 function ProductItemInfo({ product, selectedCategory, reviewCount }) {
-  let categoryLabels = [];
+  let productLabels = [];
   if (
     new Date(product.product_date) >= new Date('2023-08-01') &&
     selectedCategory !== '신상품'
   ) {
-    categoryLabels.push('신상품');
+    productLabels.push('신상품');
   }
   if (product.total_sale > 1200 && selectedCategory !== '베스트') {
-    categoryLabels.push('베스트');
+    productLabels.push('베스트');
   }
   if (product.delivery_free && selectedCategory !== '무료배송') {
-    categoryLabels.push('무료배송');
+    productLabels.push('무료배송');
   }
-  if (categoryLabels.length === 0) {
-    categoryLabels.push('');
+  if (productLabels.length === 0) {
+    productLabels.push('');
   }
 
   return (
@@ -27,7 +27,7 @@ function ProductItemInfo({ product, selectedCategory, reviewCount }) {
       <span className="-mb-1 pet-m:mb-0 block transition-all duration-300 pet-m:text-sm pet-l:text-lg text-[12px] font-bold text-pet-red pt-1">
         {product.price.toLocaleString('ko-KR')}원
       </span>
-      {categoryLabels.map((label) => {
+      {productLabels.map((label) => {
         let labelClass;
         switch (label) {
           case '신상품':
