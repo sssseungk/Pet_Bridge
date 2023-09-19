@@ -28,7 +28,7 @@ function SearchProduct() {
   return (
     <>
       <SearchHeaderComp setSearchTerm={setSearchTerm} searchTerm={searchTerm} />{' '}
-      <div className="mt-2 max-w-4xl mx-auto pt-2 pl-3">
+      <div className="mt-2 max-w-screen-pet-l mx-auto pt-2 pl-3">
         <span className="text-lg font-[600]">친구들이 많이 찾고 있어요!</span>
         <ul className="flex flex-wrap gap-2 mt-3 justify-start">
           {categories.map((category) => (
