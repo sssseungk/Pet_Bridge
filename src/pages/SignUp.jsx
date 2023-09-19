@@ -4,6 +4,7 @@ import debounce from '@/utils/debounce';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 
 function SignUp() {
@@ -62,7 +63,15 @@ function SignUp() {
       emailVisibility: true,
     });
 
-    navigate('/home');
+    toast('환영합니다! 가입이 완료되었습니다!', {
+      position: 'top-right',
+      icon: '🎉',
+      ariaProps: {
+        role: 'alert',
+        'aria-live': 'polite',
+      },
+    });
+    navigate('/signin');
   };
 
   const handleInput = (e) => {
@@ -113,7 +122,7 @@ function SignUp() {
   };
 
   return (
-    <div className="w-[360px] mx-auto rounded-md flex flex-col items-center pt-10 bg-pet-bg">
+    <div className="max-w-screen-pet-l mx-auto flex flex-col items-center pt-10 bg-pet-bg">
       <h2 className="text-3xl text-center pet-black font-semibold">회원가입</h2>
       <form
         onSubmit={handleRegister}
