@@ -108,19 +108,11 @@ function Cart() {
   return (
     <>
       <div className="max-w-screen-pet-l h-auto m-auto px-5">
-        
-{userData && userData.expand?.AddCart.length > 0 ? (
-  userData.expand?.AddCart.map((item, index) => (
-            <div
-              key={index}
-              className="h-auto bg-pet-bg mt-14 rounded-xl mb-6 shadow-[4px_4px_8px_0_rgba(0,0,0,0.16)]"
-            >
+        {userData && userData.expand?.AddCart.length > 0 ? (
+          userData.expand?.AddCart.map((item, index) => (
+            <div key={index} className="h-auto bg-pet-bg mt-14 rounded-xl mb-6 shadow-[4px_4px_8px_0_rgba(0,0,0,0.16)]">
               <div className="px-4 py-5 flex justify-start relative">
-                <img
-                  src={getPbImageURL(item, 'photo')}
-                  alt="상품"
-                  className="w-14 h-14 bg-black"
-                />
+                <img src={getPbImageURL(item, 'photo')} alt="상품" className="w-14 h-14 bg-black"/>
                 <div className="pl-4">
                   <div>
                     <div className="text-xl">{item.title}</div>
@@ -128,10 +120,7 @@ function Cart() {
                       {item.price.toLocaleString('ko-KR')}원
                     </div>
                   </div>
-                  <button
-                    className="absolute top-4 right-4"
-                    onClick={() => removeItem(index)}
-                  >
+                  <button className="absolute top-4 right-4" onClick={() => removeItem(index)}>
                     <img src={remove} alt="제거버튼" />
                   </button>
                   <div className="absolute right-4 top-12">
@@ -167,44 +156,26 @@ function Cart() {
         <div className="m-auto h-[1px] bg-black mt-4 mb-2"></div>
         <div className="mt-2 mb-5 flex justify-between">
           <p>총합계</p>
-          <p>
-            {(calculateTotalPrice() + calculateShippingFee()).toLocaleString(
-              'ko-KR'
-            )}
-            원
-          </p>
+          <p>{(calculateTotalPrice() + calculateShippingFee()).toLocaleString('ko-KR')}원</p>
         </div>
-        <button
-          className="w-full m-auto h-12 bg-primary rounded-lg items-center mb-3 text-base bottom-16 left-0 right-0"
-          onClick={() => setShowModal(true)}
-        >
+        <button className="w-full m-auto h-12 bg-primary rounded-lg items-center mb-3 text-base bottom-16 left-0 right-0" onClick={() => setShowModal(true)}>
           결제하기
         </button>
 
         {showModal && (
-          <div className="fixed left-[40%] w-80 top-[35%] m-auto p-6 origin-center bg-pet-bg z-[1000] rounded-2xl">
+          <div className="fixed w-60 top-60 left-1/4 right-96 m-auto p-6 text-center bg-pet-bg z-[1000] rounded-2xl">
             <p className='text-center'>
               확장을 준비중입니다! <br />조금만 기다려주세요!!!
             </p>
-            <img
-              src={nocash}
-              alt="모르겠어용"
-              className="relative left-[17%]"
-            />
-            <button
-              className="w-full m-auto bg-primary rounded-lg text-lg"
-              onClick={() => setShowModal(false)}
-            >
+            <img src={nocash} alt="모르겠어용" className="relative left-[17%]"/>
+            <button className="w-full m-auto bg-primary rounded-lg text-lg" onClick={() => setShowModal(false)}>
               닫기
             </button>
           </div>
         )}
 
         {showModal && (
-          <div
-            className="fixed top-0 bottom-0 left-0 right-0 bg-[rgba(0,0,0,0.7)] z-[999]"
-            onClick={() => setShowModal(false)}
-          />
+          <div className="fixed top-0 bottom-0 left-0 right-0 bg-[rgba(0,0,0,0.7)] z-[999]" onClick={() => setShowModal(false)}/>
         )}
       </div>
     </>

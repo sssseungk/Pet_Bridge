@@ -37,7 +37,7 @@ function Nav() {
     return paths.includes(location.pathname)
       ? ((paths.includes('/place') || paths.includes('/map')) && localStorage.getItem('visitedPlaceOrMap'))
         || ((paths.includes('/productlist') || paths.includes('/productdetail')) && localStorage.getItem('visitedProductListOrDetail'))
-        || ((paths.includes('/') || paths.includes('/home')) && localStorage.getItem('visitedHome'))
+        || ((paths.includes('/home') || paths.includes('/mypage')) && localStorage.getItem('visitedHome'))
         ? activeIcon
         : defaultIcon
       : defaultIcon;
@@ -45,7 +45,7 @@ function Nav() {
 
   return (
     <>
-      <nav className="max-w-4xl h-[52px] z-10 bg-pet-bg px-[28px] py-[16px] bottom-0 fixed left-0 right-0 m-auto border shadow-[0_-8px_20px_0_rgba(0,0,0,0.1)]">
+      <nav className="max-w-screen-pet-l h-[52px] z-10 bg-pet-bg px-[28px] py-[16px] bottom-0 fixed left-0 right-0 m-auto border shadow-[0_-8px_20px_0_rgba(0,0,0,0.1)]">
         <div className='flex justify-around items-center'>
           <Link to="/home">
             <img src={getIcon(['/home', '/home'], home2, home)} alt="Home" />
@@ -57,7 +57,7 @@ function Nav() {
             <img src={getIcon(['/place', '/map'], map2, map)} alt="Place" />
           </Link>
           <Link to="/mypage">
-            <img src={getIcon(['/mypage'], myPage2, myPage)} alt="MyPage" />
+            <img src={getIcon(['/mypage', '/mypage'], myPage2, myPage)} alt="MyPage" />
           </Link>
         </div>
       </nav>
