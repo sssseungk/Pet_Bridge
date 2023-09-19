@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 
 function SignIn() {
@@ -32,9 +33,20 @@ function SignIn() {
 
     const { email, password } = formState;
 
-    await pb.collection('users').authWithPassword(email, password);
-
-    navigate('/home');
+    try {
+      await pb.collection('users').authWithPassword(email, password);
+      navigate('/mypage');
+    } catch (error) {
+      console.error(error);
+      toast('이메일, 비밀번호를 확인해주세요.', {
+        position: 'top-right',
+        icon: '🚨',
+        ariaProps: {
+          role: 'alert',
+          'aria-live': 'polite',
+        },
+      });
+    }
   };
 
   const handleInput = debounce((e) => {
@@ -49,7 +61,7 @@ function SignIn() {
     setIsPasswordHidden(!isPasswordHidden);
   };
   return (
-    <div className="max-w-4xl mx-auto flex flex-col items-center pt-10 bg-pet-bg">
+    <div className="max-w-screen-pet-l mx-auto flex flex-col items-center pt-10 bg-pet-bg">
       <h2 className="text-3xl text-center pet-black font-semibold">로그인</h2>
       <form
         onSubmit={handleSignIn}

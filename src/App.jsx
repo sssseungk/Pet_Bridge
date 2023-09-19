@@ -1,9 +1,9 @@
-import { RouterProvider } from "react-router-dom";
-import AuthProvider from "./contexts/Auth";
-import router from "./routes";
+import { Toaster } from 'react-hot-toast';
+import { RouterProvider } from 'react-router-dom';
+import AuthProvider from './contexts/Auth';
+import router from './routes';
 
 function App() {
-
   return (
     <>
       <AuthProvider>
@@ -11,8 +11,9 @@ function App() {
           <RouterProvider router={router} />
         </div>
       </AuthProvider>
+      <Toaster />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

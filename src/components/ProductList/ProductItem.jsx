@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import ProductItemInfo from './ProductItemInfo';
 import ProductItemImage from './ProductItemImage';
 
-function ProductItem({ product, reviewCount, selectedCategory }) {
+function ProductItem({ product, reviewCount, selectedCategory = '' }) {
   const { user } = useAuth();
   const [addWish, setAddWish] = useState(false);
 
@@ -76,7 +76,7 @@ function ProductItem({ product, reviewCount, selectedCategory }) {
 export default ProductItem;
 
 ProductItem.propTypes = {
-  product: PropTypes.object,
-  reviewCount: PropTypes.number,
-  selectedCategory: PropTypes.string,
+  product: PropTypes.object.isRequired,
+  reviewCount: PropTypes.number.isRequired,
+  selectedCategory: PropTypes.string.isRequired,
 };
