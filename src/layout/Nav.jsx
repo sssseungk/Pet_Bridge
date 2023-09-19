@@ -45,7 +45,7 @@ function Nav() {
 
   return (
     <>
-      <nav className="max-w-4xl h-[52px] z-10 bg-pet-bg px-[28px] py-[16px] bottom-0 fixed left-0 right-0 m-auto border shadow-[0_-8px_20px_0_rgba(0,0,0,0.1)]">
+      <nav className="max-w-screen-pet-l h-[52px] z-10 bg-pet-bg px-[28px] py-[16px] bottom-0 fixed left-0 right-0 m-auto border shadow-[0_-8px_20px_0_rgba(0,0,0,0.1)]">
         <div className='flex justify-around items-center'>
           <Link to="/home">
             <img src={getIcon(['/home', '/home'], home2, home)} alt="Home" />
