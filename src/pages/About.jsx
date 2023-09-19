@@ -153,42 +153,42 @@ function About(props) {
         </p>
       </section>
       {/* 멤버소개 */}
-      <section className="flex flex-col items-center w-full max-w-screen-pet-m gap-7">
+      <section className="flex flex-col items-center w-full gap-7">
         <div className="content-center ">
           <h2 className="font-extrabold">CREAT TEAM</h2>
           <span className="block text-center">- ilsacheolli -</span>
         </div>
 
-        <div className="flex flex-row w-full gap-2">
-          <div className="flex flex-col items-center">
+        <ul className="flex flex-row w-full gap-2">
+          <li className="flex flex-col items-center">
             <img src={dog1} alt="" />
             <span className="text-sm font-semibold">김승연</span>
             <span className="text-xs text-center break-all whitespace-normal">
               ssssseungk@gmail.com
             </span>
-          </div>
-          <div className="flex flex-col items-center">
+          </li>
+          <li className="flex flex-col items-center">
             <img src={cat1} alt="" />
             <span className="text-sm font-semibold">신동혁</span>
             <span className="text-xs text-center break-all whitespace-normal">
               hg971027@gmail.com
             </span>
-          </div>
-          <div className="flex flex-col items-center">
+          </li>
+          <li className="flex flex-col items-center">
             <img src={dog2} alt="" />
             <span className="text-sm font-semibold">이규정</span>
             <span className="text-xs text-center break-all whitespace-normal">
               dlrbwjd7096@gmail.com
             </span>
-          </div>
-          <div className="flex flex-col items-center">
+          </li>
+          <li className="flex flex-col items-center">
             <img src={cat2} alt="" />
             <span className="text-sm font-semibold">조희정</span>
             <span className="text-xs text-center break-all whitespace-normal">
               gmlwjd7731@gmail.com
             </span>
-          </div>
-        </div>
+          </li>
+        </ul>
       </section>
     </div>
   );
