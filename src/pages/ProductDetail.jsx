@@ -271,10 +271,11 @@ function ProductDetail() {
             <div key={index} className="bg-pet-bg h-auto flex-shrink-0 rounded-2xl shadow-[2px_2px_4px_0px_rgba(0,0,0,0.25)] mb-6">
               <div className="py-4 px-6">
                 <div className="flex text-2xl items-center">
-                  <img src={commentUser.avatar && getPbImageURL(commentUser, 'avatar')
-                        ? getPbImageURL(commentUser, 'avatar')
-                        : profileImg_default
-                    } alt={getPbImageURL(commentUser, 'name')} className="w-11 h-11 rounded-lg"/>
+                {commentUser && commentUser.avatar ? (
+                  <img src={getPbImageURL(commentUser, 'avatar')} alt={commentUser.name} className="w-11 h-11 rounded-lg"/>
+                  ) : (
+                  <img src={profileImg_default} alt="프로필 이미지" className="w-11 h-11 rounded-lg"/>
+                  )}
                   <p className="pl-2 font-semibold">{review.name}</p>
                 </div>
                 <p className="text-sm font-semibold mb-5">{formattedDate}</p>
