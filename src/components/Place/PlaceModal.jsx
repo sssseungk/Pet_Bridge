@@ -81,7 +81,7 @@ const PlaceModal = ({ isOpen, onClose, location }) => {
 
   return ReactDOM.createPortal(
     <div
-      className="max-w-4xl mx-auto fixed inset-0 bg-[rgba(0,0,0,.7)] z-20"
+      className="max-w-screen-pet-l mx-auto fixed inset-0 bg-[rgba(0,0,0,.7)] z-20"
       onClick={onClose}
     >
       <div

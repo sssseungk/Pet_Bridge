@@ -30,7 +30,7 @@ function Place() {
 
   return (
     <>
-      <article className="max-w-4xl mx-auto my-0 relative bg-pet-bg">
+      <article className="max-w-screen-pet-l mx-auto my-0 relative bg-pet-bg">
         <section className="h-[14rem] pet-s:h-[16rem] pet-m:h-[22rem] pet-l:h-[25rem] overflow-hidden transition-[0.3s]">
           <img
             className="w-full object-cover object-center"
