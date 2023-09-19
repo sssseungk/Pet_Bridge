@@ -163,29 +163,37 @@ function About(props) {
           <li className="flex flex-col items-center">
             <img src={dog1} alt="" />
             <span className="text-sm font-semibold">김승연</span>
-            <span className="text-xs text-center break-all whitespace-normal">
-              ssssseungk@gmail.com
+            <span className="text-xs text-center ">
+              ssssseungk
+              <br />
+              @gmail.com
             </span>
           </li>
           <li className="flex flex-col items-center">
             <img src={cat1} alt="" />
             <span className="text-sm font-semibold">신동혁</span>
-            <span className="text-xs text-center break-all whitespace-normal">
-              hg971027@gmail.com
+            <span className="text-xs text-center ">
+              hg971027
+              <br />
+              @gmail.com
             </span>
           </li>
           <li className="flex flex-col items-center">
             <img src={dog2} alt="" />
             <span className="text-sm font-semibold">이규정</span>
-            <span className="text-xs text-center break-all whitespace-normal">
-              dlrbwjd7096@gmail.com
+            <span className="text-xs text-center ">
+              dlrbwjd7096
+              <br />
+              @gmail.com
             </span>
           </li>
           <li className="flex flex-col items-center">
             <img src={cat2} alt="" />
             <span className="text-sm font-semibold">조희정</span>
-            <span className="text-xs text-center break-all whitespace-normal">
-              gmlwjd7731@gmail.com
+            <span className="text-xs text-center ">
+              gmlwjd7731
+              <br />
+              @gmail.com
             </span>
           </li>
         </ul>
