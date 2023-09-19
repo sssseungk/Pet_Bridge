@@ -66,9 +66,9 @@ function ProductList() {
   }
 
   return (
-    <div className="max-w-4xl my-0 mx-auto">
+    <div className="max-w-screen-pet-l my-0 mx-auto">
       <ProductListNav onCategorySelect={setSelectedCategory} />
-      <ul className="list-none px-2 flex flex-wrap max-w-4xl mx-auto justify-start mt-5 gap-2">
+      <ul className="list-none px-2 flex flex-wrap max-w-screen-pet-l mx-auto justify-start mt-5 gap-2">
         {displayProducts.map((product) => (
           <ProductItem
             product={product}

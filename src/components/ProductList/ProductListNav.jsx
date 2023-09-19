@@ -12,7 +12,7 @@ function ProductListNav({ onCategorySelect }) {
   const categories = ['전체', '신상품', '베스트', '무료배송'];
 
   return (
-    <ul className="max-w-4xl mx-auto bg-pet-bg font-bold flex gap-4 justify-evenly flex-wrap pt-2 border-gray-1 relative">
+    <ul className="max-w-screen-pet-l mx-auto bg-pet-bg font-bold flex gap-4 justify-evenly flex-wrap pt-2 border-gray-1 relative">
       {categories.map((category) => (
         <li key={category} className="">
           <button onClick={() => handleCategoryClick(category)}>

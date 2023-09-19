@@ -13,19 +13,19 @@ function ProductItemImage({ product, handleWishBtn, addWish }) {
       />
       <button
         onClick={handleWishBtn}
-        className="p-3 transition-all duration-300 hover:scale-125 cursor-pointer absolute pet-m:top-2 pet-m:right-2 pet-l:top-4 pet-l:right-4 top-[0.1rem] right-[0.1rem]"
+        className="p-3 transition-all duration-300 hover:scale-125 cursor-pointer absolute pet-m:top-2 pet-m:right-2 top-[0.1rem] right-[0.1rem]"
       >
         {addWish ? (
           <img
             src={heart_fill_icon}
             alt="찜버튼 활성화"
-            className="pet-s:w-5 pet-m:w-8 pet-l:w-10"
+            className="pet-s:w-5 pet-m:w-8 pet-l:w-9"
           />
         ) : (
           <img
             src={heart_empty_icon}
             alt="찜버튼 비활성화"
-            className="pet-s:w-5 pet-m:w-8 pet-l:w-10"
+            className="pet-s:w-5 pet-m:w-8 pet-l:w-9"
           />
         )}
       </button>

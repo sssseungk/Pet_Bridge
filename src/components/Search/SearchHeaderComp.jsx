@@ -24,7 +24,7 @@ function SearchHeaderComp({ setSearchTerm }) {
 
   return (
     <>
-      <div className="max-w-4xl mx-auto pt-5 pb-5 px-4 bg-pet-bg border-gray-800 shadow-lg relative z-10">
+      <div className="max-w-screen-pet-l mx-auto pt-5 pb-5 px-4 bg-pet-bg border-gray-800 shadow-lg relative z-10">
         <div className="flex items-center justify-between w-full">
           <button className="flex items-center" onClick={handleGoPrevPage}>
             <img src={prev_icon} alt="뒤로가기 아이콘" className="mr-2" />
