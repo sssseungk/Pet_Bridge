@@ -225,11 +225,11 @@ function ProductDetail() {
       return;
     }
     try {
-      // 현재 사용자의 모든 장바구니 아이템 가져오기
-      const userCartItems = await pb.collection('userCart').getFullList(`userName="${user.name}"`);
-  
-      // 선택한 상품이 이미 있는지 확인하기
-      const existingCartItem = userCartItems.find(item => item.productId === data.id);
+    // 현재 사용자의 모든 장바구니 아이템 가져오기
+    const userCartItems = await pb.collection('userCart').getFullList(`userId="${user.id}"`);
+
+    // 선택한 상품이 이미 있는지 확인하기 (현재 사용자에 한함)
+    const existingCartItem = userCartItems.find(item => item.productId === data.id && item.userId === user.id);
   
       // 만약 이미 존재한다면, 토스트 메시지 띄우고 함수 종료
       if (existingCartItem) {
