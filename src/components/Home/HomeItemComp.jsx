@@ -6,6 +6,7 @@ function HomeItemCompo({ item }) {
     <a href={item.url} target="_blank" rel="noopener noreferrer">
       <div className="flex gap-1 flex-col w-[90px]">
         <img
+          alt=""
           src={getPbImageURL(item, 'photo')}
           className="rounded-lg w-[90px] h-[90px] object-cover"
         />
