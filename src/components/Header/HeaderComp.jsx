@@ -7,6 +7,9 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/contexts/Auth';
+import { useEffect } from 'react';
+import pb from '@/api/pocketbase';
+import { useState } from 'react';
 
 function HeaderComp({
   title,
@@ -16,8 +19,22 @@ function HeaderComp({
   showPrevIcon,
 }) {
   const user = useAuth();
-  const isCartFilled =
-    user && user.user && user.user.AddCart && user.user.AddCart.length > 0;
+
+  const [isCartFilled, setIsCartFilled] = useState(false);
+
+  useEffect(() => {
+    if (!user) return;
+    const fetchUserData = async () => {
+      try {
+        const userData = await pb.collection('users').getOne(user.user?.id);
+        setIsCartFilled(userData.userCart.length > 0);
+        console.log(isCartFilled);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchUserData();
+  });
 
   const navigate = useNavigate();
   const handleGoPrevPage = () => {
