@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import Spinner from '@/components/Common/Spinner';
 import { useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 function ProductList() {
   const [isLoading, setIsLoading] = useState(false);
@@ -66,19 +67,25 @@ function ProductList() {
   }
 
   return (
-    <div className="max-w-screen-pet-l my-0 mx-auto">
-      <ProductListNav onCategorySelect={setSelectedCategory} />
-      <ul className="list-none px-2 flex flex-wrap max-w-screen-pet-l mx-auto justify-start mt-5 gap-2">
-        {displayProducts.map((product) => (
-          <ProductItem
-            product={product}
-            key={product.id}
-            reviewCount={reviewCounts[product.id]}
-            selectedCategory={selectedCategory}
-          />
-        ))}
-      </ul>
-    </div>
+    <>
+      <Helmet>
+        <title>펫:브릿지 - 후원상품</title>
+      </Helmet>
+      <div className="max-w-screen-pet-l my-0 mx-auto">
+        <ProductListNav onCategorySelect={setSelectedCategory} />
+        <h2 className="sr-only">상품 목록</h2>
+        <ul className="list-none px-2 flex flex-wrap max-w-screen-pet-l mx-auto justify-start mt-5 gap-2">
+          {displayProducts.map((product) => (
+            <ProductItem
+              product={product}
+              key={product.id}
+              reviewCount={reviewCounts[product.id]}
+              selectedCategory={selectedCategory}
+            />
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }
 

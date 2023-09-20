@@ -14,7 +14,7 @@ function CategoryButton({
         selectedCategory === buttonId ? 'bg-primary' : ''
       }`}
     >
-      {buttonText}
+      <h3>{buttonText}</h3>
     </button>
   );
 }
