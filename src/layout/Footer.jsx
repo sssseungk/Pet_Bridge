@@ -19,9 +19,9 @@ function Footer() {
     <footer className="relative flex flex-col gap-6 pt-6 mx-auto mt-10 text-xs text-center max-w-screen-pet-l font-suit text-gray-2 bg-gray-1 ">
       <button
         onClick={scrollToTop}
-        className="fixed z-50 flex items-center rounded-full w-14 h-14 border-gray-1 bottom-32 right-5 bg-pet-bg"
+        className="fixed pet-s:right-5  pet-l:right-[calc(50%-(428px))] z-50 rounded-full w-14 h-14 border-gray-1 bottom-32 bg-pet-bg"
         style={{
-          transition: '.2s ease-in-out',
+          // transition: '.2s ease-in-out', 움직일때 애니메이션
           boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)', // 그림자 스타일 조정
         }}
       >
