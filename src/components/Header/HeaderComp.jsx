@@ -20,20 +20,22 @@ function HeaderComp({
 }) {
   const user = useAuth();
 
-  const [isCartFilled, setIsCartFilled] = useState(false);
+  const [isCartFilled, setIsCartFilled] = useState();
 
   useEffect(() => {
-    if (!user) return;
+    if (!user || !user.user) return;
     const fetchUserData = async () => {
       try {
-        const userData = await pb.collection('users').getOne(user.user?.id);
+        const userData = await pb.collection('users').getOne(user.user.id);
         setIsCartFilled(userData.userCart.length > 0);
-        console.log(isCartFilled);
       } catch (error) {
         console.log(error);
       }
     };
-    fetchUserData();
+
+    if (user && user.user) {
+      fetchUserData();
+    }
   });
 
   const navigate = useNavigate();

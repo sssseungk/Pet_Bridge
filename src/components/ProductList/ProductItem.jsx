@@ -104,7 +104,7 @@ function ProductItem({ product, reviewCount, selectedCategory = '' }) {
 export default ProductItem;
 
 ProductItem.propTypes = {
-  product: PropTypes.object.isRequired,
-  reviewCount: PropTypes.number.isRequired,
-  selectedCategory: PropTypes.string.isRequired,
+  product: PropTypes.object,
+  reviewCount: PropTypes.number,
+  selectedCategory: PropTypes.string,
 };

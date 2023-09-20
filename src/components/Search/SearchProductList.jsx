@@ -70,6 +70,6 @@ function SearchProductList({ selectedCategory, searchTerm }) {
 export default SearchProductList;
 
 SearchProductList.propTypes = {
-  selectedCategory: PropTypes.string.isRequired,
-  searchTerm: PropTypes.string.isRequired,
+  selectedCategory: PropTypes.string,
+  searchTerm: PropTypes.string,
 };
