@@ -13,8 +13,8 @@ import { useNavigate } from 'react-router-dom';
 function Cart() {
   const [showModal, setShowModal] = useState(false);
   const { user } = useAuth();
-  const [userData, setUserData] = useState(null); // userData 상태 추가
   const [counts, setCounts] = useState([]); // 각 상품의 수량 배열로 관리
+  const [cartData, setCartData] = useState([]); // cartData 상태 추가
   const [isLoggingOut] = useState(false);
   const navigate = useNavigate();
 
@@ -30,24 +30,25 @@ function Cart() {
       });
       navigate('/signin');
     }
-    const fetchCartItem = async () => {
+    const fetchCartItemAndCartData = async () => {
       try {
         // 현재 로그인한 사용자 정보 ( 장바구니 포함 )
-        const data = await pb
-          .collection('users')
-          .getOne(user.id, { expand: 'AddCart' });
-        setUserData(data);
+        const cartdata = await pb
+        .collection('userCart')
+        .getFullList({ expand: 'productId' });
+        const data = cartdata.filter((item) => item.userName === user.name);
+        setCartData(data);
 
-        // 초기 수량 설정
-        if (data && data.expand?.AddCart) {
-          const initialCounts = new Array(data.expand?.AddCart.length).fill(1);
-          setCounts(initialCounts);
-        }
+        if (data.length > 0) { 
+          const initialCounts = data.map(item => item.quantity || 1); // 서버에서 제공하는 quantity 값으로 초기화
+          setCartData(data); 
+          setCounts(initialCounts); 
+        } 
       } catch (error) {
         console.error('Error fetching cart items: ', error);
       }
     };
-    fetchCartItem();
+    fetchCartItemAndCartData();
   }, []);
 
   // 특정 인덱스의 수량 증가 함수
@@ -66,38 +67,30 @@ function Cart() {
     }
   };
 
-  // 특정 인덱스의 상품 삭제 함수
-  const removeItem = async (index) => {
-    if (userData && userData.expand?.AddCart) {
-      // 제거할 아이템 ID
-      const itemIdToRemove = userData.expand?.AddCart[index].id;
+// 특정 인덱스의 상품 삭제 함수
+const removeItem = async (index) => {
+  if (cartData && cartData[index]) {
+    // 제거할 아이템 ID
+    const itemIdToRemove = cartData[index].id;
 
-      // 새로운 AddCart 배열 생성 (제거할 아이템 ID 제외)
-      const updatedAddCart = userData.expand?.AddCart.filter(
-        (item) => item.id !== itemIdToRemove
-      );
+    try {
+      // 서버에 요청하여 실제 데이터 업데이트
+      await pb.collection('userCart').delete(itemIdToRemove);
 
-      try {
-        // 서버에 요청하여 실제 데이터 업데이트
-        await pb
-          .collection('users')
-          .update(user.id, { AddCart: updatedAddCart.map((item) => item.id) });
+      // UI 갱신을 위해 cartData 및 counts 상태 업데이트
 
-        // UI 갱신을 위해 userData 및 counts 상태 업데이트
+      let updatedCounts = [...counts];
+      updatedCounts.splice(index, 1); // counts 배열에서도 해당 인덱스의 아이템 수량 정보 삭제
+      setCounts(updatedCounts);
 
-        let updatedCounts = [...counts];
-        updatedCounts.splice(index, 1); // counts 배열에서도 해당 인덱스의 아이템 수량 정보 삭제
-        setCounts(updatedCounts);
-
-        setUserData({
-          ...userData,
-          expand: { ...userData.expand, AddCart: updatedAddCart },
-        });
-      } catch (error) {
+      let updatedCartData = [...cartData];
+      updatedCartData.splice(index, 1);
+      setCartData(updatedCartData);
+    } catch (error) {
         console.error('Error updating cart:', error);
-      }
     }
-  };
+  }
+};
 
   // 배송비 계산 함수
   const calculateShippingFee = () => {
@@ -110,29 +103,29 @@ function Cart() {
   const calculateTotalPrice = () => {
     let totalPrice = 0;
 
-    if (userData && userData.expand?.AddCart) {
-      userData.expand?.AddCart.forEach((item, index) => {
-        totalPrice += item.price * counts[index];
+    if (cartData) {
+      cartData.forEach((item, index) => {
+        totalPrice += item.expand.productId.price * counts[index];
       });
 
       return totalPrice;
     }
 
-    return totalPrice
-  };
+    return totalPrice;
+};
   return (
     <>
       <div className="max-w-screen-pet-l h-auto m-auto px-5">
-        {userData && userData.expand?.AddCart.length > 0 ? (
-          userData.expand?.AddCart.map((item, index) => (
-            <div key={index} className="h-auto bg-pet-bg mt-14 rounded-xl mb-6 shadow-[4px_4px_8px_0_rgba(0,0,0,0.16)]">
+        {cartData.length > 0 ? (
+          cartData.map((item,index) => (
+            <div key={item.id} className="h-auto bg-pet-bg mt-14 rounded-xl mb-6 shadow-[4px_4px_8px_0_rgba(0,0,0,0.16)]">
               <div className="px-4 py-5 flex justify-start relative">
-                <img src={getPbImageURL(item, 'photo')} alt="상품" className="w-14 h-14 bg-black"/>
+                <img src={getPbImageURL(item.expand.productId, 'photo')} alt="상품" className="w-14 h-14 bg-black"/>
                 <div className="pl-4">
                   <div>
-                    <div className="text-xl">{item.title}</div>
+                    <div className="text-xl">{item.expand.productId.title}</div>
                     <div className="text-lg">
-                      {item.price.toLocaleString('ko-KR')} 원
+                      {item.expand.productId.price.toLocaleString('ko-KR')} 원
                     </div>
                   </div>
                   <button className="absolute top-4 right-4" onClick={() => removeItem(index)}>
