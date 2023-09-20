@@ -2,19 +2,34 @@ import getPbImageURL from '@/utils/getPbImageUrl';
 import remove from '/assets/icons/close_icon.svg';
 import { useState } from 'react';
 import nocash from '/assets/imgs/product_search_notfound.png';
-import { useEffect } from 'react';
+import { useEffect  } from 'react';
 import { useAuth } from '@/contexts/Auth';
 import pb from '@/api/pocketbase';
 import minus from '/assets/icons/minus_icon.svg';
 import plus from '/assets/icons/plus_icon.svg';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
   const [showModal, setShowModal] = useState(false);
   const { user } = useAuth();
   const [userData, setUserData] = useState(null); // userData 상태 추가
   const [counts, setCounts] = useState([]); // 각 상품의 수량 배열로 관리
+  const [isLoggingOut] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
+    if (!user && !isLoggingOut) {
+      toast('로그인 후 이용해 주세요.', {
+        position: 'top-right',
+        icon: '🙇‍♀️',
+        ariaProps: {
+          role: 'alert',
+          'aria-live': 'polite',
+        },
+      });
+      navigate('/signin');
+    }
     const fetchCartItem = async () => {
       try {
         // 현재 로그인한 사용자 정보 ( 장바구니 포함 )
@@ -117,7 +132,7 @@ function Cart() {
                   <div>
                     <div className="text-xl">{item.title}</div>
                     <div className="text-lg">
-                      {item.price.toLocaleString('ko-KR')}원
+                      {item.price.toLocaleString('ko-KR')} 원
                     </div>
                   </div>
                   <button className="absolute top-4 right-4" onClick={() => removeItem(index)}>
@@ -147,16 +162,16 @@ function Cart() {
 
         <div className="mt-20 flex justify-between">
           <p>상품금액</p>
-          <p>{calculateTotalPrice().toLocaleString('ko-KR')}원</p>
+          <p>{calculateTotalPrice().toLocaleString('ko-KR')} 원</p>
         </div>
         <div className="mt-3 mb-6 flex justify-between">
           <p>배송비</p>
-          <p>{calculateShippingFee().toLocaleString('ko-KR')}원</p>
+          <p>{calculateShippingFee().toLocaleString('ko-KR')} 원</p>
         </div>
         <div className="m-auto h-[1px] bg-black mt-4 mb-2"></div>
         <div className="mt-2 mb-5 flex justify-between">
           <p>총합계</p>
-          <p>{(calculateTotalPrice() + calculateShippingFee()).toLocaleString('ko-KR')}원</p>
+          <p>{(calculateTotalPrice() + calculateShippingFee()).toLocaleString('ko-KR')} 원</p>
         </div>
         <button className="w-full m-auto h-12 bg-primary rounded-lg items-center mb-3 text-base bottom-16 left-0 right-0" onClick={() => setShowModal(true)}>
           결제하기
