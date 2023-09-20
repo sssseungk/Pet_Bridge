@@ -8,9 +8,6 @@ import map2 from '/assets/icons/map_icon.svg';
 import myPage2 from '/assets/icons/mypage_icon.svg';
 import { Link, useLocation } from 'react-router-dom';
 
-
-
-
 function Nav() {
   const location = useLocation();
 
@@ -46,20 +43,20 @@ function Nav() {
   return (
     <>
       <nav className="max-w-screen-pet-l h-[52px] z-10 bg-pet-bg px-[28px] py-[16px] bottom-0 fixed left-0 right-0 m-auto border shadow-[0_-8px_20px_0_rgba(0,0,0,0.1)]">
-        <div className='flex justify-around items-center'>
-          <Link to="/home">
+        <h2 className='flex justify-around items-center'>
+          <Link to="/home" onClick={() => window.scrollTo(0, 0)}>
             <img src={getIcon(['/home', '/home'], home2, home)} alt="Home" />
           </Link>
-          <Link to="/productlist">
-            <img src={getIcon(['/productlist', '/productdetail'], shop2, shop)} alt="Shop" />
+          <Link to="/productlist" onClick={() => window.scrollTo(0, 0)}>
+            <img src={getIcon(['/productlist', '/productdetail/'], shop2, shop)} alt="Shop" />
           </Link>
-          <Link to="/place">
+          <Link to="/place" onClick={() => window.scrollTo(0, 0)}>
             <img src={getIcon(['/place', '/map'], map2, map)} alt="Place" />
           </Link>
-          <Link to="/mypage">
+          <Link to="/mypage" onClick={() => window.scrollTo(0, 0)}>
             <img src={getIcon(['/mypage', '/mypage'], myPage2, myPage)} alt="MyPage" />
           </Link>
-        </div>
+        </h2>
       </nav>
     </>
   );
