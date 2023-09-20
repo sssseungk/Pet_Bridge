@@ -119,7 +119,7 @@ const removeItem = async (index) => {
 };
   return (
     <>
-      <div className="max-w-screen-pet-l h-auto m-auto px-5">
+      <h2 className="max-w-screen-pet-l h-auto m-auto px-5">
         {cartData.length > 0 ? (
           cartData.map((item,index) => (
             <div key={item.id} className="h-auto bg-pet-bg mt-14 rounded-xl mb-6 shadow-[4px_4px_8px_0_rgba(0,0,0,0.16)]">
@@ -156,7 +156,6 @@ const removeItem = async (index) => {
             </div>
           )}
          
-
         <div className="mt-20 flex justify-between">
           <p>상품금액</p>
           <p>{calculateTotalPrice().toLocaleString('ko-KR')} 원</p>
@@ -189,7 +188,7 @@ const removeItem = async (index) => {
         {showModal && (
           <div className="fixed top-0 bottom-0 left-0 right-0 bg-[rgba(0,0,0,0.7)] z-[999]" onClick={() => setShowModal(false)}/>
         )}
-      </div>
+      </h2>
     </>
   );
 }
