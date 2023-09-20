@@ -96,6 +96,10 @@ const removeItem = async (index) => {
   const calculateShippingFee = () => {
     let totalPrice = calculateTotalPrice();
 
+    if (totalPrice === 0) {
+      return 0;
+    }
+
     return totalPrice >= 50000 ? 0 : 2500;
   };
 
@@ -125,7 +129,7 @@ const removeItem = async (index) => {
                   <div>
                     <div className="text-xl">{item.expand.productId.title}</div>
                     <div className="text-lg">
-                      {item.expand.productId.price.toLocaleString('ko-KR')} 원
+                      {item.expand.productId.price*counts[index].toLocaleString('ko-KR')} 원
                     </div>
                   </div>
                   <button className="absolute top-4 right-4" onClick={() => removeItem(index)}>
