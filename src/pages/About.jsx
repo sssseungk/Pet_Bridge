@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import mainDog from '/assets/imgs/mainDog_about.png';
+import EmailLink from '@/components/Home/EmailLink';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCartShopping,
@@ -11,7 +12,8 @@ import {
 import handHart from '/assets/icons/handHart_about_icon.svg';
 import book from '/assets/icons/book_about_icon.svg';
 import together from '/assets/icons/together_about_icon.svg';
-import EmailLink from '@/components/Home/EmailLink';
+
+import mainDog from '/assets/imgs/mainDog_about.png';
 import cat1 from '/assets/imgs/cat1_about.png';
 import cat2 from '/assets/imgs/cat2_about.png';
 import dog1 from '/assets/imgs/dog1_about.png';
@@ -26,12 +28,12 @@ function About(props) {
   return (
     <div className="flex flex-col items-center px-5 mx-auto max-w-screen-pet-m gap-14 bg-pet-bg">
       {/* 메인 */}
-      <section className="relative flex flex-col gap-2 pt-8 ">
-        <h2 className="text-3xl font-extrabold">
+      <section className="relative flex flex-col gap-2 pt-8">
+        <h1 tabIndex={0} className="text-3xl font-extrabold">
           About
           <br />
           <span className="text-2xl">Pet:Bridge</span>
-        </h2>
+        </h1>
 
         <p className="text-xl font-bold">
           <span className="text-sm font-semibold">
@@ -52,7 +54,9 @@ function About(props) {
 
       {/* 유기동물을 사랑으로 */}
       <section className="flex flex-col items-center gap-7">
-        <h2 className="font-extrabold">유기동물을 사랑으로</h2>
+        <h2 tabIndex={0} className="font-extrabold">
+          유기동물을 사랑으로
+        </h2>
         <ul className="flex text-xs text-center gap-14">
           <li className="flex flex-col items-center gap-1">
             <img src={handHart} alt="" />
@@ -78,7 +82,9 @@ function About(props) {
       </section>
       {/* 후원 동참하기 */}
       <section className="flex flex-col items-center gap-7">
-        <h2 className="font-extrabold">후원 동참하기</h2>
+        <h2 tabIndex={0} className="font-extrabold">
+          후원 동참하기
+        </h2>
         <ul className="flex flex-row flex-wrap justify-center gap-6 text-xs text-center">
           <li className="flex flex-col items-center gap-2 w-[46%]">
             <FontAwesomeIcon icon={faCartShopping} className="w-10 h-10" />
@@ -120,11 +126,11 @@ function About(props) {
           </li>
           <li className="flex flex-col items-center gap-2 w-[46%]">
             <FontAwesomeIcon icon={faUserGroup} className="w-10 h-10" />
-            <Link>
-              <h3 className="font-bold">
-                <EmailLink text={'함께 활동하기 >'} type={'application'} />
-              </h3>
-            </Link>
+
+            <h3 className="font-bold">
+              <EmailLink text={'함께 활동하기 >'} type={'application'} />
+            </h3>
+
             <p>
               유기동물과 사회와의 다리 <br />
               저희화 함께 만들어나가시겠어요?
@@ -134,7 +140,9 @@ function About(props) {
       </section>
 
       <section className="flex flex-col items-center gap-7">
-        <h2 className="font-extrabold">어떻게 전액 후원이 가능한가요?</h2>
+        <h2 tabIndex={0} className="font-extrabold">
+          어떻게 전액 후원이 가능한가요?
+        </h2>
         <p className="text-xs">
           우리는 유기동물 친구들에게 큰 관심을 가지고 있었고, 소비자로서
           수익금의 일부를 후원하는 곳은 많았지만, 그 금액이 정확히 얼마인지도,
@@ -155,7 +163,9 @@ function About(props) {
       {/* 멤버소개 */}
       <section className="flex flex-col items-center w-full gap-7">
         <div className="content-center ">
-          <h2 className="font-extrabold">CREAT TEAM</h2>
+          <h2 tabIndex={0} className="font-extrabold">
+            CREAT TEAM
+          </h2>
           <span className="block text-center">- ilsacheolli -</span>
         </div>
 
