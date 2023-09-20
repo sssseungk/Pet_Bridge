@@ -67,11 +67,7 @@ function HeaderComp({
           </button>
           <h1 className="flex items-center gap-1 font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl">
             {showLogo && (
-              <img
-                src={logo_header_icon}
-                alt="펫브릿지 로고"
-                className="w-5 h-5"
-              />
+              <img src={logo_header_icon} alt="로고" className="w-5 h-5" />
             )}
             {title}
           </h1>
