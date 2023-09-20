@@ -6,6 +6,7 @@ import { useAuth } from '@/contexts/Auth';
 import { useEffect } from 'react';
 import ProductItemInfo from './ProductItemInfo';
 import ProductItemImage from './ProductItemImage';
+import toast from 'react-hot-toast';
 
 function ProductItem({ product, reviewCount, selectedCategory = '' }) {
   const { user } = useAuth();
@@ -29,18 +30,45 @@ function ProductItem({ product, reviewCount, selectedCategory = '' }) {
   const handleWishBtn = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    if (!user) return;
+    if (!user) {
+      toast('로그인 후 이용해 주세요.', {
+        position: 'top-right',
+        icon: '🙇🏻',
+        ariaProps: {
+          role: 'alert',
+          'aria-live': 'polite',
+        },
+      });
+      return;
+    }
+
     try {
       const userData = await pb.collection('users').getOne(user.id);
       let updatedLikedUsers;
       if (!addWish) {
         updatedLikedUsers = [...userData.LikedProducts, product.id];
         setAddWish(true);
+        toast('찜한 상품에 추가되었습니다.', {
+          position: 'top-right',
+          icon: '💖',
+          ariaProps: {
+            role: 'alert',
+            'aria-live': 'polite',
+          },
+        });
       } else {
         updatedLikedUsers = userData.LikedProducts.filter(
           (productId) => productId !== product.id
         );
         setAddWish(false);
+        toast('찜한 상품이 해제되었습니다.', {
+          position: 'top-right',
+          icon: '💔',
+          ariaProps: {
+            role: 'alert',
+            'aria-live': 'polite',
+          },
+        });
       }
       await pb
         .collection('users')
