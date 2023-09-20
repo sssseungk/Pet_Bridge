@@ -42,7 +42,7 @@ function Footer() {
         All rights reserved.
       </p>
       <div className="flex items-center justify-center py-3 pb-16 text-xl font-bold bg-gray-2 text-gray-1">
-        <img src={logo} className="w-5 m-1"></img>
+        <img src={logo} alt="펫브릿지 로고" className="w-5 m-1"></img>
         펫:브릿지
       </div>
     </footer>
