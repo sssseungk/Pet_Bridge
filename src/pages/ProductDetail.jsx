@@ -332,21 +332,26 @@ useEffect(() => {
           장바구니 추가
         </button>
       </div>
-      <ul className="max-w-4xl h-14 bg-pet-bg font-bold flex justify-evenly border top-0 sticky">
-        <li onClick={() => scrollToElement('productDescription')}
-        className={`py-3 border-r text-center w-[33.3%] cursor-pointer hover:text-pet-green ${activeSection === 'productDescription' ? 'bg-primary' : '' }`}>
-          상품사진
-        </li>
-        <li onClick={() => scrollToElement('productDetails')} 
-        className={`py-3 border-r text-center w-[33.3%] cursor-pointer hover:text-pet-green ${activeSection === 'productDetails' ? 'bg-primary' : '' }`}>
-          상세정보
-        </li>
-        <li onClick={() => scrollToElement('reviews')} 
-        className={`py-3 text-center w-[33.3%] cursor-pointer hover:text-pet-green ${activeSection === 'reviews' ? 'bg-primary' : '' }`}>
-          리뷰
-        </li>
-      </ul>
-      <img id='productDetails' src={getPbImageURL(data, 'photo_detail')} alt="상품사진" className="m-auto py-4 border-b"/>
+      <h2 className='top-0 sticky'>
+        <ul className="max-w-4xl h-14 bg-pet-bg font-bold flex justify-evenly border-pet-black border-2">
+          <li onClick={() => scrollToElement('productDescription')}
+          className={`py-3 border-r-2 border-pet-black text-center w-[33.3%] cursor-pointer hover:text-pet-green ${activeSection === 'productDescription' ? 'bg-primary' : '' }`}>
+            상품사진
+          </li>
+          <li onClick={() => scrollToElement('productDetails')} 
+          className={`py-3 border-r-2 border-pet-black text-center w-[33.3%] cursor-pointer hover:text-pet-green ${activeSection === 'productDetails' ? 'bg-primary' : '' }`}>
+            상세정보
+          </li>
+          <li onClick={() => scrollToElement('reviews')} 
+          className={`py-3 text-center w-[33.3%] cursor-pointer hover:text-pet-green ${activeSection === 'reviews' ? 'bg-primary' : '' }`}>
+            리뷰
+          </li>
+        </ul>
+      </h2>
+      <h2>
+        <img id='productDetails' src={getPbImageURL(data, 'photo_detail')} alt="상품사진" className="m-auto py-4 border-b-2 border-pet-black "/>
+      </h2>
+      <h2 className='text-2xl my-3 mx-4 bg-pet-bg'>Review</h2>
       <form id='reviews' className="py-4 mx-4 flex" onSubmit={editingCommentId ? handleEditSubmit : handleCommentSubmit}>
         <textarea type="text" value={comment} onChange={(e) => setComment(e.target.value)} placeholder="작성하실 리뷰를 적어주세요" className="border w-60 h-9"/>
         <button type="submit" onClick={handleCommentSubmit} className="border ml-5 bg-primary w-14 h-9 rounded-xl">
