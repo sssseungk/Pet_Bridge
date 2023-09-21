@@ -43,20 +43,21 @@ function Nav() {
   return (
     <>
       <nav className="max-w-screen-pet-l h-[52px] z-10 bg-pet-bg px-[28px] py-[16px] bottom-0 fixed left-0 right-0 m-auto border shadow-[0_-8px_20px_0_rgba(0,0,0,0.1)]">
-        <h2 className='flex justify-around items-center'>
+        <div className='flex justify-around items-center'>
+          <h2 className='sr-only'>nav</h2>
           <Link to="/home" onClick={() => window.scrollTo(0, 0)}>
-            <img src={getIcon(['/home', '/home'], home2, home)} alt="Home" />
+            <h3><img src={getIcon(['/home', '/home'], home2, home)} alt="Home" /></h3>
           </Link>
           <Link to="/productlist" onClick={() => window.scrollTo(0, 0)}>
-            <img src={getIcon(['/productlist', '/productdetail/'], shop2, shop)} alt="Shop" />
+            <h3><img src={getIcon(['/productlist', '/productdetail/'], shop2, shop)} alt="Shop" /></h3>
           </Link>
           <Link to="/place" onClick={() => window.scrollTo(0, 0)}>
-            <img src={getIcon(['/place', '/map'], map2, map)} alt="Place" />
+            <h3><img src={getIcon(['/place', '/map'], map2, map)} alt="Place" /></h3>
           </Link>
           <Link to="/mypage" onClick={() => window.scrollTo(0, 0)}>
-            <img src={getIcon(['/mypage', '/mypage'], myPage2, myPage)} alt="MyPage" />
+            <h3><img src={getIcon(['/mypage', '/mypage'], myPage2, myPage)} alt="MyPage" /></h3>
           </Link>
-        </h2>
+        </div>
       </nav>
     </>
   );
