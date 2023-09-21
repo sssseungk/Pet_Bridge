@@ -69,12 +69,12 @@ export default ProductItemInfo;
 
 ProductItemInfo.propTypes = {
   product: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    total_sale: PropTypes.number.isRequired,
-    delivery_free: PropTypes.bool.isRequired,
-    product_date: PropTypes.string.isRequired,
-  }).isRequired,
-  selectedCategory: PropTypes.string.isRequired,
-  reviewCount: PropTypes.number.isRequired,
+    title: PropTypes.string,
+    price: PropTypes.number,
+    total_sale: PropTypes.number,
+    delivery_free: PropTypes.bool,
+    product_date: PropTypes.string,
+  }),
+  selectedCategory: PropTypes.string,
+  reviewCount: PropTypes.number,
 };

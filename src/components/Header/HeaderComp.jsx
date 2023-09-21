@@ -20,20 +20,22 @@ function HeaderComp({
 }) {
   const user = useAuth();
 
-  const [isCartFilled, setIsCartFilled] = useState(false);
+  const [isCartFilled, setIsCartFilled] = useState();
 
   useEffect(() => {
-    if (!user) return;
+    if (!user || !user.user) return;
     const fetchUserData = async () => {
       try {
-        const userData = await pb.collection('users').getOne(user.user?.id);
+        const userData = await pb.collection('users').getOne(user.user.id);
         setIsCartFilled(userData.userCart.length > 0);
-        console.log(isCartFilled);
       } catch (error) {
         console.log(error);
       }
     };
-    fetchUserData();
+
+    if (user && user.user) {
+      fetchUserData();
+    }
   });
 
   const navigate = useNavigate();
@@ -65,11 +67,7 @@ function HeaderComp({
           </button>
           <h1 className="flex items-center gap-1 font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl">
             {showLogo && (
-              <img
-                src={logo_header_icon}
-                alt="펫브릿지 로고"
-                className="w-5 h-5"
-              />
+              <img src={logo_header_icon} alt="로고" className="w-5 h-5" />
             )}
             {title}
           </h1>
