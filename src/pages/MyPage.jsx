@@ -71,25 +71,27 @@ function MyPage() {
 
   // 로그아웃 핸들러
   const handleSignOut = async () => {
-    setIsLoggingOut(true);
+    if (window.confirm('로그아웃 하시겠습니까?')) {
+      setIsLoggingOut(true);
 
-    if (user.verified === true) {
-      await kakaoLogout();
-      await signOut();
-    } else {
-      await signOut();
+      if (user.verified === true) {
+        await kakaoLogout();
+        await signOut();
+      } else {
+        await signOut();
+      }
+
+      toast('정상적으로 로그아웃 되었습니다.', {
+        position: 'top-right',
+        icon: '🐾',
+        ariaProps: {
+          role: 'alert',
+          'aria-live': 'polite',
+        },
+      });
+      setIsLoggingOut(false);
+      navigate('/home');
     }
-
-    toast('정상적으로 로그아웃 되었습니다.', {
-      position: 'top-right',
-      icon: '🐾',
-      ariaProps: {
-        role: 'alert',
-        'aria-live': 'polite',
-      },
-    });
-    setIsLoggingOut(false);
-    navigate('/home');
   };
 
   // 회원탈퇴 핸들러
@@ -179,7 +181,8 @@ function MyPage() {
       <section className="p-8 bg-white rounded-[20px] shadow-lg w-[50%] min-w-[300px]">
         {isEditMode ? (
           <>
-            <div className="min-w-[18.75rem]">
+            <div className="text-center">
+              <h2 className="sr-only">프로필 편집 모드</h2>
               <label htmlFor="avatar" className="cursor-pointer">
                 <img
                   src={avatarUrl ? avatarUrl : updatedUser.avatar}
@@ -190,6 +193,9 @@ function MyPage() {
                     e.target.src = DefaultUser;
                   }}
                 />
+                <p className="mt-4 py-[0.3rem] w-[150px] mx-auto font-medium text-pet-black bg-primary rounded hover:bg-[#FFC71C] transition-[0.3s]">
+                  프로필 사진 변경
+                </p>
               </label>
               <input
                 type="file"
@@ -198,33 +204,39 @@ function MyPage() {
                 onChange={handleAvatarChange}
                 style={{ display: 'none' }}
               />
-              <div className="">
-                <input
-                  type="text"
-                  name="username"
-                  value={updatedUser.username}
-                  onChange={handleProfileChange}
-                  className="border border-gray-300 p-2 mb-[1rem] w-[10rem] rounded-md"
-                />
-                <input
-                  type="text"
-                  name="email"
-                  value={user.email}
-                  readOnly
-                  className="border border-gray-300 p-2 w-[10rem] rounded-md"
-                />
+              <div className="mt-8 flex flex-col items-center gap-2 w-full mx-auto">
+                <div className="flex items-center gap-2 mb-1 w-[250px]">
+                  <p className="font-bold text-lg">username</p>
+                  <input
+                    type="text"
+                    name="username"
+                    value={updatedUser.username}
+                    onChange={handleProfileChange}
+                    className="border border-gray-300 p-2 w-[10rem] rounded-md"
+                  />
+                </div>
+                <div className="flex items-center justify-end gap-2 mb-[1rem] w-[250px]">
+                  <p className="font-bold text-lg">email</p>
+                  <input
+                    type="text"
+                    name="email"
+                    value={user.email}
+                    readOnly
+                    className="border border-gray-300 p-2 w-[10rem] rounded-md"
+                  />
+                </div>
               </div>
             </div>
-            <div className="flex gap-[1rem] mt-3">
+            <div className="mt-3 flex gap-2 justify-end">
               <button
                 onClick={handleSaveProfile}
-                className="px-[1.5rem] py-[0.5rem] text-white bg-blue-500 hover:bg-blue-600 rounded"
+                className="px-4 py-2 text-white bg-[#378dee] hover:bg-[#2c5491] transition-[0.3s] rounded"
               >
                 저장
               </button>
               <button
                 onClick={() => setIsEditMode(false)}
-                className="px-[1.5rem] py-[0.5rem] text-white bg-red-500 hover:bg-red-600 rounded"
+                className="px-4 py-2 text-white bg-pet-red border-none rounded hover:bg-[#D4452B] transition-[0.3s]"
               >
                 취소
               </button>
@@ -233,12 +245,13 @@ function MyPage() {
         ) : (
           <>
             <div className="text-center">
+              <h2 className="sr-only">사용자 프로필</h2>
               {isLoading ? (
                 <p>프로필 사진 불러오는 중...</p>
               ) : (
                 <img
                   src={avatarUrl || DefaultUser}
-                  alt="사용자 프로필"
+                  alt="사용자 프로필 사진"
                   className="w-24 h-24 rounded-full inline-block"
                   onError={(e) => {
                     e.target.onerror = null;
@@ -247,7 +260,7 @@ function MyPage() {
                 />
               )}
               <div className="mt-4">
-                <h2 className="text-xl font-bold mb-2">{user?.username}</h2>
+                <p className="text-xl font-bold mb-2">{user?.username}</p>
                 <span className="text-gray-500 mb-6 block">{user?.email}</span>
               </div>
             </div>
@@ -262,7 +275,7 @@ function MyPage() {
               <button
                 type="button"
                 onClick={handleSignOut}
-                className="px-4 py-2  text-white bg-pet-green rounded hover:bg-[#47A36E] transition-[0.3s]"
+                className="px-4 py-2 text-white bg-pet-green rounded hover:bg-[#47A36E] transition-[0.3s]"
               >
                 로그아웃
               </button>
@@ -279,7 +292,7 @@ function MyPage() {
       </section>
 
       <section className="bg-white mt-[3rem] mx-auto w-[50%] min-w-[300px] ">
-        <h3 className="font-semibold text-lg mb-[30px]">❤️ 내가 찜한 상품</h3>
+        <h2 className="font-semibold text-lg mb-[30px]">❤️ 내가 찜한 상품</h2>
         <ul className="">
           {userData && userData.expand && userData.expand.LikedProducts ? (
             userData.expand.LikedProducts.map((item, index) => (
@@ -297,7 +310,7 @@ function MyPage() {
                     <p className="font-medium">
                       {item.title}
                       <span className="block text-xs mt-[10px] text">
-                        {item.price}
+                        {item.price.toLocaleString('ko-KR')} 원
                       </span>
                     </p>
                   </div>
