@@ -50,6 +50,7 @@ function HomeListCompo(props) {
           to={`/place`}
           className="text-xs"
           onClick={() => window.scrollTo(0, 0)}
+          aria-label={`보호센터 더보기`}
         >
           더보기 &gt;
         </Link>
