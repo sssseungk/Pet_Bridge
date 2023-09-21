@@ -1,5 +1,5 @@
-import EmailLink from './EmailLink';
 import PropTypes from 'prop-types';
+import EmailLink from './EmailLink';
 import post_box from '/assets/imgs/post_box.png';
 
 function HomeContact(props) {

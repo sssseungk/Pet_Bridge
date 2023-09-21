@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import ppl_hand from '/assets/icons/ppl_hand_icon.svg';
 import cat_hand from '/assets/icons/cat_hand_icon.svg';
+import ppl_hand from '/assets/icons/ppl_hand_icon.svg';
 
 function GoAbout(props) {
   return (

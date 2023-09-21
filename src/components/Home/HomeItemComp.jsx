@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import getPbImageURL from '@/utils/getPbImageUrl';
+import PropTypes from 'prop-types';
 
 function HomeItemCompo({ item }) {
   return (
