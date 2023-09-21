@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom';
-import prev_icon from '/assets/icons/prev_icon.svg';
 import { PropTypes } from 'prop-types';
 import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import prev_icon from '/assets/icons/prev_icon.svg';
 
 function SearchHeaderComp({ setSearchTerm }) {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ function SearchHeaderComp({ setSearchTerm }) {
           <button className="flex items-center" onClick={handleGoPrevPage}>
             <img src={prev_icon} alt="뒤로가기 아이콘" className="mr-2" />
           </button>
-          <h1 className="sr-only">상품 검색</h1>
+          <h1 className="sr-only">상품 검색창</h1>
           <form
             action="/"
             onSubmit={onSubmit}
