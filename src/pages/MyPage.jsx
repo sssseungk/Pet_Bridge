@@ -4,7 +4,7 @@ import getPbImageURL from '@/utils/getPbImageUrl';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
-import DefaultUser from '/assets/imgs/profileImg_default.png'; // 기본 사용자 이미지
+import DefaultUser from '/assets/imgs/profileImg_default.png';
 
 const kakaoLogout = async () => {
   const CLIENT_ID = import.meta.env.VITE_KAKAO_API_KEY;
@@ -49,12 +49,19 @@ function MyPage() {
           const refreshedUser = await pb.collection('users').getOne(user.id);
           const url = pb.files.getUrl(refreshedUser, refreshedUser.avatar);
 
-          // avatarUrl 상태 업데이트
           setAvatarUrl(url);
+          toast('오늘도 좋은 하루 되세요!', {
+            position: 'top-right',
+            icon: '🍀',
+            ariaProps: {
+              role: 'alert',
+              'aria-live': 'polite',
+            },
+          });
         } catch (error) {
           console.error('Error: ', error);
         } finally {
-          setIsLoading(false); // 데이터 로딩 완료
+          setIsLoading(false);
         }
       };
       fetchLikedProducts(user.id);
@@ -153,7 +160,14 @@ function MyPage() {
         avatarFile: null,
       });
 
-      alert('저장 완료!');
+      toast('프로필이 변경되었습니다.', {
+        position: 'top-right',
+        icon: '🙆‍♀️',
+        ariaProps: {
+          role: 'alert',
+          'aria-live': 'polite',
+        },
+      });
       setIsEditMode(false);
     } catch (error) {
       console.error(error);
@@ -161,8 +175,8 @@ function MyPage() {
   };
 
   return (
-    <div className="max-w-screen-pet-l mx-auto flex flex-col items-center pt-[100px] min-h-screen bg-pet-bg">
-      <div className="p-8 bg-white rounded-[20px] shadow-lg w-[50%] min-w-[300px]">
+    <article className="max-w-screen-pet-l mx-auto flex flex-col items-center pt-[100px] min-h-screen bg-pet-bg">
+      <section className="p-8 bg-white rounded-[20px] shadow-lg w-[50%] min-w-[300px]">
         {isEditMode ? (
           <>
             <div className="min-w-[18.75rem]">
@@ -220,7 +234,7 @@ function MyPage() {
           <>
             <div className="text-center">
               {isLoading ? (
-                <div>Loading...</div> // 데이터가 로드되는 동안 표시할 요소 (예: 로딩 스피너)
+                <p>프로필 사진 불러오는 중...</p>
               ) : (
                 <img
                   src={avatarUrl || DefaultUser}
@@ -262,37 +276,40 @@ function MyPage() {
             </div>
           </>
         )}
-      </div>
+      </section>
 
-      <div className="bg-white p-[10%] mt-[3rem] mx-auto w-[80%] h-[20rem] flex items-center justify-center">
-        <h3 className="font-semibold text-xl text-center"></h3>
-        <div className="text-center">
-          좋아요 목록
-          <div className="flex">
-            {userData && userData.expand && userData.expand.LikedProducts ? (
-              userData.expand.LikedProducts.map((item, index) => (
+      <section className="bg-white mt-[3rem] mx-auto w-[50%] min-w-[300px] ">
+        <h3 className="font-semibold text-lg mb-[30px]">❤️ 내가 찜한 상품</h3>
+        <ul className="">
+          {userData && userData.expand && userData.expand.LikedProducts ? (
+            userData.expand.LikedProducts.map((item, index) => (
+              <li key={index} className="p-1 mb-6 shadow-md">
                 <Link
-                  key={index}
                   to={`/productlist/detail/${item.id}`}
                   onClick={() => window.scrollTo(0, 0)}
                 >
-                  <div className="">
+                  <div className="flex items-center">
                     <img
                       src={getPbImageURL(item, 'photo')}
                       alt="상품"
-                      className="w-[100px]"
+                      className="w-[80px] mr-[20px]"
                     />
-                    <p>{item.title}</p>
+                    <p className="font-medium">
+                      {item.title}
+                      <span className="block text-xs mt-[10px] text">
+                        {item.price}
+                      </span>
+                    </p>
                   </div>
                 </Link>
-              ))
-            ) : (
-              <div>데이터가 없습니다.</div>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
+              </li>
+            ))
+          ) : (
+            <div>데이터가 없습니다.</div>
+          )}
+        </ul>
+      </section>
+    </article>
   );
 }
 
