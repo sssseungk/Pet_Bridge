@@ -1,17 +1,14 @@
-import getPbImageURL from '@/utils/getPbImageUrl';
-import remove from '/assets/icons/close_icon.svg';
+
 import { useState } from 'react';
-import nocash from '/assets/imgs/product_search_notfound.png';
-import { useEffect  } from 'react';
+import { useEffect } from 'react';
 import { useAuth } from '@/contexts/Auth';
 import pb from '@/api/pocketbase';
-import minus from '/assets/icons/minus_icon.svg';
-import plus from '/assets/icons/plus_icon.svg';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import CartItem from '@/components/Cart/CartItem';
+import Modal from '@/components/Cart/Modal';
 
 function Cart() {
-  const [showModal, setShowModal] = useState(false);
   const { user } = useAuth();
   const [counts, setCounts] = useState([]); // 각 상품의 수량 배열로 관리
   const [cartData, setCartData] = useState([]); // cartData 상태 추가
@@ -122,33 +119,15 @@ const removeItem = async (index) => {
       <h2 className="max-w-screen-pet-l h-auto m-auto px-5">
         {cartData.length > 0 ? (
           cartData.map((item,index) => (
-            <div key={item.id} className="h-auto bg-pet-bg mt-14 rounded-xl mb-6 shadow-[4px_4px_8px_0_rgba(0,0,0,0.16)]">
-              <div className="px-4 py-5 flex justify-start relative">
-                <img src={getPbImageURL(item.expand.productId, 'photo')} alt="상품" className="w-14 h-14 bg-black"/>
-                <div className="pl-4">
-                  <div>
-                    <div className="text-xl">{item.expand.productId.title}</div>
-                    <div className="text-lg">
-                      {item.expand.productId.price*counts[index].toLocaleString('ko-KR')} 원
-                    </div>
-                  </div>
-                  <button className="absolute top-4 right-4" onClick={() => removeItem(index)}>
-                    <img src={remove} alt="제거버튼" />
-                  </button>
-                  <div className="absolute right-4 top-12">
-                    <div className="flex items-center border">
-                      <button onClick={() => decreaseCount(index)}>
-                        <img src={minus} alt="빼기" />
-                      </button>
-                      <span className="px-3">{counts[index]}</span>
-                      <button onClick={() => increaseCount(index)}>
-                        <img src={plus} alt="추가" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <CartItem
+              key={item.id}
+              item={item}
+              count={counts[index]}
+              index={index}
+              removeItem={removeItem}
+              decreaseCount={decreaseCount}
+              increaseCount={increaseCount}
+            />
           ))
           ) : (
             <div className="text-center mt-10">
@@ -169,25 +148,7 @@ const removeItem = async (index) => {
           <p>총합계</p>
           <p>{(calculateTotalPrice() + calculateShippingFee()).toLocaleString('ko-KR')} 원</p>
         </div>
-        <button className="w-full m-auto h-12 bg-primary rounded-lg items-center mb-3 text-base bottom-16 left-0 right-0" onClick={() => setShowModal(true)}>
-          결제하기
-        </button>
-
-        {showModal && (
-          <div className="fixed w-60 top-60 left-1/4 right-96 m-auto p-6 text-center bg-pet-bg z-[1000] rounded-2xl">
-            <p className='text-center'>
-              확장을 준비중입니다! <br />조금만 기다려주세요!!!
-            </p>
-            <img src={nocash} alt="모르겠어용" className="relative left-[17%]"/>
-            <button className="w-full m-auto bg-primary rounded-lg text-lg" onClick={() => setShowModal(false)}>
-              닫기
-            </button>
-          </div>
-        )}
-
-        {showModal && (
-          <div className="fixed top-0 bottom-0 left-0 right-0 bg-[rgba(0,0,0,0.7)] z-[999]" onClick={() => setShowModal(false)}/>
-        )}
+        <Modal/>
       </h2>
     </>
   );
