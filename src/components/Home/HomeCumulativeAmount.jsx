@@ -1,10 +1,10 @@
-import Home_dog from '/assets/imgs/Home_dog.png';
+import { useAuth } from '@/contexts/Auth';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import CountUp from 'react-countup';
 import toast from 'react-hot-toast';
-import { useState } from 'react';
-import { useAuth } from '@/contexts/Auth';
+import { Link } from 'react-router-dom';
+import Home_dog from '/assets/imgs/Home_dog.png';
 
 function HomeCumulativeAmount(props) {
   const { user, signOut } = useAuth();
