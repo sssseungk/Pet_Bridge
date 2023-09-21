@@ -1,37 +1,36 @@
+import EmailLink from '@/components/Home/EmailLink';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import mainDog from '/assets/imgs/mainDog_about.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import {
   faCartShopping,
-  faHandHoldingDollar,
   faEnvelope,
+  faHandHoldingDollar,
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons';
-import handHart from '/assets/icons/handHart_about_icon.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import book from '/assets/icons/book_about_icon.svg';
+import handHart from '/assets/icons/handHart_about_icon.svg';
 import together from '/assets/icons/together_about_icon.svg';
-import EmailLink from '@/components/Home/EmailLink';
+
 import cat1 from '/assets/imgs/cat1_about.png';
 import cat2 from '/assets/imgs/cat2_about.png';
 import dog1 from '/assets/imgs/dog1_about.png';
 import dog2 from '/assets/imgs/dog2_about.png';
+import mainDog from '/assets/imgs/mainDog_about.png';
 
 import CountUp from 'react-countup';
-
-// import { Swiper, div } from 'swiper/react';
-// import { Pagination } from 'swiper/modules';
 
 function About(props) {
   return (
     <div className="flex flex-col items-center px-5 mx-auto max-w-screen-pet-m gap-14 bg-pet-bg">
       {/* 메인 */}
-      <section className="relative flex flex-col gap-2 pt-8 ">
-        <h2 className="text-3xl font-extrabold">
+      <section className="relative flex flex-col gap-2 pt-8">
+        <h1 tabIndex={0} className="text-3xl font-extrabold">
           About
           <br />
           <span className="text-2xl">Pet:Bridge</span>
-        </h2>
+        </h1>
 
         <p className="text-xl font-bold">
           <span className="text-sm font-semibold">
@@ -47,23 +46,29 @@ function About(props) {
           펫:브릿지는 순이익 전액을 &quot;유기동물과 사랑으로 이어주기&quot;
           위해 사용하고 있습니다.
         </p>
-        <img src={mainDog} className="absolute right-0 top-8" />
+        <img
+          src={mainDog}
+          alt="메인강아지"
+          className="absolute right-0 top-8"
+        />
       </section>
 
       {/* 유기동물을 사랑으로 */}
       <section className="flex flex-col items-center gap-7">
-        <h2 className="font-extrabold">유기동물을 사랑으로</h2>
+        <h2 tabIndex={0} className="font-extrabold">
+          유기동물을 사랑으로
+        </h2>
         <ul className="flex text-xs text-center gap-14">
           <li className="flex flex-col items-center gap-1">
-            <img src={handHart} alt="" />
+            <img src={handHart} alt="입양장려" />
             <span>입양장려</span>
           </li>
           <li className="flex flex-col items-center gap-1">
-            <img src={book} alt="" />
+            <img src={book} alt="인식개선" />
             <span>인식 개선</span>
           </li>
           <li className="flex flex-col items-center gap-1">
-            <img src={together} alt="" />
+            <img src={together} alt="파트너십 구축" />
             <span>파트너십 구축</span>
           </li>
         </ul>
@@ -78,7 +83,9 @@ function About(props) {
       </section>
       {/* 후원 동참하기 */}
       <section className="flex flex-col items-center gap-7">
-        <h2 className="font-extrabold">후원 동참하기</h2>
+        <h2 tabIndex={0} className="font-extrabold">
+          후원 동참하기
+        </h2>
         <ul className="flex flex-row flex-wrap justify-center gap-6 text-xs text-center">
           <li className="flex flex-col items-center gap-2 w-[46%]">
             <FontAwesomeIcon icon={faCartShopping} className="w-10 h-10" />
@@ -120,11 +127,11 @@ function About(props) {
           </li>
           <li className="flex flex-col items-center gap-2 w-[46%]">
             <FontAwesomeIcon icon={faUserGroup} className="w-10 h-10" />
-            <Link>
-              <h3 className="font-bold">
-                <EmailLink text={'함께 활동하기 >'} type={'application'} />
-              </h3>
-            </Link>
+
+            <h3 className="font-bold">
+              <EmailLink text={'함께 활동하기 >'} type={'application'} />
+            </h3>
+
             <p>
               유기동물과 사회와의 다리 <br />
               저희화 함께 만들어나가시겠어요?
@@ -134,7 +141,9 @@ function About(props) {
       </section>
 
       <section className="flex flex-col items-center gap-7">
-        <h2 className="font-extrabold">어떻게 전액 후원이 가능한가요?</h2>
+        <h2 tabIndex={0} className="font-extrabold">
+          어떻게 전액 후원이 가능한가요?
+        </h2>
         <p className="text-xs">
           우리는 유기동물 친구들에게 큰 관심을 가지고 있었고, 소비자로서
           수익금의 일부를 후원하는 곳은 많았지만, 그 금액이 정확히 얼마인지도,
@@ -155,13 +164,15 @@ function About(props) {
       {/* 멤버소개 */}
       <section className="flex flex-col items-center w-full gap-7">
         <div className="content-center ">
-          <h2 className="font-extrabold">CREAT TEAM</h2>
+          <h2 tabIndex={0} className="font-extrabold">
+            CREAT TEAM
+          </h2>
           <span className="block text-center">- ilsacheolli -</span>
         </div>
 
         <ul className="flex flex-row w-full gap-2">
           <li className="flex flex-col items-center">
-            <img src={dog1} alt="" />
+            <img src={dog1} alt="강아지" />
             <span className="text-sm font-semibold">김승연</span>
             <span className="text-xs text-center ">
               ssssseungk
@@ -170,7 +181,7 @@ function About(props) {
             </span>
           </li>
           <li className="flex flex-col items-center">
-            <img src={cat1} alt="" />
+            <img src={cat1} alt="고양이" />
             <span className="text-sm font-semibold">신동혁</span>
             <span className="text-xs text-center ">
               hg971027
@@ -179,7 +190,7 @@ function About(props) {
             </span>
           </li>
           <li className="flex flex-col items-center">
-            <img src={dog2} alt="" />
+            <img src={dog2} alt="강아지" />
             <span className="text-sm font-semibold">이규정</span>
             <span className="text-xs text-center ">
               dlrbwjd7096
@@ -188,7 +199,7 @@ function About(props) {
             </span>
           </li>
           <li className="flex flex-col items-center">
-            <img src={cat2} alt="" />
+            <img src={cat2} alt="고양이" />
             <span className="text-sm font-semibold">조희정</span>
             <span className="text-xs text-center ">
               gmlwjd7731
