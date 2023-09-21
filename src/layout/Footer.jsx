@@ -1,32 +1,20 @@
 import { useLocation } from 'react-router-dom';
-import top_icon from '/assets/icons/top_icon.svg';
 import logo from '/assets/icons/logo_footer_icon.svg';
+import GoTopButton from '@/components/Footer/GoTopBuootn';
 
 function Footer() {
   const location = useLocation();
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
+  switch (location.pathname) {
+    case '/':
+    case '/map':
+      return null;
 
-  if (location.pathname === '/') {
-    return null;
+    default:
   }
   return (
     <footer className="relative flex flex-col gap-6 pt-6 mx-auto mt-10 text-xs text-center max-w-screen-pet-l font-suit text-gray-2 bg-gray-1 ">
-      <button
-        onClick={scrollToTop}
-        className="fixed pet-s:right-5  pet-l:right-[calc(50%-(428px))] z-50 rounded-full w-14 h-14 border-gray-1 bottom-32 bg-pet-bg"
-        style={{
-          // transition: '.2s ease-in-out', 움직일때 애니메이션
-          boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)', // 그림자 스타일 조정
-        }}
-      >
-        <img src={top_icon} className="mx-auto" alt="최상단 가기" />
-      </button>
+      <GoTopButton />
       <p>
         <span className="font-semibold">COMPANY:</span> 펫브릿지스튜디오 <br />
         <span className="font-semibold">ADDRESS:</span> 서울 종랑구 연목로 42길
