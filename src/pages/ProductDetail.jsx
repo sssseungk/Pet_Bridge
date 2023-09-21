@@ -11,6 +11,7 @@ import profileImg_default from '/assets/imgs/profileImg_default.png';
 import toast from 'react-hot-toast';
 import minus from '/assets/icons/minus_icon.svg';
 import plus from '/assets/icons/plus_icon.svg';
+import minus_black from '/assets/icons/minus_black_icon.svg';
 
 function ProductDetail() {
   const { user } = useAuth();
@@ -296,12 +297,19 @@ function ProductDetail() {
     const productDetails = document.getElementById('productDetails').offsetTop;
     const reviews = document.getElementById('reviews').offsetTop;
 
-    // 스크롤 포인트에 따라 상태 바꾸고
-    if (window.pageYOffset >= reviews) {
+    // 현재 뷰포트의 하단 위치 계산
+    const scrollPosition = window.scrollY;
+    const viewportBottom = window.scrollY + window.innerHeight;
+
+    // 스크롤 포인트에 따라 상태 변경
+    if (
+      scrollPosition >= reviews ||
+      viewportBottom === document.body.scrollHeight
+    ) {
       setActiveSection('reviews');
-    } else if (window.pageYOffset >= productDetails) {
+    } else if (scrollPosition >= productDetails) {
       setActiveSection('productDetails');
-    } else if (window.pageYOffset >= productDescription) {
+    } else if (scrollPosition >= productDescription) {
       setActiveSection('productDescription');
     }
   };
@@ -322,7 +330,7 @@ function ProductDetail() {
           <div className="ml-4">
             <div className="flex items-center w-24 h-8 border">
               <button onClick={decreaseCount}>
-                <img src={minus} alt="빼기" />
+              <img src={quantity > 1 ? minus_black : minus} alt="빼기" />
               </button>
               <span className="px-4">{quantity}</span>
               <button onClick={increaseCount}>

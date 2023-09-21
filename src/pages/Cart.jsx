@@ -9,6 +9,7 @@ import minus from '/assets/icons/minus_icon.svg';
 import plus from '/assets/icons/plus_icon.svg';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import minus_black from '/assets/icons/minus_black_icon.svg';
 
 function Cart() {
   const [showModal, setShowModal] = useState(false);
@@ -138,7 +139,7 @@ const removeItem = async (index) => {
                   <div className="absolute right-4 top-12">
                     <div className="flex items-center border">
                       <button onClick={() => decreaseCount(index)}>
-                        <img src={minus} alt="빼기" />
+                        <img src={counts > 1 ? minus_black : minus} alt="빼기" />
                       </button>
                       <span className="px-3">{counts[index]}</span>
                       <button onClick={() => increaseCount(index)}>
