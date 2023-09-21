@@ -61,7 +61,7 @@ function ProductDetail() {
       );
       setReviews(relatedReviews);
       toast('댓글이 삭제되었습니다.', {
-        position: 'top-center',
+        position: 'top-right',
         icon: '🗞',
         ariaProps: {
           role: 'alert',
@@ -78,7 +78,7 @@ function ProductDetail() {
     e.preventDefault();
     if (!user) {
       toast('로그인이 필요합니다.', {
-        position: 'top-center',
+        position: 'top-right',
         icon: '🚨',
         ariaProps: {
           role: 'alert',
@@ -89,7 +89,7 @@ function ProductDetail() {
     }
     if (!comment || editingCommentId !== null) {
       toast('글을 작성해주세요.', {
-        position: 'top-center',
+        position: 'top-right',
         icon: '✒',
         ariaProps: {
           role: 'alert',
@@ -116,7 +116,7 @@ function ProductDetail() {
       setReviews((prevReviews) => [...prevReviews, expandedNewReview]);
       setComment('');
       toast('작성 되었습니다.', {
-        position: 'top-center',
+        position: 'top-right',
         icon: '🖋',
         ariaProps: {
           role: 'alert',
@@ -128,7 +128,7 @@ function ProductDetail() {
     }
   };
 
-  // * 댓글 수정
+  // * 리뷰 수정
   const handleCommentEdit = (commentId) => {
     setEditingCommentId(commentId);
     setEditingContent(
@@ -159,7 +159,7 @@ function ProductDetail() {
       setEditingCommentId(null);
       setEditingContent('');
       toast('댓글이 수정되었습니다.', {
-        position: 'top-center',
+        position: 'top-right',
         icon: '💬',
         ariaProps: {
           role: 'alert',
@@ -188,7 +188,6 @@ function ProductDetail() {
   };
 
   // * 장바구니 담기
-
   useEffect(() => {
     if (!user) return;
     const fetchCart = async () => {
@@ -212,7 +211,7 @@ function ProductDetail() {
   const handleAddCart = async () => {
     if (!user) {
       toast('로그인이 필요합니다.', {
-        position: 'top-center',
+        position: 'top-right',
         icon: '🚨',
         ariaProps: {
           role: 'alert',
@@ -223,26 +222,23 @@ function ProductDetail() {
     }
     try {
       // 현재 사용자의 모든 장바구니 아이템 가져오기
-      const userCartItems = await pb
-        .collection('userCart')
-        .getFullList(`userName="${user.name}"`);
-
-      // 선택한 상품이 이미 있는지 확인하기
-      const existingCartItem = userCartItems.find(
-        (item) => item.productId === data.id
-      );
-      // 만약 이미 존재한다면, 토스트 메시지 띄우고 함수 종료
-      if (existingCartItem) {
-        toast('이미 추가된 상품입니다.', {
-          position: 'top-center',
-          icon: '🚨',
-          ariaProps: {
-            role: 'alert',
-            'aria-live': 'polite',
-          },
-        });
-        return;
-      }
+      const userCartItems = await pb.collection('userCart').getFullList(`userId="${user.id}"`);
+  
+      // 선택한 상품이 이미 있는지 확인하기 (현재 사용자에 한함)
+      const existingCartItem = userCartItems.find(item => item.productId === data.id && item.userId === user.id);
+    
+        // 만약 이미 존재한다면, 토스트 메시지 띄우고 함수 종료
+        if (existingCartItem) {
+          toast('이미 추가된 상품입니다.', {
+            position: 'top-right',
+            icon: '🚨',
+            ariaProps: {
+              role: 'alert',
+              'aria-live': 'polite',
+            },
+          });
+          return;
+        }
 
       const newCartData = await pb.collection('userCart').create({
         userId: user.id,
@@ -271,7 +267,7 @@ function ProductDetail() {
         .update(user.id, { userCart: userRelatedCarts });
       // ! 여기 까지-----------------------------------
       toast('상품이 추가되었습니다.', {
-        position: 'top-center',
+        position: 'top-right',
         icon: '🛒',
         ariaProps: {
           role: 'alert',
@@ -318,22 +314,17 @@ function ProductDetail() {
 
   return (
     <div className="max-w-screen-pet-l m-auto pt-3 px-5">
-      <img
-        id="productDescription"
-        src={getPbImageURL(data, 'photo')}
-        alt="상품사진"
-        className="m-auto h-auto"
-      />
+      <img id="productDescription" src={getPbImageURL(data, 'photo')} alt="상품사진" className="m-auto h-auto"/>
       <div className="flex justify-between">
         <div className="text-xl pt-5">{data.title}</div>
         <div className="flex mt-5 mx-3">
           <Heart productId={productTitle} />
           <div className="ml-4">
-            <div className="flex items-center border">
+            <div className="flex items-center w-24 h-8 border">
               <button onClick={decreaseCount}>
                 <img src={minus} alt="빼기" />
               </button>
-              <span className="px-3">{quantity}</span>
+              <span className="px-4">{quantity}</span>
               <button onClick={increaseCount}>
                 <img src={plus} alt="추가" />
               </button>
@@ -349,62 +340,32 @@ function ProductDetail() {
         ) : (
           <div className="text-xl pt-5">가격 정보 없음</div>
         )}
-        <button
-          onClick={handleAddCart}
-          className="bg-primary w-32 h-9 rounded-xl mt-3"
-        >
+        <button onClick={handleAddCart} className="bg-primary w-32 h-9 rounded-xl mt-3">
           장바구니 추가
         </button>
       </div>
-      <ul className="max-w-4xl h-14 bg-pet-bg font-bold flex justify-evenly border top-0 sticky">
-        <li
-          onClick={() => scrollToElement('productDescription')}
-          className={`py-3 border-r text-center w-[33.3%] cursor-pointer hover:text-pet-green ${
-            activeSection === 'productDescription' ? 'bg-primary' : ''
-          }`}
-        >
-          상품사진
+      <h2 className='sr-only'>detail nav</h2>
+      <ul className="max-w-4xl h-14 bg-pet-bg font-bold flex justify-evenly border-gray-1 border top-0 sticky">
+        <li onClick={() => scrollToElement('productDescription')}
+        className={`py-3 border-r border-gray-1 text-center w-[33.3%] cursor-pointer hover:text-pet-green ${activeSection === 'productDescription' ? 'bg-primary' : '' }`}>
+          <h3>상품사진</h3>
         </li>
-        <li
-          onClick={() => scrollToElement('productDetails')}
-          className={`py-3 border-r text-center w-[33.3%] cursor-pointer hover:text-pet-green ${
-            activeSection === 'productDetails' ? 'bg-primary' : ''
-          }`}
-        >
-          상세정보
+        <li onClick={() => scrollToElement('productDetails')} 
+        className={`py-3 border-r border-gray-1 text-center w-[33.3%] cursor-pointer hover:text-pet-green ${activeSection === 'productDetails' ? 'bg-primary' : '' }`}>
+          <h3>상세정보</h3>
         </li>
-        <li
-          onClick={() => scrollToElement('reviews')}
-          className={`py-3 text-center w-[33.3%] cursor-pointer hover:text-pet-green ${
-            activeSection === 'reviews' ? 'bg-primary' : ''
-          }`}
-        >
-          리뷰
+        <li onClick={() => scrollToElement('reviews')} 
+        className={`py-3 text-center w-[33.3%] cursor-pointer hover:text-pet-green ${activeSection === 'reviews' ? 'bg-primary' : '' }`}>
+          <h3>리뷰</h3>
         </li>
       </ul>
+      <h2 className='sr-only'>상세정보 이미지</h2>
       <img
-        id="productDetails"
-        src={getPbImageURL(data, 'photo_detail')}
-        alt="상품사진"
-        className="m-auto py-4 border-b"
-      />
-      <form
-        id="reviews"
-        className="py-4 mx-4 flex"
-        onSubmit={editingCommentId ? handleEditSubmit : handleCommentSubmit}
-      >
-        <textarea
-          type="text"
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-          placeholder="작성하실 리뷰를 적어주세요"
-          className="border w-60 h-9"
-        />
-        <button
-          type="submit"
-          onClick={handleCommentSubmit}
-          className="border ml-5 bg-primary w-14 h-9 rounded-xl"
-        >
+        id="productDetails" src={getPbImageURL(data, 'photo_detail')} className="m-auto py-4 border-b" alt="상품사진"/>
+      <h2 className='text-2xl my-3 mx-4 bg-pet-bg'>Review</h2>
+      <form id="reviews" className="py-4 mx-4 flex" onSubmit={editingCommentId ? handleEditSubmit : handleCommentSubmit}>
+        <textarea type="text" value={comment} onChange={(e) => setComment(e.target.value)} placeholder="작성하실 리뷰를 적어주세요" className="border w-60 h-9"/>
+        <button type="submit" onClick={handleCommentSubmit} className="border ml-5 bg-primary w-14 h-9 rounded-xl">
           작성
         </button>
       </form>
