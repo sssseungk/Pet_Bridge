@@ -13,7 +13,7 @@ function Footer() {
     default:
   }
   return (
-    <footer className="relative flex flex-col gap-6 pt-6 mx-auto mt-10 text-xs text-center max-w-screen-pet-l font-suit text-gray-2 bg-gray-1 ">
+    <footer className="relative flex flex-col gap-6 pt-6 mx-auto mt-10 text-xs text-center max-w-screen-pet-l font-suit text-pet-black bg-gray-1 ">
       <GoTopButton />
       <p>
         <span className="font-semibold">COMPANY:</span> 펫브릿지스튜디오 <br />
