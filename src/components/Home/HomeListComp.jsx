@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import HomeItemComp from './HomeItemComp';
 import pb from '@/api/pocketbase';
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import HomeItemComp from './HomeItemComp';
 
 function HomeListCompo(props) {
   const [homeList, setHomeList] = useState([]);
@@ -50,6 +50,7 @@ function HomeListCompo(props) {
           to={`/place`}
           className="text-xs"
           onClick={() => window.scrollTo(0, 0)}
+          aria-label={`보호센터 더보기`}
         >
           더보기 &gt;
         </Link>
@@ -64,7 +65,6 @@ function HomeListCompo(props) {
       >
         {homeList?.map((place) => (
           <SwiperSlide key={place.id} className="">
-            {/* {console.log(place)} */}
             <HomeItemComp item={place} />
           </SwiperSlide>
         ))}

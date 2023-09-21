@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import ProductItem from '@/components/ProductList/ProductItem';
 import pb from '@/api/pocketbase';
+import ProductItem from '@/components/ProductList/ProductItem';
 import { PropTypes } from 'prop-types';
+import { useEffect, useState } from 'react';
 import product_search_notfound from '/assets/imgs/product_search_notfound.png';
 
 function SearchProductList({ selectedCategory, searchTerm }) {
@@ -70,6 +70,6 @@ function SearchProductList({ selectedCategory, searchTerm }) {
 export default SearchProductList;
 
 SearchProductList.propTypes = {
-  selectedCategory: PropTypes.string.isRequired,
-  searchTerm: PropTypes.string.isRequired,
+  selectedCategory: PropTypes.string,
+  searchTerm: PropTypes.string,
 };
