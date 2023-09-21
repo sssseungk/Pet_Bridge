@@ -1,11 +1,9 @@
-import ProductItem from '@/components/ProductList/ProductItem';
-import ProductListNav from './../components/ProductList/ProductListNav';
 import pb from '@/api/pocketbase';
-import { useEffect } from 'react';
-import { useState } from 'react';
 import Spinner from '@/components/Common/Spinner';
-import { useRef } from 'react';
+import ProductItem from '@/components/ProductList/ProductItem';
+import { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import ProductListNav from './../components/ProductList/ProductListNav';
 
 function ProductList() {
   const [isLoading, setIsLoading] = useState(false);
