@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom';
 import pb from '@/api/pocketbase';
 import getPbImageURL from '@/utils/getPbImageUrl';
 import { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
 // import './styles.css';
 import { Autoplay, Pagination } from 'swiper/modules';
 
 function HomeBenner(props) {
   const [homeBenner, setHomeBenner] = useState([]);
+  const [productTitles, setProductTitles] = useState({});
 
   useEffect(() => {
     const getHomeBenner = async () => {
@@ -22,7 +23,22 @@ function HomeBenner(props) {
         throw new Error('Error fetching place list');
       }
     };
+
+    const getProductTitle = async () => {
+      try {
+        const productItems = await pb.collection('product').getFullList();
+        const titleMap = productItems.reduce((map, item) => {
+          map[item.id] = item.title;
+          return map;
+        }, {});
+
+        setProductTitles(titleMap);
+      } catch (error) {
+        throw new Error('Error fetching Product list');
+      }
+    };
     getHomeBenner();
+    getProductTitle();
   }, []);
 
   return (
@@ -33,6 +49,7 @@ function HomeBenner(props) {
           to={`/productlist`}
           className="text-xs"
           onClick={() => window.scrollTo(0, 0)}
+          aria-label={`쇼핑몰 더보기`}
         >
           더보기 &gt;
         </Link>
@@ -62,7 +79,7 @@ function HomeBenner(props) {
             >
               <img
                 src={getPbImageURL(banner, 'img')}
-                alt="Banner"
+                alt={productTitles[banner.field]}
                 style={{
                   width: '100%',
                   height: '150px',

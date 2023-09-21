@@ -5,7 +5,6 @@ import HomeBenner from '@/components/Home/HomeBenner';
 import GoAbout from '@/components/Home/GoAbout';
 
 function Home() {
-  // const place="내용"
   return (
     <div className="mx-auto max-w-screen-pet-l bg-pet-bg">
       <HomeCumulativeAmount Amount={2132154} />
