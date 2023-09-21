@@ -2,6 +2,7 @@ import CategoryButton from '@/components/Search/CategoryButton';
 import SearchHeaderComp from '@/components/Search/SearchHeaderComp';
 import SearchProductList from '@/components/Search/SearchProductList';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 function SearchProduct() {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -27,9 +28,13 @@ function SearchProduct() {
 
   return (
     <>
-      <SearchHeaderComp setSearchTerm={setSearchTerm} searchTerm={searchTerm} />{' '}
+      <Helmet>
+        <title>펫:브릿지 - 상품검색</title>
+      </Helmet>
+      <SearchHeaderComp setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
       <div className="mt-2 max-w-screen-pet-l mx-auto pt-2 pl-3">
         <span className="text-lg font-[600]">친구들이 많이 찾고 있어요!</span>
+        <h2 className="sr-only">추천 태그</h2>
         <ul className="flex flex-wrap gap-2 mt-3 justify-start">
           {categories.map((category) => (
             <li key={category.id}>
@@ -43,6 +48,7 @@ function SearchProduct() {
           ))}
         </ul>
       </div>
+
       <div>
         <SearchProductList
           selectedCategory={selectedCategory}
