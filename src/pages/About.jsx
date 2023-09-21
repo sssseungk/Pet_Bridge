@@ -1,28 +1,25 @@
+import EmailLink from '@/components/Home/EmailLink';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import EmailLink from '@/components/Home/EmailLink';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCartShopping,
-  faHandHoldingDollar,
   faEnvelope,
+  faHandHoldingDollar,
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons';
-import handHart from '/assets/icons/handHart_about_icon.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import book from '/assets/icons/book_about_icon.svg';
+import handHart from '/assets/icons/handHart_about_icon.svg';
 import together from '/assets/icons/together_about_icon.svg';
 
-import mainDog from '/assets/imgs/mainDog_about.png';
 import cat1 from '/assets/imgs/cat1_about.png';
 import cat2 from '/assets/imgs/cat2_about.png';
 import dog1 from '/assets/imgs/dog1_about.png';
 import dog2 from '/assets/imgs/dog2_about.png';
+import mainDog from '/assets/imgs/mainDog_about.png';
 
 import CountUp from 'react-countup';
-
-// import { Swiper, div } from 'swiper/react';
-// import { Pagination } from 'swiper/modules';
 
 function About(props) {
   return (
@@ -49,7 +46,11 @@ function About(props) {
           펫:브릿지는 순이익 전액을 &quot;유기동물과 사랑으로 이어주기&quot;
           위해 사용하고 있습니다.
         </p>
-        <img src={mainDog} className="absolute right-0 top-8" />
+        <img
+          src={mainDog}
+          alt="메인강아지"
+          className="absolute right-0 top-8"
+        />
       </section>
 
       {/* 유기동물을 사랑으로 */}
@@ -59,15 +60,15 @@ function About(props) {
         </h2>
         <ul className="flex text-xs text-center gap-14">
           <li className="flex flex-col items-center gap-1">
-            <img src={handHart} alt="" />
+            <img src={handHart} alt="입양장려" />
             <span>입양장려</span>
           </li>
           <li className="flex flex-col items-center gap-1">
-            <img src={book} alt="" />
+            <img src={book} alt="인식개선" />
             <span>인식 개선</span>
           </li>
           <li className="flex flex-col items-center gap-1">
-            <img src={together} alt="" />
+            <img src={together} alt="파트너십 구축" />
             <span>파트너십 구축</span>
           </li>
         </ul>
@@ -171,7 +172,7 @@ function About(props) {
 
         <ul className="flex flex-row w-full gap-2">
           <li className="flex flex-col items-center">
-            <img src={dog1} alt="" />
+            <img src={dog1} alt="강아지" />
             <span className="text-sm font-semibold">김승연</span>
             <span className="text-xs text-center ">
               ssssseungk
@@ -180,7 +181,7 @@ function About(props) {
             </span>
           </li>
           <li className="flex flex-col items-center">
-            <img src={cat1} alt="" />
+            <img src={cat1} alt="고양이" />
             <span className="text-sm font-semibold">신동혁</span>
             <span className="text-xs text-center ">
               hg971027
@@ -189,7 +190,7 @@ function About(props) {
             </span>
           </li>
           <li className="flex flex-col items-center">
-            <img src={dog2} alt="" />
+            <img src={dog2} alt="강아지" />
             <span className="text-sm font-semibold">이규정</span>
             <span className="text-xs text-center ">
               dlrbwjd7096
@@ -198,7 +199,7 @@ function About(props) {
             </span>
           </li>
           <li className="flex flex-col items-center">
-            <img src={cat2} alt="" />
+            <img src={cat2} alt="고양이" />
             <span className="text-sm font-semibold">조희정</span>
             <span className="text-xs text-center ">
               gmlwjd7731
