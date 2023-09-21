@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom';
-import prev_icon from '/assets/icons/prev_icon.svg';
 import { PropTypes } from 'prop-types';
 import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import prev_icon from '/assets/icons/prev_icon.svg';
 
 function SearchHeaderComp({ setSearchTerm }) {
   const navigate = useNavigate();

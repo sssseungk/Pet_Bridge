@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { PropTypes } from 'prop-types';
+import { useState } from 'react';
 
 function ProductListNav({ onCategorySelect }) {
   const [selectedCategory, setSelectedCategory] = useState('전체');

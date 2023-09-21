@@ -1,7 +1,7 @@
 import getPbImageURL from '@/utils/getPbImageUrl';
+import { PropTypes } from 'prop-types';
 import heart_empty_icon from '/assets/icons/heart_empty_icon.svg';
 import heart_fill_icon from '/assets/icons/heart_fill_icon.svg';
-import { PropTypes } from 'prop-types';
 
 function ProductItemImage({ product, handleWishBtn, addWish }) {
   return (

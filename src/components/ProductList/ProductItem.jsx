@@ -1,12 +1,11 @@
-import { useState } from 'react';
-import { PropTypes } from 'prop-types';
-import { Link } from 'react-router-dom';
 import pb from '@/api/pocketbase';
 import { useAuth } from '@/contexts/Auth';
-import { useEffect } from 'react';
-import ProductItemInfo from './ProductItemInfo';
-import ProductItemImage from './ProductItemImage';
+import { PropTypes } from 'prop-types';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
+import ProductItemImage from './ProductItemImage';
+import ProductItemInfo from './ProductItemInfo';
 
 function ProductItem({ product, reviewCount, selectedCategory = '' }) {
   const { user } = useAuth();
