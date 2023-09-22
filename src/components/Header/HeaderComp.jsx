@@ -62,9 +62,14 @@ function HeaderComp({
     <>
       <div className="relative p-5 mx-auto border-gray-800 shadow-lg max-w-screen-pet-l bg-pet-bg z-15">
         <div className="flex items-center justify-between">
-          <button onClick={handleGoPrevPage}>
-            {showPrevIcon && <img src={prev_icon} alt="뒤로가기" />}
-          </button>
+          <div>
+            {showPrevIcon && (
+              <button onClick={handleGoPrevPage}>
+                <img src={prev_icon} alt="뒤로가기" />
+              </button>
+            )}
+          </div>
+
           <h1 className="absolute flex items-center gap-1 text-xl font-bold -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
             {showLogo && (
               <img src={logo_header_icon} alt="로고" className="w-5 h-5" />
