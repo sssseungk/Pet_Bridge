@@ -60,12 +60,12 @@ function HeaderComp({
 
   return (
     <>
-      <div className="max-w-screen-pet-l mx-auto p-5 bg-pet-bg border-gray-800 shadow-lg relative z-15">
+      <div className="relative p-5 mx-auto border-gray-800 shadow-lg max-w-screen-pet-l bg-pet-bg z-15">
         <div className="flex items-center justify-between">
           <button onClick={handleGoPrevPage}>
             {showPrevIcon && <img src={prev_icon} alt="뒤로가기" />}
           </button>
-          <h1 className="flex items-center gap-1 font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl">
+          <h1 className="absolute flex items-center gap-1 text-xl font-bold -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
             {showLogo && (
               <img src={logo_header_icon} alt="로고" className="w-5 h-5" />
             )}
@@ -75,7 +75,7 @@ function HeaderComp({
             <Link to="search">
               {showSearchIcon && <img src={search_icon} alt="검색" />}
             </Link>
-            <Link to="cart">
+            <Link to="cart" onClick={() => window.scrollTo(0, 0)}>
               {showCartIcon && (
                 <img
                   src={isCartFilled ? cart_on_icon : cart_off_icon}

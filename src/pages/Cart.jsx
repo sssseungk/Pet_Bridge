@@ -131,7 +131,7 @@ function Cart() {
   return (
     <>
       <h2 className="sr-only ">장바구니</h2>
-      <div className="pt-10 m-auto max-w-screen-pet-l ">
+      <div className="pt-10 m-auto max-w-screen-pet-l bg-pet-bg">
         <Swiper
           direction={'vertical'}
           slidesPerView={'auto'}
