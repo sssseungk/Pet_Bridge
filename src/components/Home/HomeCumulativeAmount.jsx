@@ -11,24 +11,26 @@ function HomeCumulativeAmount(props) {
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   // 로그아웃 핸들러
   const handleSignOut = async () => {
-    setIsLoggingOut(true);
+    if (window.confirm('로그아웃 하시겠습니까?')) {
+      setIsLoggingOut(true);
 
-    if (user.verified === true) {
-      await kakaoLogout();
-      await signOut();
-    } else {
-      await signOut();
+      if (user.verified === true) {
+        await kakaoLogout();
+        await signOut();
+      } else {
+        await signOut();
+      }
+
+      toast('정상적으로 로그아웃 되었습니다.', {
+        position: 'top-right',
+        icon: '🐾',
+        ariaProps: {
+          role: 'alert',
+          'aria-live': 'polite',
+        },
+      });
+      setIsLoggingOut(false);
     }
-
-    toast('정상적으로 로그아웃 되었습니다.', {
-      position: 'top-right',
-      icon: '🐾',
-      ariaProps: {
-        role: 'alert',
-        'aria-live': 'polite',
-      },
-    });
-    setIsLoggingOut(false);
   };
 
   const kakaoLogout = async () => {
