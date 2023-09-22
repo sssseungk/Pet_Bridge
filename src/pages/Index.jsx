@@ -7,9 +7,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 
-import index_1 from '/public/assets/imgs/Index_1.png';
-import index_3 from '/public/assets/imgs/Index_3.png';
-import index_2 from '/public/assets/imgs/Index_2.png';
+import index_1 from '/assets/imgs/Index_1.png';
+import index_3 from '/assets/imgs/Index_3.png';
+import index_2 from '/assets/imgs/Index_2.png';
 
 function Index() {
   const [showCountUp, setShowCountUp] = useState(false);
@@ -140,7 +140,7 @@ function Index() {
         <Link to={`/signin`} className="text-xl font-bold text-pet-orange">
           로그인
         </Link>
-        <Link to={`/signin`} className="text-xl font-bold text-pet-orange">
+        <Link to={`/signup`} className="text-xl font-bold text-pet-orange">
           회원가입
         </Link>
       </p>
