@@ -59,7 +59,7 @@ function Header() {
   }
 
   return (
-    <header>
+    <header className="sticky top-0 z-20">
       <HeaderComp
         title={title}
         showLogo={showLogo}
