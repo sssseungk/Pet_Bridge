@@ -46,8 +46,10 @@ function HomeCumulativeAmount(props) {
   };
 
   return (
-    <section className="relative px-5 py-10 borsol bg-primary">
-      <h2 className="font-bold">여러분들의 후원으로 이만큼이나 모였어요.</h2>
+    <section className="relative px-5 py-10 bg-primary ">
+      <h2 className="font-bold pet-m:text-lg pet-l:text-xl transition-[0.3s]">
+        여러분들의 후원으로 이만큼이나 모였어요.
+      </h2>
 
       <span className="text-sm font-semibold">누적후원금액</span>
       <p className="text-xl font-bold ">
