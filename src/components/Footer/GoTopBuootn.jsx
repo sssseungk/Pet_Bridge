@@ -9,7 +9,6 @@ function GoTopButton() {
     case '/signin':
     case '/signup':
     case '/cart':
-    case '/mypage':
     case '/map':
       return null;
 
