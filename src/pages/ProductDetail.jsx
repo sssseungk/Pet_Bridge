@@ -163,7 +163,7 @@ function ProductDetail() {
           장바구니 추가
         </button>
       </div>
-      <h2 className="sr-only">detail nav</h2>
+      <h2 className="sr-only">상세페이지 네비</h2>
       <Navigation />
       <h2 className="sr-only">상세정보 이미지</h2>
       <img
@@ -172,7 +172,7 @@ function ProductDetail() {
         className="m-auto py-4 border-b"
         alt="상품사진"
       />
-      <h2 className="text-2xl my-3 mx-4 bg-pet-bg">Review</h2>
+      <h2 className="text-2xl my-3 mx-4 bg-pet-bg">리뷰</h2>
       <ReviewItem />
       <Link to={`/cart`}>
         <button className="w-full m-auto h-12 bg-primary rounded-lg items-center mb-3 text-base bottom-16 left-0 right-0 sticky">
