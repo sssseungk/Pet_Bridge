@@ -1,6 +1,7 @@
 import Button from '../Common/Button';
 import Input from '../Common/Input';
 import DefaultUser from '/assets/imgs/profileImg_default.png';
+import { PropTypes } from 'prop-types';
 
 export default function EditModeProfile({
   avatarUrl,
@@ -70,3 +71,12 @@ export default function EditModeProfile({
     </>
   );
 }
+
+EditModeProfile.propTypes = {
+  avatarUrl: PropTypes.object.isRequired,
+  updatedUser: PropTypes.number.isRequired,
+  handleAvatarChange: PropTypes.number.isRequired,
+  handleProfileChange: PropTypes.number.isRequired,
+  handleSaveProfile: PropTypes.number.isRequired,
+  setIsEditMode: PropTypes.number.isRequired,
+};
