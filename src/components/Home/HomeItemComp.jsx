@@ -10,8 +10,12 @@ function HomeItemCompo({ item }) {
           src={getPbImageURL(item, 'photo')}
           className="rounded-lg w-[90px] h-[90px] object-cover aria-hidden"
         />
-        <p className="text-xs font-bold">{item.title}</p>
-        <p className="text-xs">{item.address}</p>
+        <p className="overflow-hidden text-xs font-bold whitespace-nowrap text-ellipsis">
+          {item.title}
+        </p>
+        <p className="overflow-hidden text-xs whitespace-nowrap text-ellipsis">
+          {item.address}
+        </p>
       </div>
     </a>
   );

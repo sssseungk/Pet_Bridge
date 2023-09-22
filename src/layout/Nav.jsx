@@ -42,8 +42,8 @@ function Nav() {
 
   return (
     <>
-      <nav className="max-w-screen-pet-l h-[52px] z-10 bg-pet-bg px-[28px] py-[16px] bottom-0 fixed left-0 right-0 m-auto border shadow-[0_-8px_20px_0_rgba(0,0,0,0.1)]">
-        <div className='flex justify-around items-center'>
+      <nav className="max-w-screen-pet-l h-[60px] z-10 bg-pet-bg px-[28px] py-5 bottom-0 fixed left-0 right-0 m-auto shadow-[0_-8px_20px_0_rgba(0,0,0,0.1)]">
+        <div className='flex justify-around'>
           <h2 className='sr-only'>nav</h2>
           <Link to="/home" onClick={() => window.scrollTo(0, 0)}>
             <h3><img src={getIcon(['/home', '/home'], home2, home)} alt="Home" /></h3>
