@@ -5,7 +5,7 @@ import VisitShelter from '../components/Place/VisitShelter';
 function Place() {
   return (
     <>
-      <article className="max-w-screen-pet-l mx-auto my-0 relative bg-pet-bg">
+      <article className="max-w-screen-pet-l my-0 relative bg-pet-bg">
         <FindShelter />
         <RecommendShelter />
         <VisitShelter />
