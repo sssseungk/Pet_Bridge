@@ -1,3 +1,4 @@
+import { PropTypes } from 'prop-types';
 import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import placeMarker from '/assets/imgs/place_marker_place.png';
@@ -114,3 +115,13 @@ const PlaceModal = ({ isOpen, onClose, location }) => {
 };
 
 export default PlaceModal;
+
+MapComponent.propTypes = {
+  location: PropTypes.object.isRequired,
+};
+
+PlaceModal.propTypes = {
+  isOpen: PropTypes.object.isRequired,
+  onClose: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+};
