@@ -1,6 +1,6 @@
-import { faEye } from '@fortawesome/free-solid-svg-icons';
-import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { PropTypes } from 'prop-types';
 import { useState } from 'react';
 
 export function InputField({ type, name, id, placeholder, value, onChange }) {
@@ -34,3 +34,12 @@ export function InputField({ type, name, id, placeholder, value, onChange }) {
     </div>
   );
 }
+
+InputField.propTypes = {
+  type: PropTypes.object.isRequired,
+  name: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
+  placeholder: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+  onChange: PropTypes.number.isRequired,
+};

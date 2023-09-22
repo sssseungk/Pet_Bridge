@@ -1,4 +1,5 @@
 import getPbImageURL from '@/utils/getPbImageUrl';
+import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 function MyPageLikedProduct({ item }) {
@@ -26,3 +27,7 @@ function MyPageLikedProduct({ item }) {
   );
 }
 export default MyPageLikedProduct;
+
+MyPageLikedProduct.propTypes = {
+  item: PropTypes.object.isRequired,
+};

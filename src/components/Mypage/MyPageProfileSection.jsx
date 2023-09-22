@@ -1,3 +1,4 @@
+import { PropTypes } from 'prop-types';
 import DisplayModeProfile from './DisplayModeProfile';
 import EditModeProfile from './EditModeProfile';
 
@@ -38,3 +39,16 @@ function MyPageProfileSection({
   );
 }
 export default MyPageProfileSection;
+
+MyPageProfileSection.propTypes = {
+  isEditMode: PropTypes.object.isRequired,
+  updatedUser: PropTypes.number.isRequired,
+  avatarUrl: PropTypes.number.isRequired,
+  isLoading: PropTypes.number.isRequired,
+  handleProfileChange: PropTypes.number.isRequired,
+  handleAvatarChange: PropTypes.number.isRequired,
+  handleSaveProfile: PropTypes.number.isRequired,
+  setIsEditMode: PropTypes.number.isRequired,
+  handleSignOut: PropTypes.number.isRequired,
+  handleCancelMembership: PropTypes.number.isRequired,
+};
