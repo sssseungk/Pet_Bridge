@@ -42,7 +42,7 @@ function SearchProductList({ selectedCategory, searchTerm }) {
   return (
     <>
       <h3 className="sr-only">상품 목록</h3>
-      <ul className="min-h-[60vh] px-5 flex flex-wrap max-w-screen-pet-l mx-auto justify-start pt-5 gap-2">
+      <ul className="min-h-[30vh] px-5 flex flex-wrap max-w-screen-pet-l mx-auto justify-start pt-5 gap-2">
         {filteredProducts.map((product) => (
           <ProductItem
             product={product}

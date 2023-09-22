@@ -78,7 +78,7 @@ function ProductItem({ product, reviewCount, selectedCategory = '' }) {
   };
 
   return (
-    <li className="bg-[#FDF6EE] h-60 rounded-[10px] pet-s:w-[calc(50%/1-0.25rem)] pet-l:w-[calc(33.3%-0.33rem)] aspect-200/140">
+    <li className="bg-[#FDF6EE] rounded-[10px] pet-s:w-[calc(50%/1-0.25rem)] pet-l:w-[calc(33.3%-0.33rem)] aspect-200/140">
       <Link
         to={`/productlist/detail/${product.id}`}
         onClick={() => window.scrollTo(0, 0)}
