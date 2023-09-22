@@ -1,11 +1,14 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { useAuth } from '@/contexts/Auth';
 import pb from '@/api/pocketbase';
-import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
 import CartItem from '@/components/Cart/CartItem';
 import Modal from '@/components/Cart/Modal';
+import { useAuth } from '@/contexts/Auth';
+import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { FreeMode, Scrollbar, Mousewheel } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 function Cart() {
   const { user } = useAuth();
@@ -127,45 +130,58 @@ function Cart() {
   };
   return (
     <>
-      <h2 className='sr-only'>장바구니</h2>
-      <div className="max-w-screen-pet-l min-h-[80vh] bg-pet-bg pt-10 m-auto px-5">
-        {cartData.length > 0 ? (
-          cartData.map((item, index) => (
-            <CartItem
-              key={item.id}
-              item={item}
-              count={counts[index]}
-              index={index}
-              removeItem={removeItem}
-              decreaseCount={decreaseCount}
-              increaseCount={increaseCount}
-            />
-          ))
-        ) : (
-          <div className="text-center min-h-[20vh] relative top-12 pt-10">
-            장바구니에 담긴 상품이 없습니다.
+      <h2 className="sr-only ">장바구니</h2>
+      <div className="pt-10 m-auto max-w-screen-pet-l ">
+        <Swiper
+          direction={'vertical'}
+          slidesPerView={'auto'}
+          freeMode={true}
+          scrollbar={true}
+          mousewheel={true}
+          modules={[FreeMode, Scrollbar, Mousewheel]}
+          className="min-h-[40vh] max-h-[40vh] px-5"
+        >
+          {cartData.length > 0 ? (
+            cartData.map((item, index) => (
+              <SwiperSlide key={item.id}>
+                <CartItem
+                  key={item.id}
+                  item={item}
+                  count={counts[index]}
+                  index={index}
+                  removeItem={removeItem}
+                  decreaseCount={decreaseCount}
+                  increaseCount={increaseCount}
+                />
+              </SwiperSlide>
+            ))
+          ) : (
+            <div className="text-center min-h-[20vh] relative top-12 pt-10">
+              장바구니에 담긴 상품이 없습니다.
+            </div>
+          )}
+        </Swiper>
+        <div className="shadow-[0_-8px_20px_0_rgba(0,0,0,0.1)] px-5 bg-">
+          <div className="flex justify-between pt-4 mt-5 ">
+            <p>상품금액</p>
+            <p>{calculateTotalPrice().toLocaleString('ko-KR')} 원</p>
           </div>
-        )}
-
-        <div className="mt-20 flex justify-between">
-          <p>상품금액</p>
-          <p>{calculateTotalPrice().toLocaleString('ko-KR')} 원</p>
+          <div className="flex justify-between mt-3 mb-6">
+            <p>배송비</p>
+            <p>{calculateShippingFee().toLocaleString('ko-KR')} 원</p>
+          </div>
+          <div className="m-auto h-[1px] bg-black mt-4 mb-2 mx-5"></div>
+          <div className="flex justify-between mt-2 mb-5">
+            <p>총합계</p>
+            <p>
+              {(calculateTotalPrice() + calculateShippingFee()).toLocaleString(
+                'ko-KR'
+              )}{' '}
+              원
+            </p>
+          </div>
+          <Modal />
         </div>
-        <div className="mt-3 mb-6 flex justify-between">
-          <p>배송비</p>
-          <p>{calculateShippingFee().toLocaleString('ko-KR')} 원</p>
-        </div>
-        <div className="m-auto h-[1px] bg-black mt-4 mb-2"></div>
-        <div className="mt-2 mb-5 flex justify-between">
-          <p>총합계</p>
-          <p>
-            {(calculateTotalPrice() + calculateShippingFee()).toLocaleString(
-              'ko-KR'
-            )}{' '}
-            원
-          </p>
-        </div>
-        <Modal />
       </div>
     </>
   );
