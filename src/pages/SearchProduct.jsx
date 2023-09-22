@@ -32,7 +32,7 @@ function SearchProduct() {
         <title>펫:브릿지 - 상품검색</title>
       </Helmet>
       <SearchHeaderComp setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
-      <div className="mt-2 max-w-screen-pet-l mx-auto pt-2 px-5">
+      <div className="bg-pet-bg mt-2 max-w-screen-pet-l mx-auto pt-2 px-5">
         <span className="text-lg font-[600]">친구들이 많이 찾고 있어요!</span>
         <h2 className="sr-only">추천 태그</h2>
         <ul className="flex flex-wrap gap-2 mt-3 justify-start">
@@ -49,7 +49,7 @@ function SearchProduct() {
         </ul>
       </div>
 
-      <div>
+      <div className="bg-pet-bg">
         <SearchProductList
           selectedCategory={selectedCategory}
           searchTerm={searchTerm}
