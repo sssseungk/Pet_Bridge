@@ -75,7 +75,6 @@ const removeItem = async (index) => {
       await pb.collection('userCart').delete(itemIdToRemove);
 
       // UI 갱신을 위해 cartData 및 counts 상태 업데이트
-
       let updatedCounts = [...counts];
       updatedCounts.splice(index, 1); // counts 배열에서도 해당 인덱스의 아이템 수량 정보 삭제
       setCounts(updatedCounts);
@@ -87,6 +86,14 @@ const removeItem = async (index) => {
         console.error('Error updating cart:', error);
     }
   }
+  toast('상품이 삭제되었습니다.', {
+    position: 'top-right',
+    icon: '🗑',
+    ariaProps: {
+      role: 'alert',
+      'aria-live': 'polite',
+    },
+  });
 };
 
   // 배송비 계산 함수
