@@ -16,18 +16,18 @@ function ProductDetail() {
   const { data } = useProductItem(productTitle);
 
   // * 상품 수량 관리
-  const [count, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
 
   // * 수량 증가 함수
   const increaseCount = () => {
-    setQuantity(count + 1);
+    setQuantity(quantity + 1);
   };
 
   // * 수량 감소 함수
   const decreaseCount = () => {
-    if (count > 1) {
+    if (quantity > 1) {
       // 최소 1개 이상이어야 함.
-      setQuantity(count - 1);
+      setQuantity(quantity - 1);
     }
   };
 
@@ -92,7 +92,7 @@ function ProductDetail() {
         userId: user.id,
         userName: user.name,
         productId: data.id,
-        count: count,
+        quantity: quantity,
       });
 
       console.log(newCartData);
@@ -142,7 +142,7 @@ function ProductDetail() {
           <Heart productId={productTitle} />
           <div className="ml-4">
             <QuantitySelector
-              count={count}
+              quantity={quantity}
               increaseCount={increaseCount}
               decreaseCount={decreaseCount}
             />
