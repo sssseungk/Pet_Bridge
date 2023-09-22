@@ -1,4 +1,5 @@
 import { InputField } from './InputField';
+import { PropTypes } from 'prop-types';
 
 function InputSection({ formState, handleInput }) {
   return (
@@ -24,3 +25,8 @@ function InputSection({ formState, handleInput }) {
 }
 
 export default InputSection;
+
+InputSection.propTypes = {
+  formState: PropTypes.object.isRequired,
+  handleInput: PropTypes.number.isRequired,
+};
