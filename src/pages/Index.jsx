@@ -1,17 +1,19 @@
-import { Link } from 'react-router-dom';
+import { useAuth } from '@/contexts/Auth';
+import { useState } from 'react';
 import CountUp from 'react-countup';
-import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import index_1 from '/assets/imgs/Index_1.png';
-import index_3 from '/assets/imgs/Index_3.png';
 import index_2 from '/assets/imgs/Index_2.png';
+import index_3 from '/assets/imgs/Index_3.png';
 
 function Index() {
+  const { user } = useAuth();
   const [showCountUp, setShowCountUp] = useState(false);
 
   const handleSlideChange = (swiper) => {
@@ -136,14 +138,19 @@ function Index() {
           </p>
         </SwiperSlide>
       </Swiper>
-      <p className="flex gap-6">
-        <Link to={`/signin`} className="text-xl font-bold text-pet-orange">
-          로그인
-        </Link>
-        <Link to={`/signup`} className="text-xl font-bold text-pet-orange">
-          회원가입
-        </Link>
-      </p>
+
+      {!user ? (
+        <p className="flex gap-6">
+          <Link to={`/signin`} className="text-xl font-bold text-pet-orange">
+            로그인
+          </Link>
+          <Link to={`/signup`} className="text-xl font-bold text-pet-orange">
+            회원가입
+          </Link>
+        </p>
+      ) : (
+        <p></p>
+      )}
       <Link className="text-xl font-bold text-gray-1" to={`/home`}>
         건너뛰기
       </Link>
