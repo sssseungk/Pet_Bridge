@@ -170,23 +170,26 @@ function ReviewItem() {
     <>
       <form
         id="reviews"
-        className="py-4 mx-4 flex"
+        className="pt-2 pb-8 flex w-full"
         onSubmit={editingCommentId ? handleEditSubmit : handleCommentSubmit}
       >
-        <textarea
+        <div className='border-primary w-full flex border-2 rounded-xl'>
+          <textarea
           type="text"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           placeholder="작성하실 리뷰를 적어주세요"
-          className="border w-60 h-9"
+          className="w-full h-9 rounded-lg pl-2 py-2 resize-none overflow-hidden"
         />
         <button
           type="submit"
           onClick={handleCommentSubmit}
-          className="border ml-5 bg-primary w-14 h-9 rounded-xl"
+          className="border-primary px-3 bg-primary w-16 h-9 rounded-lg"
         >
           작성
         </button>
+        </div>
+        
       </form>
       {reviews
         .slice()
@@ -207,7 +210,7 @@ function ReviewItem() {
               className="bg-pet-bg h-auto flex-shrink-0 rounded-2xl shadow-[2px_2px_4px_0px_rgba(0,0,0,0.25)] mb-6"
             >
               <div className="py-4 px-6">
-                <div className="flex text-2xl items-center">
+                <div className="flex text-xl items-center">
                   {commentUser && commentUser.avatar ? (
                     <img
                       src={getPbImageURL(commentUser, 'avatar')}

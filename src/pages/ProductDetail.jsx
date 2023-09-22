@@ -135,7 +135,6 @@ function ProductDetail() {
         alt="상품사진"
         className="m-auto h-auto"
       />
-      ;
       <div className="flex justify-between">
         <div className="text-xl pt-5">{data.title}</div>
         <div className="flex mt-5 mx-3">
