@@ -72,7 +72,7 @@ function HeaderComp({
             {title}
           </h1>
           <div className="flex gap-4">
-            <Link to="search">
+            <Link to="search" onClick={() => window.scrollTo(0, 0)}>
               {showSearchIcon && <img src={search_icon} alt="검색" />}
             </Link>
             <Link to="cart" onClick={() => window.scrollTo(0, 0)}>
