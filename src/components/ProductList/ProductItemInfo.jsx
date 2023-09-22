@@ -51,7 +51,7 @@ function ProductItemInfo({ product, selectedCategory, reviewCount }) {
           </span>
         );
       })}
-      <div className="flex gap-1 justify-end pb-1 pt-2 pet-l:gap-2 pet-l:pr-3 pet-l:pb-3">
+      <div className="flex gap-1 justify-end pb-1 pt-1 pet-l:gap-2 pet-l:pr-3 pet-l:pb-3">
         <img
           src={comment_icon}
           alt="댓글 수"

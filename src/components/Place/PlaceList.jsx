@@ -1,4 +1,5 @@
 import getPbImageURL from '@/utils/getPbImageUrl';
+import { PropTypes } from 'prop-types';
 
 function PlaceList({ place }) {
   return (
@@ -31,3 +32,7 @@ function PlaceList({ place }) {
 }
 
 export default PlaceList;
+
+PlaceList.propTypes = {
+  place: PropTypes.object.isRequired,
+};

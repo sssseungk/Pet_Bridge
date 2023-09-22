@@ -9,7 +9,7 @@ function ProductItemImage({ product, handleWishBtn, addWish }) {
       <img
         src={getPbImageURL(product, 'photo')}
         alt="상품 이미지"
-        className="w-full h-3/2 rounded-[10px] transition-width duration-300"
+        className="hover:scale-110 w-full h-3/2 rounded-[10px] transition-width duration-300"
       />
       <button
         onClick={handleWishBtn}

@@ -23,9 +23,9 @@ import CountUp from 'react-countup';
 
 function About(props) {
   return (
-    <div className="flex flex-col items-center px-5 mx-auto max-w-screen-pet-m gap-14 bg-pet-bg">
+    <div className="flex flex-col items-center px-5 mx-auto max-w-screen-pet-l gap-14 bg-pet-bg">
       {/* 메인 */}
-      <section className="relative flex flex-col gap-2 pt-8">
+      <section className="relative flex flex-col gap-2 pt-8 max-w-screen-pet-m">
         <h1 tabIndex={0} className="text-3xl font-extrabold">
           About
           <br />
@@ -54,8 +54,11 @@ function About(props) {
       </section>
 
       {/* 유기동물을 사랑으로 */}
-      <section className="flex flex-col items-center gap-7">
-        <h2 tabIndex={0} className="font-extrabold">
+      <section className="flex flex-col items-center gap-7 max-w-screen-pet-m">
+        <h2
+          tabIndex={0}
+          className="font-bold pet-m:text-lg pet-l:text-xl transition-[0.3s]"
+        >
           유기동물을 사랑으로
         </h2>
         <ul className="flex text-xs text-center gap-14">
@@ -82,8 +85,11 @@ function About(props) {
         </p>
       </section>
       {/* 후원 동참하기 */}
-      <section className="flex flex-col items-center gap-7">
-        <h2 tabIndex={0} className="font-extrabold">
+      <section className="flex flex-col items-center gap-7 max-w-screen-pet-m">
+        <h2
+          tabIndex={0}
+          className="font-bold pet-m:text-lg pet-l:text-xl transition-[0.3s]"
+        >
           후원 동참하기
         </h2>
         <ul className="flex flex-row flex-wrap justify-center gap-6 text-xs text-center">
@@ -140,8 +146,11 @@ function About(props) {
         </ul>
       </section>
 
-      <section className="flex flex-col items-center gap-7">
-        <h2 tabIndex={0} className="font-extrabold">
+      <section className="flex flex-col items-center gap-7 max-w-screen-pet-m">
+        <h2
+          tabIndex={0}
+          className="font-bold pet-m:text-lg pet-l:text-xl transition-[0.3s]"
+        >
           어떻게 전액 후원이 가능한가요?
         </h2>
         <p className="text-xs">
@@ -162,9 +171,12 @@ function About(props) {
         </p>
       </section>
       {/* 멤버소개 */}
-      <section className="flex flex-col items-center w-full gap-7">
+      <section className="flex flex-col items-center gap-7 max-w-screen-pet-m">
         <div className="content-center ">
-          <h2 tabIndex={0} className="font-extrabold">
+          <h2
+            tabIndex={0}
+            className="font-bold pet-m:text-lg pet-l:text-xl transition-[0.3s]"
+          >
             CREAT TEAM
           </h2>
           <span className="block text-center">- ilsacheolli -</span>

@@ -1,8 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import nocash from '/assets/imgs/product_search_notfound.png';
 
 function Modal() {
   const [showModal, setShowModal] = useState(false);
+
+  // showModal 상태가 변경될 때마다 동작
+  useEffect(() => {
+    if (showModal) {
+      // 모달이 열릴 때 body의 스크롤을 막음
+      document.body.style.overflow = 'hidden';
+    } else {
+      // 모달이 닫힐 때 body의 스크롤을 원상복구
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      // cleanup function: 컴포넌트 unmount 시에 body의 스크롤을 원상복구
+      document.body.style.overflow = 'unset';
+    };
+  }, [showModal]);
   return (
     <>
       <button className="w-full m-auto h-12 bg-primary rounded-lg items-center mb-3 text-base bottom-16 left-0 right-0" onClick={() => setShowModal(true)}>
