@@ -127,7 +127,8 @@ function Cart() {
   };
   return (
     <>
-      <h2 className="max-w-screen-pet-l h-auto m-auto px-5">
+      <h2 className='sr-only bg-red-500'>cart</h2>
+      <div className="max-w-screen-pet-l min-h-[80vh] pt-10 m-auto px-5">
         {cartData.length > 0 ? (
           cartData.map((item, index) => (
             <CartItem
@@ -141,9 +142,8 @@ function Cart() {
             />
           ))
         ) : (
-          <div className="text-center mt-10">
+          <div className="text-center min-h-[20vh] relative top-12 pt-10">
             장바구니에 담긴 상품이 없습니다.
-            <br /> 상품 꾹꾹 눌러담아 주세요오오오옹!!
           </div>
         )}
 
@@ -166,7 +166,7 @@ function Cart() {
           </p>
         </div>
         <Modal />
-      </h2>
+      </div>
     </>
   );
 }

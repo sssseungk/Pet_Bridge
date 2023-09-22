@@ -137,7 +137,7 @@ function ProductDetail() {
       />
       <div className="flex justify-between">
         <div className="text-xl pt-5">{data.title}</div>
-        <div className="flex mt-5 mx-3">
+        <div className="flex mt-5">
           <Heart productId={productTitle} />
           <div className="ml-4">
             <QuantitySelector
@@ -148,9 +148,9 @@ function ProductDetail() {
           </div>
         </div>
       </div>
-      <div className="flex justify-between mr-3 pb-4">
+      <div className="flex justify-between pb-4">
         {data.price ? (
-          <div className="text-xl mt-4">
+          <div className="text-lg mt-4">
             {data.price.toLocaleString('ko-KR')} 원
           </div>
         ) : (
@@ -158,7 +158,7 @@ function ProductDetail() {
         )}
         <button
           onClick={handleAddCart}
-          className="bg-primary hover:text-pet-green w-32 h-9 rounded-xl mt-3"
+          className="bg-primary w-32 h-9 rounded-xl mt-3"
         >
           장바구니 추가
         </button>
@@ -175,7 +175,7 @@ function ProductDetail() {
       <h2 className="text-2xl my-3 mx-4 bg-pet-bg">Review</h2>
       <ReviewItem />
       <Link to={`/cart`}>
-        <button className="w-full m-auto h-12 bg-primary hover:text-pet-green rounded-lg items-center mb-3 text-base bottom-16 left-0 right-0 sticky">
+        <button className="w-full m-auto h-12 bg-primary rounded-lg items-center mb-3 text-base bottom-16 left-0 right-0 sticky">
           장바구니
         </button>
       </Link>
