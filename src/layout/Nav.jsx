@@ -44,18 +44,18 @@ function Nav() {
     <>
       <nav className="max-w-screen-pet-l h-[60px] z-10 bg-pet-bg px-[28px] py-5 bottom-0 fixed left-0 right-0 m-auto shadow-[0_-8px_20px_0_rgba(0,0,0,0.1)]">
         <div className='flex justify-around'>
-          <h2 className='sr-only'>nav</h2>
+          <h2 className='sr-only'>네비게이션</h2>
           <Link to="/home" onClick={() => window.scrollTo(0, 0)}>
-            <h3><img src={getIcon(['/home', '/home'], home2, home)} alt="Home" /></h3>
+            <h3><img src={getIcon(['/home', '/home'], home2, home)} alt="메인" /></h3>
           </Link>
           <Link to="/productlist" onClick={() => window.scrollTo(0, 0)}>
-            <h3><img src={getIcon(['/productlist', '/productdetail/'], shop2, shop)} alt="Shop" /></h3>
+            <h3><img src={getIcon(['/productlist', '/productdetail/'], shop2, shop)} alt="상점" /></h3>
           </Link>
           <Link to="/place" onClick={() => window.scrollTo(0, 0)}>
-            <h3><img src={getIcon(['/place', '/map'], map2, map)} alt="Place" /></h3>
+            <h3><img src={getIcon(['/place', '/map'], map2, map)} alt="장소" /></h3>
           </Link>
           <Link to="/mypage" onClick={() => window.scrollTo(0, 0)}>
-            <h3><img src={getIcon(['/mypage', '/mypage'], myPage2, myPage)} alt="MyPage" /></h3>
+            <h3><img src={getIcon(['/mypage', '/mypage'], myPage2, myPage)} alt="마이페이지" /></h3>
           </Link>
         </div>
       </nav>
