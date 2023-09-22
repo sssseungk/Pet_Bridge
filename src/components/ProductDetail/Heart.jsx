@@ -51,11 +51,11 @@ function Heart({ productId }) {
   };
 
   return (
-    <button className='flex w-7 h-7'>
+    <button id='productLike' className='flex w-7 h-7'>
       {addWish ? (
-        <img src={click} onClick={handleWishBtn} />
+        <img id='like' src={click} onClick={handleWishBtn} />
       ) : (
-        <img src={unclick} onClick={handleWishBtn} />
+        <img id='likeCancel' src={unclick} onClick={handleWishBtn} />
       )}
     </button>
   );

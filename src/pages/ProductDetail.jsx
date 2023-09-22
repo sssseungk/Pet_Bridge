@@ -156,7 +156,7 @@ function ProductDetail() {
         ) : (
           <div className="text-xl pt-5">가격 정보 없음</div>
         )}
-        <button
+        <button id='addCart'
           onClick={handleAddCart}
           className="bg-primary w-32 h-9 rounded-xl mt-3"
         >
