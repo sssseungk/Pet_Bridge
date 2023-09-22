@@ -14,7 +14,7 @@ function ProductListNav({ onCategorySelect }) {
   return (
     <>
       <h2 className="sr-only">카테고리</h2>
-      <ul className="max-w-screen-pet-l mx-auto bg-pet-bg font-bold flex gap-4 justify-evenly flex-wrap pt-2 border-gray-1 relative">
+      <ul className="max-w-screen-pet-l mx-auto bg-pet-bg font-bold flex gap-4 justify-evenly flex-wrap pt-2 border-gray-1 sticky top-14 z-10">
         {categories.map((category) => (
           <li key={category} className="">
             <button onClick={() => handleCategoryClick(category)}>
@@ -23,7 +23,7 @@ function ProductListNav({ onCategorySelect }) {
                   selectedCategory === category
                     ? 'border-pet-orange border-b-4 z-10 text-pet-orange'
                     : ''
-                } py-2 xs:w-auto`}
+                } py-[13px] xs:w-auto`}
               >
                 {category}
               </h3>

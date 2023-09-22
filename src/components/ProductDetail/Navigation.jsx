@@ -41,15 +41,15 @@ useEffect(() => {
   return (
     <ul className="max-w-4xl h-14 bg-pet-bg font-bold flex justify-evenly border-gray-1 border top-0 sticky">
       <li onClick={() => scrollToElement('productDescription')}
-        className={`py-3 border-r border-gray-1 text-center w-[33.3%] cursor-pointer hover:text-pet-green ${activeSection === 'productDescription' ? 'bg-primary text-pet-green' : '' }`}>
+        className={`py-3 border-r border-gray-1 text-center w-[33.3%] cursor-pointer  ${activeSection === 'productDescription' ? 'bg-primary' : '' }`}>
           <h3>상품사진</h3>
         </li>
         <li onClick={() => scrollToElement('productDetails')} 
-        className={`py-3 border-r border-gray-1 text-center w-[33.3%] cursor-pointer hover:text-pet-green ${activeSection === 'productDetails' ? 'bg-primary text-pet-green' : '' }`}>
+        className={`py-3 border-r border-gray-1 text-center w-[33.3%] cursor-pointer ${activeSection === 'productDetails' ? 'bg-primary' : '' }`}>
           <h3>상세정보</h3>
         </li>
         <li onClick={() => scrollToElement('reviews')} 
-        className={`py-3 text-center w-[33.3%] cursor-pointer hover:text-pet-green ${activeSection === 'reviews' ? 'bg-primary text-pet-green' : '' }`}>
+        className={`py-3 text-center w-[33.3%] cursor-pointer ${activeSection === 'reviews' ? 'bg-primary' : '' }`}>
           <h3>리뷰</h3>
         </li>
     </ul>

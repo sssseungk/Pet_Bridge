@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 function CartItem({ item, count, index, removeItem, decreaseCount, increaseCount }) {
   return (
-    <div key={item.id} className="h-auto bg-pet-bg mt-14 rounded-xl mb-6 shadow-[4px_4px_8px_0_rgba(0,0,0,0.16)]">
+    <div key={item.id} className="h-auto bg-pet-bg rounded-xl mb-6 shadow-[4px_4px_8px_0_rgba(0,0,0,0.16)]">
       <div className="px-4 py-5 flex justify-start relative">
         <img src={getPbImageURL(item.expand.productId, 'photo')} alt="상품" className="w-14 h-14 bg-black" />
         <div className="pl-4">
