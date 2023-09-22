@@ -10,7 +10,7 @@ function RecommendShelter() {
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
   return (
-    <section className="w-[92%] mx-auto my-0">
+    <section className="my-0 mx-[20px]">
       <h2 className="font-bold mt-[10%] mb-[3%] mx-0 text-sm pet-m:text-lg pet-l:text-xl transition-[0.3s]">
         추천 보호소
       </h2>
