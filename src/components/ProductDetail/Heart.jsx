@@ -51,7 +51,7 @@ function Heart({ productId }) {
   };
 
   return (
-    <button>
+    <button className='flex w-7 h-7'>
       {addWish ? (
         <img src={click} onClick={handleWishBtn} />
       ) : (
