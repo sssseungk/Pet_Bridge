@@ -161,7 +161,8 @@ function Cart() {
             </div>
           )}
         </Swiper>
-        <div className="shadow-[0_-8px_20px_0_rgba(0,0,0,0.1)] px-5 bg-">
+        <h2 className='sr-only'>결제창</h2>
+        <div className="shadow-[0_-8px_20px_0_rgba(0,0,0,0.1)] px-5">
           <div className="flex justify-between pt-4 mt-5 ">
             <p>상품금액</p>
             <p>{calculateTotalPrice().toLocaleString('ko-KR')} 원</p>
@@ -170,7 +171,7 @@ function Cart() {
             <p>배송비</p>
             <p>{calculateShippingFee().toLocaleString('ko-KR')} 원</p>
           </div>
-          <div className="m-auto h-[1px] bg-black mt-4 mb-2 mx-5"></div>
+          <div className="m-auto h-[1px] bg-gray-300 mt-4 mb-5"></div>
           <div className="flex justify-between mt-2 mb-5">
             <p>총합계</p>
             <p>

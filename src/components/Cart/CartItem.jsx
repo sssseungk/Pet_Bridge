@@ -3,15 +3,29 @@ import remove from '/assets/icons/close_icon.svg';
 import minus_black from '/assets/icons/minus_black_icon.svg';
 import plus from '/assets/icons/plus_icon.svg';
 import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
 
 function CartItem({ item, count, index, removeItem, decreaseCount, increaseCount }) {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 440);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div key={item.id} className="h-auto bg-white rounded-xl mb-6 shadow-[4px_4px_8px_0_rgba(0,0,0,0.16)]">
       <div className="px-4 py-5 flex justify-start relative">
-        <img src={getPbImageURL(item.expand.productId, 'photo')} alt="상품" className="w-14 h-14 bg-black" />
+        <img src={getPbImageURL(item.expand.productId)} alt="상품" className="w-14 h-14 bg-black" />
         <div className="pl-4">
-          <div>
-            <div className="text-xl">{item.expand.productId.title}</div>
+          <div className={isMobile ? 'w-56' : 'w-auto'}>
+            <div className="text-xl overflow-hidden whitespace-nowrap text-ellipsis">{item.expand.productId.title}</div>
             <div className="text-lg">
               {(item.expand.productId.price * count).toLocaleString('ko-KR')} 원
             </div>
