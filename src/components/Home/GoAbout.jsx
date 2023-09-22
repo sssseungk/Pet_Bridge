@@ -8,7 +8,9 @@ function GoAbout(props) {
   return (
     <section className="flex flex-col gap-3 px-5 py-3">
       <div className="flex items-center justify-between">
-        <h2 className="inline font-bold">{props.title}</h2>
+        <h2 className="inline font-bold pet-m:text-lg pet-l:text-xl">
+          {props.title}
+        </h2>
         <Link
           to={`/about`}
           className="text-xs"
