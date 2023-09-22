@@ -1,5 +1,6 @@
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 
 function Message({ text, isValid }) {
   if (!text || text === '') {
@@ -25,11 +26,15 @@ export default function InputField({
   isValid,
   passMessage,
   failMessage,
-  isPasswordHidden = false,
-  togglePasswordHidden = () => {},
 }) {
   const hasValue =
     defaultValue !== undefined && defaultValue !== null && defaultValue !== '';
+
+  const [isIconHidden, setIsIconHidden] = useState(true);
+
+  const toggleIconHidden = () => {
+    setIsIconHidden(!isIconHidden);
+  };
 
   return (
     <div className="flex flex-col gap-1 relative">
@@ -37,7 +42,7 @@ export default function InputField({
         {label}
       </label>
       <input
-        type={type === 'password' && isPasswordHidden ? 'password' : 'text'}
+        type={type}
         name={name}
         id={name}
         placeholder={placeholder}
@@ -47,8 +52,16 @@ export default function InputField({
       />
       {type === 'password' && (
         <FontAwesomeIcon
-          icon={isPasswordHidden ? faEyeSlash : faEye}
-          onClick={togglePasswordHidden}
+          icon={isIconHidden ? faEyeSlash : faEye}
+          onClick={() => {
+            toggleIconHidden();
+            if (type === 'password') {
+              const inputElement = document.getElementById(name);
+              if (inputElement) {
+                inputElement.type = isIconHidden ? 'text' : 'password';
+              }
+            }
+          }}
           className="cursor-pointer absolute right-[10px] top-[40px] text-gray-500"
         />
       )}
