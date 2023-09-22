@@ -12,11 +12,11 @@ function FindShelter() {
           alt=""
         />
       </section>
-      <section className="relative top-[-4.5rem] mb-[-3.5rem] w-[92%] mx-auto my-0">
+      <section className="relative top-[-4.5rem] mb-[-3.5rem] my-0 mx-[20px]">
         <h2 className="sr-only">내 주변 보호소 찾기</h2>
         <Link
           to={`/map`}
-          className="bg-primary text-2xl pet-m:text-4xl  shadow-lg flex justify-between items-center pl-[6%] pr-[3%] pt-[4%] pb-[3%] rounded-[20px]"
+          className="bg-primary text-2xl pet-m:text-3xl pet-l:text-4xl  shadow-lg flex justify-between items-center pl-[6%] pr-[3%] pt-[4%] pb-[3%] rounded-[20px]"
         >
           <p className="font-extrabold md:leading-[2.8rem] w-[55%] transition-[0.3s]">
             <span className="text-xs  mb-[0.3rem] pet-m:text-lg pet-l:text-2xl pet-l:mb-[1.3rem] block font-bold leading-[normal] transition-[0.3s]">

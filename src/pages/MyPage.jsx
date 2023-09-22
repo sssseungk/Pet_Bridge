@@ -99,6 +99,14 @@ function MyPage() {
   const handleCancelMembership = async () => {
     if (window.confirm('정말로 탈퇴하시겠습니까? 🥲')) {
       await cancelMembership(user.id);
+      toast('회원탈퇴가 완료되었습니다.', {
+        position: 'top-right',
+        icon: '😿',
+        ariaProps: {
+          role: 'alert',
+          'aria-live': 'polite',
+        },
+      });
       navigate('/home');
     }
   };
