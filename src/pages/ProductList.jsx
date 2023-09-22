@@ -69,10 +69,10 @@ function ProductList() {
       <Helmet>
         <title>펫:브릿지 - 후원상품</title>
       </Helmet>
-      <div className="max-w-screen-pet-l my-0 mx-auto">
+      <div className="bg-pet-bg max-w-screen-pet-l my-0 mx-auto">
         <ProductListNav onCategorySelect={setSelectedCategory} />
         <h2 className="sr-only">상품 목록</h2>
-        <ul className="bg-pet-bg list-none px-2 flex flex-wrap max-w-screen-pet-l mx-auto justify-start mt-5 gap-2">
+        <ul className="bg-pet-bg list-none px-5 flex flex-wrap max-w-screen-pet-l mx-auto justify-start mt-5 gap-2">
           {displayProducts.map((product) => (
             <ProductItem
               product={product}
