@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useAuth } from '@/contexts/Auth';
@@ -31,16 +30,16 @@ function Cart() {
       try {
         // 현재 로그인한 사용자 정보 ( 장바구니 포함 )
         const cartdata = await pb
-        .collection('userCart')
-        .getFullList({ expand: 'productId' });
+          .collection('userCart')
+          .getFullList({ expand: 'productId' });
         const data = cartdata.filter((item) => item.userName === user.name);
         setCartData(data);
 
-        if (data.length > 0) { 
-          const initialCounts = data.map(item => item.quantity || 1); // 서버에서 제공하는 quantity 값으로 초기화
-          setCartData(data); 
-          setCounts(initialCounts); 
-        } 
+        if (data.length > 0) {
+          const initialCounts = data.map((item) => item.quantity || 1); // 서버에서 제공하는 quantity 값으로 초기화
+          setCartData(data);
+          setCounts(initialCounts);
+        }
       } catch (error) {
         console.error('Error fetching cart items: ', error);
       }
@@ -64,37 +63,42 @@ function Cart() {
     }
   };
 
-// 특정 인덱스의 상품 삭제 함수
-const removeItem = async (index) => {
-  if (cartData && cartData[index]) {
-    // 제거할 아이템 ID
-    const itemIdToRemove = cartData[index].id;
+  // 특정 인덱스의 상품 삭제 함수
+  const removeItem = async (index) => {
+    if (cartData && cartData[index]) {
+      // 제거할 아이템 ID
+      const itemIdToRemove = cartData[index].id;
+      // 사용자에게 확인 메시지 표시
+      const confirmDelete = window.confirm('상품을 삭제하시겠습니까?');
 
-    try {
-      // 서버에 요청하여 실제 데이터 업데이트
-      await pb.collection('userCart').delete(itemIdToRemove);
+      // 만약 사용자가 '취소' 버튼을 눌렀다면, 여기서 함수 종료
+      if (!confirmDelete) return;
 
-      // UI 갱신을 위해 cartData 및 counts 상태 업데이트
-      let updatedCounts = [...counts];
-      updatedCounts.splice(index, 1); // counts 배열에서도 해당 인덱스의 아이템 수량 정보 삭제
-      setCounts(updatedCounts);
+      try {
+        // 서버에 요청하여 실제 데이터 업데이트
+        await pb.collection('userCart').delete(itemIdToRemove);
 
-      let updatedCartData = [...cartData];
-      updatedCartData.splice(index, 1);
-      setCartData(updatedCartData);
-    } catch (error) {
+        // UI 갱신을 위해 cartData 및 counts 상태 업데이트
+        let updatedCounts = [...counts];
+        updatedCounts.splice(index, 1); // counts 배열에서도 해당 인덱스의 아이템 수량 정보 삭제
+        setCounts(updatedCounts);
+
+        let updatedCartData = [...cartData];
+        updatedCartData.splice(index, 1);
+        setCartData(updatedCartData);
+      } catch (error) {
         console.error('Error updating cart:', error);
+      }
     }
-  }
-  toast('상품이 삭제되었습니다.', {
-    position: 'top-right',
-    icon: '🗑',
-    ariaProps: {
-      role: 'alert',
-      'aria-live': 'polite',
-    },
-  });
-};
+    toast('상품이 삭제되었습니다.', {
+      position: 'top-right',
+      icon: '🗑',
+      ariaProps: {
+        role: 'alert',
+        'aria-live': 'polite',
+      },
+    });
+  };
 
   // 배송비 계산 함수
   const calculateShippingFee = () => {
@@ -120,12 +124,12 @@ const removeItem = async (index) => {
     }
 
     return totalPrice;
-};
+  };
   return (
     <>
       <h2 className="max-w-screen-pet-l h-auto m-auto px-5">
         {cartData.length > 0 ? (
-          cartData.map((item,index) => (
+          cartData.map((item, index) => (
             <CartItem
               key={item.id}
               item={item}
@@ -136,12 +140,13 @@ const removeItem = async (index) => {
               increaseCount={increaseCount}
             />
           ))
-          ) : (
-            <div className="text-center mt-10">
-              장바구니에 담긴 상품이 없습니다.<br/> 상품 꾹꾹 눌러담아 주세요오오오옹!!
-            </div>
-          )}
-         
+        ) : (
+          <div className="text-center mt-10">
+            장바구니에 담긴 상품이 없습니다.
+            <br /> 상품 꾹꾹 눌러담아 주세요오오오옹!!
+          </div>
+        )}
+
         <div className="mt-20 flex justify-between">
           <p>상품금액</p>
           <p>{calculateTotalPrice().toLocaleString('ko-KR')} 원</p>
@@ -153,9 +158,14 @@ const removeItem = async (index) => {
         <div className="m-auto h-[1px] bg-black mt-4 mb-2"></div>
         <div className="mt-2 mb-5 flex justify-between">
           <p>총합계</p>
-          <p>{(calculateTotalPrice() + calculateShippingFee()).toLocaleString('ko-KR')} 원</p>
+          <p>
+            {(calculateTotalPrice() + calculateShippingFee()).toLocaleString(
+              'ko-KR'
+            )}{' '}
+            원
+          </p>
         </div>
-        <Modal/>
+        <Modal />
       </h2>
     </>
   );
