@@ -130,7 +130,7 @@ function Cart() {
   };
   return (
     <>
-      <h2 className="sr-only ">cart</h2>
+      <h2 className="sr-only ">장바구니</h2>
       <div className="pt-10 m-auto max-w-screen-pet-l ">
         <Swiper
           direction={'vertical'}
