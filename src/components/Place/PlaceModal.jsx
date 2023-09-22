@@ -75,6 +75,18 @@ const MapComponent = ({ location }) => {
 const PlaceModal = ({ isOpen, onClose, location }) => {
   if (!isOpen) return null;
 
+  useEffect(() => {
+    // 모달 열림
+    document.body.style.overflow = 'hidden';
+  }, []);
+
+  const handleClose = (e) => {
+    // 원래 overflow 상태로 복원
+    document.body.style.overflow = 'auto';
+
+    // onClose 함수 호출
+    onClose(e);
+  };
   const onContentClick = (e) => {
     e.stopPropagation();
   };
@@ -82,7 +94,7 @@ const PlaceModal = ({ isOpen, onClose, location }) => {
   return ReactDOM.createPortal(
     <div
       className="max-w-screen-pet-l mx-auto fixed inset-0 bg-[rgba(0,0,0,.7)] z-[999]"
-      onClick={onClose}
+      onClick={handleClose}
     >
       <div
         className="max-w-[800px] fixed -translate-x-2/4 -translate-y-2/4 z-[1000] w-[85%] h-3/5 p-5 left-2/4 top-2/4 bg-white"
@@ -90,7 +102,7 @@ const PlaceModal = ({ isOpen, onClose, location }) => {
       >
         <button
           className="absolute top-[-10%] w-[99px] h-[35px] font-bold rounded-[20px] right-0 bg-primary"
-          onClick={onClose}
+          onClick={handleClose}
         >
           닫기
         </button>
