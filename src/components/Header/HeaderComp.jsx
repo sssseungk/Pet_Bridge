@@ -60,7 +60,7 @@ function HeaderComp({
 
   return (
     <>
-      <div className="max-w-screen-pet-l mx-auto p-5 bg-pet-bg border-gray-800 shadow-lg relative z-10">
+      <div className="max-w-screen-pet-l mx-auto p-5 bg-pet-bg border-gray-800 shadow-lg relative z-15">
         <div className="flex items-center justify-between">
           <button onClick={handleGoPrevPage}>
             {showPrevIcon && <img src={prev_icon} alt="뒤로가기" />}
