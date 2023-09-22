@@ -174,7 +174,7 @@ function ProductDetail() {
       />
       <h2 className="text-2xl my-3 mx-4 bg-pet-bg">리뷰</h2>
       <ReviewItem />
-      <Link to={`/cart`}>
+      <Link to={`/cart`} onClick={() => window.scrollTo(0, 0)}>
         <button className="w-full m-auto h-12 bg-primary rounded-lg items-center mb-3 text-base bottom-16 left-0 right-0 sticky">
           장바구니
         </button>
