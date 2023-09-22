@@ -42,7 +42,7 @@ function ProductList() {
 
   if ((isFirstMountRef.current && !productList.length) || isLoading) {
     return (
-      <div className="grid place-content-center h-full">
+      <div className="bg-pet-bg grid place-content-center h-full">
         <Spinner size={120} className="mt-8" />
       </div>
     );

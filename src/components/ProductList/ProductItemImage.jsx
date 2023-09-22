@@ -5,7 +5,7 @@ import heart_fill_icon from '/assets/icons/heart_fill_icon.svg';
 
 function ProductItemImage({ product, handleWishBtn, addWish }) {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       <img
         src={getPbImageURL(product, 'photo')}
         alt="상품 이미지"
