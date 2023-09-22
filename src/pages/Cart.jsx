@@ -127,8 +127,8 @@ function Cart() {
   };
   return (
     <>
-      <h2 className='sr-only bg-red-500'>cart</h2>
-      <div className="max-w-screen-pet-l min-h-[80vh] pt-10 m-auto px-5">
+      <h2 className='sr-only'>cart</h2>
+      <div className="max-w-screen-pet-l min-h-[80vh] bg-pet-bg pt-10 m-auto px-5">
         {cartData.length > 0 ? (
           cartData.map((item, index) => (
             <CartItem
