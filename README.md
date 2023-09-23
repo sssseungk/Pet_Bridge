@@ -7,6 +7,9 @@
 
 주소 : <a href="https://frontendschool6.github.io/Pet_Bridge/"> 펫:브릿지 </a>
 
+</br>
+</br>
+
 ### 📄 목차
 [1. 서비스 소개](#-1-서비스-소개)</br>
 [2. 프로젝트 일정](#-2-프로젝트-일정)</br>
@@ -52,6 +55,7 @@
 
 </br>
 </br>
+
 ### 💻 4. 역할 분담
 
 | 이름   | 담당 기능                                                    |
@@ -84,11 +88,11 @@
 
 - ##### <a href = https://github.com/FRONTENDSCHOOL6/Pet_Bridge/wiki/coading-convention>코딩 컨벤션</a>
 - ##### <a href = https://github.com/FRONTENDSCHOOL6/Pet_Bridge/wiki/commit-convention>커밋 컨벤션</a>
-- ##### <a href = https://github.com/FRONTENDSCHOOL6/Pet_Bridge/wiki/%5B23.09.08%5D-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%8A%A4%ED%81%AC%EB%9F%BC>데일리 컨벤션</a>
+- ##### <a href = https://github.com/FRONTENDSCHOOL6/Pet_Bridge/wiki/%5B23.09.08%5D-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%8A%A4%ED%81%AC%EB%9F%BC>데일리 스크럼</a>
 <br>
 <br>
 
-### ⚒️ 7. 개발 환경 및 기술 스택
+### 🎃 7. 개발 환경 및 기술 스택
 
 ##### 환경
 
@@ -105,7 +109,9 @@
 ##### 소통
 
 <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"> <img alt="ECMAScript" src="https://img.shields.io/badge/kakaotalk-yellow?style=for-the-badge&logo=kakao&logoColor=white">
-<br>
+
+</br>
+</br>
 
 ### 📂 8. 파일 구성
 
