@@ -11,7 +11,7 @@ function CategoryButton({
       type="button"
       onClick={() => handleClickButton(buttonId)}
       className={`text-base py-1 px-2 border-gray-1 border-[1px] rounded-[20px] ${
-        selectedCategory === buttonId ? 'bg-primary' : ''
+        selectedCategory === buttonId ? 'bg-primary border-primary' : ''
       }`}
     >
       <h3>{buttonText}</h3>
