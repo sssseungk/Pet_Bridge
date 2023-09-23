@@ -78,12 +78,12 @@ function ProductItem({ product, reviewCount, selectedCategory = '' }) {
   };
 
   return (
-    <li className="bg-[#FDF6EE] rounded-[10px] pet-s:w-[calc(50%/1-0.25rem)] pet-l:w-[calc(33.3%-0.33rem)] aspect-200/140">
+    <li className="pet-s:w-[calc(50%/1-0.25rem)] pet-l:w-[calc(33.3%-0.33rem)] aspect-200/140">
       <Link
         to={`/productlist/detail/${product.id}`}
         onClick={() => window.scrollTo(0, 0)}
       >
-        <div className="flex-col items-center justify-center pt-3 px-3">
+        <div className="flex-col items-center justify-center pt-3 px-3 bg-[#FDF6EE] rounded-[10px]">
           <ProductItemImage
             product={product}
             handleWishBtn={handleWishBtn}

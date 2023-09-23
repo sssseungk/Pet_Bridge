@@ -49,7 +49,7 @@ function SearchProduct() {
         </ul>
       </div>
 
-      <div className="bg-pet-bg">
+      <div className="max-w-screen-pet-l mx-auto">
         <SearchProductList
           selectedCategory={selectedCategory}
           searchTerm={searchTerm}
