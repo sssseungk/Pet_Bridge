@@ -3,9 +3,9 @@
 <p align="center">
 <img src= https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/60ab68eb-81bd-4db6-838f-8991d266d952 ></p>
 
-## 📲 베포주소
-주소 : <a href=""> 펫:브릿지 </a>
+## 📲 배포주소
 
+주소 : <a href=""> 펫:브릿지 </a>
 
 ### 📄 목차
 
@@ -208,69 +208,103 @@
 
 </br>
 
-##### - 메인 페이지
+##### 메인 페이지
 
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/17213338-95ce-441e-a88a-fcf953337912" width="50%">
-</br>
 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/9ca7c94e-596d-4f67-abc4-74de0062b2f7" width="50%">
+- 후원 신청 배너 : 클릭 시 메일 작성 연동</br>
+- 후원 상품 배너 : 스와이퍼 사용, 클릭 시 해당 상품 페이지로 이동</br>
+- 추천 보호소 목록 : 스와이퍼 사용, 클릭 시 해당 보호소 홈페이지로 이동</br>
+- About Us 배너 : 클릭 시 펫:브릿지 어바웃 페이지로 이동</br>
+- 반응형 구현 : 브라우저 크기 변경시 배너 이미지 가운데 정렬, 폰트 사이즈 변경, 태블릿 모드에서 로그아웃 버튼 생성, 스와이퍼 보호소 아이템 수 변경
 
+</br>
+</br>
 ##### - 어바웃 페이지
 
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/4a9bea34-e862-41bd-8555-82363adb3dd6" width="50%">
-</br>
 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/2244f39b-2ed3-4138-9359-bf8626e60d6c" width="50%">
+- 상품 구매하기 : 클릭 시 상품 목록 페이지로 이동</br>
+- 직접 후원하기, 후원 신청하기, 함께 활동하기 클릭 시 메일 창 열림 (각각 다른 내용의 메일 서식)
+</br>
+</br>
 
-##### - 상품 목록 페이지
+##### 상품 목록 페이지
 
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/714fc3f3-65cc-4633-b301-d0f529250388" width="50%">
 </br>
 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/be8763ec-ef1e-43fa-b754-cc4c074e4eac" width="50%">
-
-##### - 상품 검색 페이지
-
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/2b2b6cef-a1e5-4e56-a020-25b0f79f2616" width="50%">
+- 후원 상품 목록 : 카테고리 클릭 시 해당 카테고리에 맞는 상품만 렌더링 됨</br>
+- 상세 페이지의 댓글 수 연동해 표시</br>
+- 상품 별 라벨 추가</br>
+- 찜 아이콘(하트) 클릭 시 포켓베이스의 사용자 데이터에 해당 상품이 저장됨
 </br>
+</br>
+
+##### 상품 검색 페이지
+
 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/5bd23cbe-272e-4d38-be85-f51337f3751a" width="50%">
-
-##### - 상품 상세 페이지
-
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/18c5156c-f737-454c-a9b1-09da19eea250" width="50%">
+- 상품 검색 기능 : 단어 입력 시 해당 단어가 포함된 상품들을 보여줌</br>
+- 카테고리 : 카테고리 클릭 시 관련 상품들을 보여주고, 카테고리 클릭 후 검색하면 해당 카테고리에 관련된 단어가 포함된 상품들을 렌더링함</br>
+- 관련된 상품이 존재하지 않을경우 사용자에게 알려줌</br>
+- 찜 아이콘(하트) 클릭 시 포켓베이스의 사용자 데이터에 해당 상품이 저장됨</br>
 </br>
+
+##### 상품 상세 페이지
+
 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/6ee6b5f6-f83a-4e22-9d37-028d5b95b76f" width="50%">
+- 장바구니 추가 : 수량 선택 후 장바구니 추가 버튼 클릭 시 사용자의 데이터에 추가한 상품이 담기게 됨</br>
+- 찜 아이콘(하트) 클릭 시 포켓베이스의 사용자 데이터에 해당 상품이 저장됨</br>
+- 댓글 작성, 수정, 삭제 : 댓글을 작성할 수 있고, 자신이 작성한 댓글을 수정/삭제할 수 있음
 
-##### - 보호소 지도 페이지
-
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/b865481a-2a83-4f20-af22-850030fdaa79" width="50%">
 </br>
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/182c0299-71f9-41f5-9874-eb02c4414061" width="50%">
+</br>
 
-##### - 로그인
+##### 장바구니 페이지
+
+<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/d6581e84-3250-4731-94b7-68658d87d7fd" width="50%">
+- 장바구니 상품 추가 : 상세 페이지에서 사용자가 담은 상품이 선택한 수량과 함께 렌더링 됨</br>
+- 장바구니 상품 수량조절 : 상품 수량 조절 기능 및 금액에 따른 변화
+</br>
+</br>
+
+##### 보호소 지도 페이지
+
+<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/182c0299-71f9-41f5-9874-eb02c4414061" width="50%">
+- 주변 보호소 찾기 : 지도 API를 사용해 사용자의 위치를 바탕으로 주변에 위치하는 보호소를 알려줌</br>
+- 보호소 사이트 연결 : 보호소들의 정보를 알려주고 클릭시 해당 보호소의 홈페이지로 이동</br>
+- 추천 보호소와 연결 : 추천 보호소로 바로 전화 연결이 가능하고, 해당 보호소의 위치를 볼 수 있음
+</br>
+</br>
+
+##### 로그인
 
 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/779f7834-2f4c-454b-b929-786d191f764c" width="50%">
+- 로그인 : 사용자의 데이터가 존재하는지 확인하고, 로그인 성공시 마이페이지로 이동</br>
+- 카카오 계정 로그인 가능
+</br>
+</br>
 
-##### - 회원가입 페이지
+##### 회원가입 페이지
 
 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/bde8ae5b-b27c-414b-bb36-a04fa193b68b" width="50%">
+- 회원가입 : 정규표현식을 활용해 유효성 검사를 거치고, 데이터가 등록된다.
+</br>
+</br>
 
-##### - 마이 페이지
+##### 마이 페이지
+
 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/2c7e57cd-cf78-4d1d-96a6-8871bbc6954d" width="50%">
 
-##### - 장바구니 페이지
+- 찜한 상품 목록 : 상품 목록 페이지와 상세 페이지에서 찜한 상품들을 보여줌</br>
+- 사용자 정보 제공, 변경 가능 : 사용자의 닉네임과 아이디, 프로필 사진 수정 가능</br>
+- 로그아웃, 회원 탈퇴기능
 
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/2eab576b-e892-4a2c-939b-58d2a117ff34" width="50%">
-</br>
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/d6581e84-3250-4731-94b7-68658d87d7fd" width="50%">
-##### -
-
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/bef9ece1-b869-408b-a9f7-8a1de0d50538" width="50%">
-</br>
-</br>
+  </br>
+  </br>
 
 ### 🎥 10. 시연 영상
 
 [![Video Label](https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/00ebbc8a-4bce-4921-b9b0-8e381c952f60)](https://youtu.be/uonvHOAkEX8)
-> 자세한 영상을 보고싶으시다면 영상을 클릭해주세요 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/c7e2e745-95ac-4c0e-b359-20a8028399d7" width="100px">&nbsp;<span style="color:red">YouTube</span>&nbsp;로 이동됩니다.
 
+> 자세한 영상을 보고싶으시다면 영상을 클릭해주세요 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/c7e2e745-95ac-4c0e-b359-20a8028399d7" width="100px">&nbsp;<span style="color:red">YouTube</span>&nbsp;로 이동됩니다.
 
 </br>
 
