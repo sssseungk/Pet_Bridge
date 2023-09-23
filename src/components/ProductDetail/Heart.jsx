@@ -4,6 +4,7 @@ import unclick from '/assets/icons/heart_unclick_icon.svg';
 import pb from '@/api/pocketbase'; // 포켓베이스 API import
 import { useAuth } from '@/contexts/Auth'; // Auth context import
 import { PropTypes } from 'prop-types';
+import toast from 'react-hot-toast';
 
 function Heart({ productId }) {
   const [addWish, setAddWish] = useState(false);
@@ -36,8 +37,26 @@ function Heart({ productId }) {
         updatedLikedUsers = userData.LikedProducts.filter(
           (id) => id !== productId
         );
+         // 찜하기 취소 알림
+      toast('찜한 상품이 해제되었습니다.', {
+        position: 'top-right',
+        icon: '💔',
+        ariaProps: {
+          role: 'alert',
+          'aria-live': 'polite',
+        },
+      });
       } else {
         updatedLikedUsers = [...userData.LikedProducts, productId];
+        // 찜하기 추가 알림
+      toast('찜한 상품에 추가되었습니다.', {
+        position: 'top-right',
+        icon: '💖',
+        ariaProps: {
+          role: 'alert',
+          'aria-live': 'polite',
+        },
+      });
       }
 
       await pb
@@ -51,11 +70,11 @@ function Heart({ productId }) {
   };
 
   return (
-    <button className='flex w-7 h-7'>
+    <button id='productLike' className='flex w-7 h-7'>
       {addWish ? (
-        <img src={click} onClick={handleWishBtn} />
+        <img id='like' src={click} onClick={handleWishBtn} />
       ) : (
-        <img src={unclick} onClick={handleWishBtn} />
+        <img id='likeCancel' src={unclick} onClick={handleWishBtn} />
       )}
     </button>
   );
