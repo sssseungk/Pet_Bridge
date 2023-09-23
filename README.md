@@ -8,16 +8,19 @@
 주소 : <a href="https://frontendschool6.github.io/Pet_Bridge/"> 펫:브릿지 </a>
 
 ### 📄 목차
-[1. 서비스 소개](#🐶-1-서비스-소개)
-[2. 프로젝트 일정](#⚡-2.-프로젝트-일정)
-[3. 팀 구성](###-🐾-3.-팀-구성)
-[4. 역할 분담](###-💻-4.-역할-분담)
-[5. 프로젝트 목표](###-🏅-5.-프로젝트-목표)
-[6. 프로젝트 일정](###-⚡-2.-프로젝트-일정)
-[7. 프로젝트 일정](###-⚡-2.-프로젝트-일정)
-[8. File Tree](###-📂-8.-File-Tree)
-[9. 프로젝트 일정](###-⚡-2.-프로젝트-일정)
-
+[1. 서비스 소개](#-1-서비스-소개)
+[2. 프로젝트 일정](#-2-프로젝트-일정)
+[3. 팀 구성](#-3-팀-구성)
+[4. 역할 분담](#-4-역할-분담)
+[5. 프로젝트 목표](#-5-프로젝트-목표)
+[6. 팀 내 규칙 및 준수 사항](#-6-팀-내-규칙-및-준수-사항)
+[7. 개발 환경 및 기술 스택](#-7-개발-환경-및-기술-스택)
+[8. 파일 구성](#-8-파일-구성)
+[9. 결과물](#-9-결과물)
+[10. 프로젝트 시연](#-10-시연-영상)
+[11. 성능 검사](#-11-성능-검사)
+[12. 프로젝트 소감](#-12-프로젝트-소감)
+[13. 프로젝트 사용법](#-13-프로젝트-사용법)
 
 </br>
 </br>
@@ -104,7 +107,7 @@
 <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"> <img alt="ECMAScript" src="https://img.shields.io/badge/kakaotalk-yellow?style=for-the-badge&logo=kakao&logoColor=white">
 <br>
 
-### 📂 8. File Tree
+### 📂 8. 파일 구성
 
 ```
 📦src
@@ -318,9 +321,9 @@
 
 ### 🎥 10. 시연 영상
 
-[![Video Label](https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/00ebbc8a-4bce-4921-b9b0-8e381c952f60)](https://youtu.be/uonvHOAkEX8)
+[![Video Label](https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/00ebbc8a-4bce-4921-b9b0-8e381c952f60)]
 
-> 자세한 영상을 보고싶으시다면 영상을 클릭해주세요 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/c7e2e745-95ac-4c0e-b359-20a8028399d7" width="150"> &nbsp; <span style="color:red">YouTube</span>&nbsp;로 이동됩니다.
+> 자세한 영상을 보고싶으시다면 YouTube을 클릭해주세요 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/c7e2e745-95ac-4c0e-b359-20a8028399d7" width="150"> &nbsp; <a href="https://youtu.be/uonvHOAkEX8" style="color:red">YouTube</a>&nbsp;로 이동됩니다.
 
 </br>
 
@@ -375,7 +378,7 @@
   </table>
 <br>
 
-### 🦾 프로젝트 사용법
+### 🦾 13. 프로젝트 사용법
 
 - 패키지 설치
 
