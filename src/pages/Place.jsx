@@ -6,8 +6,8 @@ import VisitShelter from '../components/Place/VisitShelter';
 function Place() {
   return (
     <>
-    <Helmet>
-        <title>펫:브릿지 - 봉사활동</title>
+      <Helmet>
+        <title>펫:브릿지 - 유기동물 봉사활동</title>
       </Helmet>
       <article className="max-w-screen-pet-l mx-auto my-0 relative bg-pet-bg">
         <FindShelter />
