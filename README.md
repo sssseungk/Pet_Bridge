@@ -5,7 +5,8 @@
 
 ## 📲 배포주소
 
-주소 : <a href="https://frontendschool6.github.io/Pet_Bridge/"> 펫:브릿지 </a>
+주소 : <a href="https://frontendschool6.github.io/Pet_Bridge/"> 펫:브릿지 </a></br>
+발표자료 : <a href="">최종발표 PPT</a>
 
 </br>
 </br>
@@ -21,9 +22,8 @@
 [8. 파일 구성](#-8-파일-구성)</br>
 [9. 결과물](#-9-결과물)</br>
 [10. 프로젝트 시연](#-10-시연-영상)</br>
-[11. 성능 검사](#-11-성능-검사)</br>
-[12. 프로젝트 소감](#-12-프로젝트-소감)</br>
-[13. 프로젝트 사용법](#-13-프로젝트-사용법)</br>
+[11. 프로젝트 소감](#-11-프로젝트-소감)</br>
+[12. 프로젝트 사용법](#-12-프로젝트-사용법)</br>
 
 </br>
 </br>
@@ -331,35 +331,10 @@
 
 > 자세한 영상을 보고싶으시다면 YouTube을 클릭해주세요 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/c7e2e745-95ac-4c0e-b359-20a8028399d7" width="150"> &nbsp; <a href="https://youtu.be/uonvHOAkEX8" style="color:red">YouTube</a>&nbsp;로 이동됩니다.
 
-</br>
-
-### 💊 11. 성능 검사
-
-> 문제사항
-
-<img src="https://cdn.discordapp.com/attachments/1120944741626941470/1123475261707538452/48.png">
-
-> 성능 향상을 위한 노력 / 해결 방안
-
-###### [문제점]
-
-1.
-
-###### [해결방안]
-
-1.
-
-> 문제해결
-
-<img src="https://cdn.discordapp.com/attachments/1120944741626941470/1123475289561903205/PageSpeed_Insights_-_Chrome_2023-06-28_1_42_49_5.png">
-<br><br>
-<br><br>
-
+<br>
 <br>
 
-<br>
-
-### 🎥 12. 프로젝트 소감
+### 🎥 11. 프로젝트 소감
 
 <table>
   <tr>
@@ -384,7 +359,7 @@
   </table>
 <br>
 
-### 🦾 13. 프로젝트 사용법
+### 🦾 12. 프로젝트 사용법
 
 - 패키지 설치
 
