@@ -34,10 +34,10 @@ function HomeCumulativeAmount(props) {
 
   const kakaoLogout = async () => {
     const CLIENT_ID = import.meta.env.VITE_KAKAO_API_KEY;
-    const LOGOUT_REDIRECT_URI = 'http://localhost:5173/';
+    const LOGOUT_REDIRECT_URI = import.meta.env.VITE_KAKAO_LOGOUT_REDIRECT_URI;
     try {
       location.replace(
-        `https://kauth.kakao.com/oauth/logout?client_id=${CLIENT_ID}&logout_redirect_uri=${LOGOUT_REDIRECT_URI}Pet_Bridge/home`
+        `https://kauth.kakao.com/oauth/logout?client_id=${CLIENT_ID}&logout_redirect_uri=${LOGOUT_REDIRECT_URI}`
       );
     } catch (error) {
       throw new Error(error.message);
