@@ -19,7 +19,7 @@ function VisitShelter() {
       refetchOnWindowFocus: true,
     }
   );
-  console.log(data);
+
   if (isLoading) {
     return (
       <div className="grid place-content-center h-full">
