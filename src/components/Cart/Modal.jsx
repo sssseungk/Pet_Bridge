@@ -25,11 +25,11 @@ function Modal() {
           결제하기
         </button>    
         {showModal && (
-          <div className="fixed w-60 top-60 left-1/4 right-96 m-auto p-6 text-center bg-pet-bg z-[1000] rounded-2xl">
+          <div className="fixed w-60 left-[50%] translate-x-[-50%] translate-y-[-50%] top-[50%] p-6 text-center bg-pet-bg z-[1000] rounded-2xl">
             <p className='text-center'>
               확장을 준비중입니다! <br />조금만 기다려주세요!!!
             </p>
-            <img src={nocash} alt="모르겠어용" className="relative left-[17%]"/>
+            <img src={nocash} alt="모르겠어용" className="relative left-[13%]"/>
             <button className="w-full m-auto bg-primary rounded-lg text-lg" onClick={() => setShowModal(false)}>
               닫기
             </button>
