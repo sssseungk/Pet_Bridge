@@ -17,7 +17,7 @@ function Modal() {
   }, [showModal]);
   return (
     <>
-      <button className="w-full m-auto h-12 bg-primary rounded-lg items-center mb-3 text-base bottom-16 left-0 right-0" onClick={() => setShowModal(true)}>
+      <button className="w-full m-auto h-12 bg-primary rounded-lg items-center mb-3 text-lg bottom-16 left-0 right-0" onClick={() => setShowModal(true)}>
           결제하기
         </button>    
         {showModal && (
