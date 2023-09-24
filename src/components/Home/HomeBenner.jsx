@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
 import pb from '@/api/pocketbase';
 import getPbImageURL from '@/utils/getPbImageUrl';
 import { useEffect, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import './styles.css';
 import { Autoplay, Pagination } from 'swiper/modules';
 
 function HomeBenner(props) {
@@ -72,7 +70,6 @@ function HomeBenner(props) {
         navigation={true}
         modules={[Autoplay, Pagination]}
       >
-        {/* Map each place to a swiper slide */}
         {homeBenner?.map((banner) => (
           <SwiperSlide key={banner.id}>
             <Link

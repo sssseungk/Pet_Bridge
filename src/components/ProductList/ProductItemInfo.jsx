@@ -51,15 +51,17 @@ function ProductItemInfo({ product, selectedCategory, reviewCount }) {
           </span>
         );
       })}
-      <div className="flex gap-1 justify-end pb-1 pt-1 pet-l:gap-2 pet-l:pr-3 pet-l:pb-3">
-        <img
-          src={comment_icon}
-          alt="댓글 수"
-          className="transition-all duration-300 w-3 pet-m:w-4 pet-l:w-4"
-        />
-        <span className="transition-all duration-base text-gray2 text-xs sm:text-sm lg:text-base">
-          {reviewCount || '0'}
-        </span>
+      <div className="flex justify-end pb-1 pt-1 pet-l:gap-2 pet-l:pr-1 pet-l:pb-3">
+        <div className="flex pet-s:gap-1 pet-m:gap-2 aspect-[4/3] items-center">
+          <img
+            src={comment_icon}
+            alt="댓글 수"
+            className="transition-all duration-300 w-3 pet-m:w-4 pet-l:w-4"
+          />
+          <span className="transition-all duration-base text-gray2 text-xs sm:text-sm lg:text-base">
+            {reviewCount || '0'}
+          </span>
+        </div>
       </div>
     </>
   );

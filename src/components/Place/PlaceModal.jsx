@@ -21,19 +21,17 @@ const MapComponent = ({ location }) => {
 
         const map = new kakao.maps.Map(container, options);
 
-        // 마커 표시
         const markerPosition = new kakao.maps.LatLng(
           37.64952401004023,
           126.87008894272654
         );
 
-        // 마커 이미지 생성
-        const markerImageSrc = placeMarker; // 커스텀 마커 이미지 URL
+        const markerImageSrc = placeMarker;
 
-        const markerImageSize = new kakao.maps.Size(50, 50); // 커스텀 마커 이미지 크기
+        const markerImageSize = new kakao.maps.Size(50, 50);
 
         const markerImageOptions = {
-          offset: new kakao.maps.Point(25, 50), // 커스텀 마커 이미지의 기준 좌표 (마커포인트와 관련된 옵션)
+          offset: new kakao.maps.Point(25, 50),
         };
 
         const markerImage = new kakao.maps.MarkerImage(
@@ -42,25 +40,20 @@ const MapComponent = ({ location }) => {
           markerImageOptions
         );
 
-        // 마커 생성 및 설정
         const marker = new kakao.maps.Marker({
           position: markerPosition,
           image: markerImage,
         });
 
-        // 지도에 마커 추가
         marker.setMap(map);
 
-        // 인포윈도우 표출 내용과 설정
         const iwContent =
           '<div style="padding:5px 5px 5px 17px;">고양시 동물보호센터</div>';
 
-        // 인포윈도우 생성 및 설정
         const infowindow = new kakao.maps.InfoWindow({
           content: iwContent,
         });
 
-        // 인포윈도우를 마커 위에 표시
         infowindow.open(map, marker);
       });
     };
@@ -77,15 +70,12 @@ const PlaceModal = ({ isOpen, onClose, location }) => {
   if (!isOpen) return null;
 
   useEffect(() => {
-    // 모달 열림
     document.body.style.overflow = 'hidden';
   }, []);
 
   const handleClose = (e) => {
-    // 원래 overflow 상태로 복원
     document.body.style.overflow = 'auto';
 
-    // onClose 함수 호출
     onClose(e);
   };
   const onContentClick = (e) => {

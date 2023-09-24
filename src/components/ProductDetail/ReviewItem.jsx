@@ -18,7 +18,6 @@ function ReviewItem() {
   const [editingContent, setEditingContent] = useState('');
 
   useEffect(() => {
-    // * 리뷰 연결
     const fetchReviews = async () => {
       try {
         const reviewsData = await pb
@@ -43,11 +42,9 @@ function ReviewItem() {
     fetchReviews();
   }, [data.title, lastReviewId]);
 
-  // * 삭제 기능
   const handleCommentDelete = async (commentId) => {
     try {
       await pb.collection('reviews').delete(commentId);
-      // 업데이트된 리뷰 목록 다시 가져오기
       const updatedReviewsData = await pb
         .collection('reviews')
         .getFullList({ expand: 'users' });
@@ -68,7 +65,6 @@ function ReviewItem() {
     }
   };
 
-  // * 댓글 저장
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     if (!user) {
@@ -94,7 +90,6 @@ function ReviewItem() {
       return;
     }
 
-    // 리뷰 데이터 포켓베이스에 저장
     try {
       const currentDate = new Date();
       const newReview = await pb.collection('reviews').create({
@@ -107,7 +102,6 @@ function ReviewItem() {
       const expandedNewReview = await pb
         .collection('reviews')
         .getOne(newReview.id, { expand: 'users' });
-      // 사용자 이미지까지 가져오기 위해 데이터 확장
       setReviews((prevReviews) => [...prevReviews, expandedNewReview]);
       setComment('');
       toast('작성 되었습니다.', {
@@ -123,7 +117,6 @@ function ReviewItem() {
     }
   };
 
-  // * 리뷰 수정
   const handleCommentEdit = (commentId) => {
     setEditingCommentId(commentId);
     setEditingContent(
@@ -141,7 +134,6 @@ function ReviewItem() {
         .collection('reviews')
         .update(editingCommentId, { contents: editingContent });
 
-      // 업데이트된 리뷰 목록 가져오기
       const updatedReviewsData = await pb
         .collection('reviews')
         .getFullList({ expand: 'users' });
@@ -150,7 +142,6 @@ function ReviewItem() {
       );
       setReviews(relatedReviews);
 
-      // 입력창 초기화
       setEditingCommentId(null);
       setEditingContent('');
       toast('댓글이 수정되었습니다.', {
@@ -167,7 +158,7 @@ function ReviewItem() {
   };
 
   return (
-    <>
+    <div className='px-5'>
       <form
         id="reviews"
         className="pt-2 pb-8 flex w-full"
@@ -269,7 +260,7 @@ function ReviewItem() {
             </div>
           );
         })}
-    </>
+    </div>
   );
 }
 

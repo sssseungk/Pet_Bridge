@@ -13,8 +13,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 function Cart() {
   const { user } = useAuth();
-  const [counts, setCounts] = useState([]); // 각 상품의 수량 배열로 관리
-  const [cartData, setCartData] = useState([]); // cartData 상태 추가
+  const [counts, setCounts] = useState([]);
+  const [cartData, setCartData] = useState([]);
   const [isLoggingOut] = useState(false);
   const navigate = useNavigate();
 
@@ -32,7 +32,6 @@ function Cart() {
     }
     const fetchCartItemAndCartData = async () => {
       try {
-        // 현재 로그인한 사용자 정보 ( 장바구니 포함 )
         const cartdata = await pb
           .collection('userCart')
           .getFullList({ expand: 'productId' });
@@ -40,7 +39,7 @@ function Cart() {
         setCartData(data);
 
         if (data.length > 0) {
-          const initialCounts = data.map((item) => item.quantity || 1); // 서버에서 제공하는 quantity 값으로 초기화
+          const initialCounts = data.map((item) => item.quantity || 1);
           setCartData(data);
           setCounts(initialCounts);
         }
@@ -51,14 +50,12 @@ function Cart() {
     fetchCartItemAndCartData();
   }, []);
 
-  // 특정 인덱스의 수량 증가 함수
   const increaseCount = (index) => {
     const newCounts = [...counts];
     newCounts[index]++;
     setCounts(newCounts);
   };
 
-  // 특정 인덱스의 수량 감소 함수
   const decreaseCount = (index) => {
     if (counts[index] > 1) {
       const newCounts = [...counts];
@@ -67,24 +64,18 @@ function Cart() {
     }
   };
 
-  // 특정 인덱스의 상품 삭제 함수
   const removeItem = async (index) => {
     if (cartData && cartData[index]) {
-      // 제거할 아이템 ID
       const itemIdToRemove = cartData[index].id;
-      // 사용자에게 확인 메시지 표시
       const confirmDelete = window.confirm('상품을 삭제하시겠습니까?');
 
-      // 만약 사용자가 '취소' 버튼을 눌렀다면, 여기서 함수 종료
       if (!confirmDelete) return;
 
       try {
-        // 서버에 요청하여 실제 데이터 업데이트
         await pb.collection('userCart').delete(itemIdToRemove);
 
-        // UI 갱신을 위해 cartData 및 counts 상태 업데이트
         let updatedCounts = [...counts];
-        updatedCounts.splice(index, 1); // counts 배열에서도 해당 인덱스의 아이템 수량 정보 삭제
+        updatedCounts.splice(index, 1);
         setCounts(updatedCounts);
 
         let updatedCartData = [...cartData];
@@ -104,7 +95,6 @@ function Cart() {
     });
   };
 
-  // 배송비 계산 함수
   const calculateShippingFee = () => {
     let totalPrice = calculateTotalPrice();
 
@@ -115,7 +105,6 @@ function Cart() {
     return totalPrice >= 50000 ? 0 : 2500;
   };
 
-  // 총 가격 계산 함수
   const calculateTotalPrice = () => {
     let totalPrice = 0;
 

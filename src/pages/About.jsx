@@ -26,7 +26,6 @@ function About(props) {
         <title>펫:브릿지 - 어바웃</title>
       </Helmet>
       <div className="flex flex-col items-center px-5 mx-auto max-w-screen-pet-l gap-14 bg-pet-bg">
-        {/* 메인 */}
         <section className="relative flex flex-col gap-2 pt-8 max-w-screen-pet-m">
           <h1 tabIndex={0} className="text-3xl font-extrabold">
             About
@@ -60,7 +59,6 @@ function About(props) {
           />
         </section>
 
-        {/* 유기동물을 사랑으로 */}
         <section className="flex flex-col items-center gap-7 max-w-screen-pet-m">
           <h2
             tabIndex={0}
@@ -92,7 +90,6 @@ function About(props) {
             노력합니다.
           </p>
         </section>
-        {/* 후원 동참하기 */}
         <section className="flex flex-col items-center gap-7 max-w-screen-pet-m">
           <h2
             tabIndex={0}
@@ -181,7 +178,6 @@ function About(props) {
             사랑을 나눠주실 수 있습니다.
           </p>
         </section>
-        {/* 멤버소개 */}
         <section className="flex flex-col items-center gap-7 max-w-screen-pet-m">
           <div className="content-center ">
             <h2

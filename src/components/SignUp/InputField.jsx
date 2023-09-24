@@ -65,7 +65,7 @@ export default function InputField({
           className="cursor-pointer absolute right-[10px] top-[40px] text-gray-500"
         />
       )}
-      {hasValue && ( // 입력값이 있을 때만 메시지 표시
+      {hasValue && (
         <Message text={isValid ? passMessage : failMessage} isValid={isValid} />
       )}
     </div>

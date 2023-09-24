@@ -9,7 +9,6 @@ body {
   margin: 0;
   font: 1.6rem/1.5 'SUIT Variable', sans-serif;
   
-  /* CSS 중첩 규칙(Nesting Rules) */
   & * {
     box-sizing: inherit;
   }
@@ -21,7 +20,7 @@ img {
 
 button {
   cursor: pointer;
-  font-size: 1.6rem; /* 16px */
+  font-size: 1.6rem;
 
   &:disabled {
     cursor: not-allowed;

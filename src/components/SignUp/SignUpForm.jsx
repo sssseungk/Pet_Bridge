@@ -16,10 +16,10 @@ function SignUpForm() {
     }
   }, [user, navigate]);
 
-  const koreaName = /^.{1,9}[가-힣]$/; // 한글 2~10글자
-  const nickName = /^.{2,14}[a-z | A-Z]$/; // 영문 3~15글자
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // 일반적인 이메일 형식
-  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,16}$/; // 6~16글자 영문+숫자
+  const koreaName = /^.{1,9}[가-힣]$/;
+  const nickName = /^.{2,14}[a-z | A-Z]$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,16}$/; 
 
   const [formState, setFormState] = useState({
     name: '',
@@ -28,7 +28,6 @@ function SignUpForm() {
     password: '',
     passwordConfirm: '',
   });
-  // 유효성 검사 상태
   const [validationErrors, setValidationErrors] = useState({
     name: false,
     username: false,
@@ -37,16 +36,13 @@ function SignUpForm() {
     passwordConfirm: false,
   });
 
-  // 유효성 검사 전체 통과 확인
   const isFormValid = () => {
     return Object.values(validationErrors).every((error) => error === false);
   };
 
-  // 비밀번호 숨김/표시 상태 관리
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
   const [isConfirmPasswordHidden, setIsConfirmPasswordHidden] = useState(true);
 
-  // 회원가입 등록 핸들러
   const handleRegister = async (e) => {
     e.preventDefault();
 
@@ -110,7 +106,6 @@ function SignUpForm() {
   };
 
   const handleDebounceInput = debounce(handleInput, 500);
-  // 비밀번호 숨김/표시 토글 함수
   const togglePasswordHidden = () => {
     setIsPasswordHidden(!isPasswordHidden);
   };

@@ -11,7 +11,6 @@ import { defineConfig } from 'vite';
 
 const idDev = env.NODE_ENV === 'development';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   base: '/Pet_Bridge/',
   plugins: [

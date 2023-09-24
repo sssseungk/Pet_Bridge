@@ -32,25 +32,24 @@ const checkScrollPosition = () => {
     setActiveSection('productDescription');
   }
 };
-// useEffect 사용
 useEffect(() => {
   window.addEventListener('scroll', checkScrollPosition);
   return () => window.removeEventListener('scroll', checkScrollPosition);
 }, []);
   
   return (
-    <ul className="max-w-4xl h-14 bg-pet-bg font-bold flex justify-evenly border-gray-1 border top-[60px] sticky">
+    <ul className="max-w-4xl h-14 bg-pet-bg font-bold flex justify-evenly border-gray-1 border top-[66px] sticky">
       <li onClick={() => scrollToElement('productDescription')}
-        className={`py-3 border-r border-gray-1 text-center w-[33.3%] cursor-pointer  ${activeSection === 'productDescription' ? 'bg-primary' : '' }`}>
-          <h3>상품사진</h3>
+        className={`py-3 border-r border-gray-1 text-center w-[33.3%] cursor-pointer ${activeSection === 'productDescription' ? 'bg-primary' : '' }`}>
+          <h3 className='leading-[30px]'>상품사진</h3>
         </li>
         <li onClick={() => scrollToElement('productDetails')} 
         className={`py-3 border-r border-gray-1 text-center w-[33.3%] cursor-pointer ${activeSection === 'productDetails' ? 'bg-primary' : '' }`}>
-          <h3>상세정보</h3>
+          <h3 className='leading-[30px]'>상세정보</h3>
         </li>
         <li onClick={() => scrollToElement('reviews')} 
         className={`py-3 text-center w-[33.3%] cursor-pointer ${activeSection === 'reviews' ? 'bg-primary' : '' }`}>
-          <h3>리뷰</h3>
+          <h3 className='leading-[30px]'>리뷰</h3>
         </li>
     </ul>
   );

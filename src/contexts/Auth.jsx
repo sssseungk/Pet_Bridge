@@ -3,21 +3,17 @@ import { string, node } from 'prop-types';
 import pb from '@/api/pocketbase';
 import useStorage from '@/hooks/useStorage';
 
-// Context 생성
 const AuthContext = createContext();
 
-// 초기 인증 상태
 const initialAuthState = {
   isAuth: false,
   user: null,
   token: '',
 };
 
-// Context.Provider 래퍼 컴포넌트 작성
 function AuthProvider({ displayName = 'AuthProvider', children }) {
   const { storageData } = useStorage('pocketbase_auth');
 
-  // 인증 상태 유지(Persist)
   useEffect(() => {
     if (storageData) {
       const { token, model } = storageData;
@@ -29,11 +25,9 @@ function AuthProvider({ displayName = 'AuthProvider', children }) {
     }
   }, [storageData]);
 
-  // 인증 상태
   const [authState, setAuthState] = useState(initialAuthState);
 
   useEffect(() => {
-    // 업데이트 될 때만 상태 변경
     const unsub = pb.authStore.onChange((token, model) => {
       setAuthState((state) => ({
         ...state,
@@ -48,9 +42,6 @@ function AuthProvider({ displayName = 'AuthProvider', children }) {
     };
   }, []);
 
-  // 메서드: 할 수 있는 기능
-  // 회원가입, 로그인, 로그아웃, 가입탈퇴
-  // 서버는 대기 시간 (비동기 요청/응답)
   const signUp = async (registerUser) => {
     return await pb.collection('users').create(registerUser);
   };
@@ -99,7 +90,7 @@ function AuthProvider({ displayName = 'AuthProvider', children }) {
 
 AuthProvider.propTypes = {
   displayName: string,
-  children: node.isRequired, // React.ReactNode
+  children: node.isRequired,
 };
 
 export default AuthProvider;

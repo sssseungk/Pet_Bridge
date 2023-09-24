@@ -19,7 +19,6 @@ function Map() {
   };
 
   const initMap = () => {
-    // 기본 마커 이미지 설정
     var imageSrc = placeMarker,
       imageSize = new kakao.maps.Size(72, 69),
       imageOption = { offset: new kakao.maps.Point(35, 69) };
@@ -30,7 +29,6 @@ function Map() {
       imageOption
     );
 
-    // 사용자 위치용 커스텀 마커 이미지 설정
     var userLocImageSrc = Footprint,
       userLocImageSize = new kakao.maps.Size(72, 69),
       userLocImageOption = { offset: new kakao.maps.Point(35, 69) };
@@ -57,10 +55,8 @@ function Map() {
           '<div style="padding:5px 25px 5px 5px; width: max-content;">내 주변 보호소를 찾아보세요!</div>';
         displayMarker(locPosition, message);
 
-        //장소검색 객체 생성
         var ps = new kakao.maps.services.Places(map);
 
-        //키워드로 장소 검색
         ps.keywordSearch('동물 보호', placesSearchCB);
       });
 
@@ -70,9 +66,8 @@ function Map() {
             displayPlaceMarker(data[i]);
           }
 
-          // 다시 사용자의 현재 위치로 중심 이동 및 확대 레벨 조정
           map.setCenter(locPosition);
-          map.setLevel(2); // 원하는 확대 레벨로 설정
+          map.setLevel(2);
         }
       }
     } else {
@@ -85,7 +80,7 @@ function Map() {
       var marker = new kakao.maps.Marker({
         map: map,
         position: locPosition,
-        image: userLocMarkerImage, // 사용자 위치 마커 이미지 설정
+        image: userLocMarkerImage,
       });
 
       var iwContent = message,
@@ -105,7 +100,7 @@ function Map() {
       var marker = new kakao.maps.Marker({
         map: map,
         position: new kakao.maps.LatLng(place.y, place.x),
-        image: markerImage, // 기본 마커 이미지 설정
+        image: markerImage,
       });
 
       var infowindow = new kakao.maps.InfoWindow({
@@ -116,7 +111,6 @@ function Map() {
         removable: true,
       });
 
-      // 마커에 클릭이벤트를 등록합니다
       kakao.maps.event.addListener(marker, 'click', function () {
         if (infowindow.getMap()) {
           infowindow.close();

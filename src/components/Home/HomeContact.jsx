@@ -9,7 +9,6 @@ function HomeContact(props) {
         <h2 className="inline font-bold pet-m:text-lg pet-l:text-xl transition-[0.3s]">
           {props.title}
         </h2>
-        {/* <span className="text-xs">더보기 &gt;</span> */}
       </div>
       <div className="relative flex flex-col items-end gap-3 px-4 py-3 rounded-lg bg-primary">
         <p className="text-xl font-semibold text-right">
