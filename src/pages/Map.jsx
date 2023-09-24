@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import Footprint from '/assets/imgs/footprint_place.png';
 import placeMarker from '/assets/imgs/place_marker_place.png';
 import { useEffect } from 'react';
@@ -127,11 +128,17 @@ function Map() {
   };
 
   return (
+    <>
+    <Helmet>
+        <title>펫:브릿지 - 지도</title>
+      </Helmet>
     <div
       className="max-w-screen-pet-l mx-auto"
       id="map"
       style={{ height: '100vh', width: '100%' }}
     ></div>
+    </>
+    
   );
 }
 
