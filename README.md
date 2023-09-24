@@ -5,9 +5,26 @@
 
 ## 📲 배포주소
 
-주소 : <a href=""> 펫:브릿지 </a>
+주소 : <a href="https://frontendschool6.github.io/Pet_Bridge/"> 펫:브릿지 </a></br>
+발표자료 : <a href="https://1drv.ms/p/s!AqMktsAprAV3r1DzQw-zgg3VP4QL">최종발표 PPT</a>
+
+</br>
+</br>
 
 ### 📄 목차
+
+[1. 서비스 소개](#-1-서비스-소개)</br>
+[2. 프로젝트 일정](#-2-프로젝트-일정)</br>
+[3. 팀 구성](#-3-팀-구성)</br>
+[4. 역할 분담](#-4-역할-분담)</br>
+[5. 프로젝트 목표](#-5-프로젝트-목표)</br>
+[6. 팀 내 규칙 및 준수 사항](#-6-팀-내-규칙-및-준수-사항)</br>
+[7. 개발 환경 및 기술 스택](#-7-개발-환경-및-기술-스택)</br>
+[8. 파일 구성](#-8-파일-구성)</br>
+[9. 결과물](#-9-결과물)</br>
+[10. 프로젝트 시연](#-10-시연-영상)</br>
+[11. 프로젝트 소감](#-11-프로젝트-소감)</br>
+[12. 프로젝트 사용법](#-12-프로젝트-사용법)</br>
 
 </br>
 </br>
@@ -39,6 +56,7 @@
 
 </br>
 </br>
+
 ### 💻 4. 역할 분담
 
 | 이름   | 담당 기능                                                    |
@@ -51,7 +69,7 @@
 </br>
 </br>
  
-### 5. 🏅 프로젝트 목표
+### 🏅 5. 프로젝트 목표
 
 > 결과보단 과정!
 
@@ -71,11 +89,11 @@
 
 - ##### <a href = https://github.com/FRONTENDSCHOOL6/Pet_Bridge/wiki/coading-convention>코딩 컨벤션</a>
 - ##### <a href = https://github.com/FRONTENDSCHOOL6/Pet_Bridge/wiki/commit-convention>커밋 컨벤션</a>
-- ##### <a href = https://github.com/FRONTENDSCHOOL6/Pet_Bridge/wiki/%5B23.09.08%5D-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%8A%A4%ED%81%AC%EB%9F%BC>데일리 컨벤션</a>
+- ##### <a href = https://github.com/FRONTENDSCHOOL6/Pet_Bridge/wiki/%5B23.09.08%5D-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%8A%A4%ED%81%AC%EB%9F%BC>데일리 스크럼</a>
 <br>
 <br>
 
-### ⚒️ 7. 개발 환경 및 기술 스택
+### 🎃 7. 개발 환경 및 기술 스택
 
 ##### 환경
 
@@ -87,14 +105,16 @@
 
 ##### 도구
 
-<img alt="reactrouter" src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white"> <img alt="contextapi" src="https://img.shields.io/badge/Context_api-FF4154?style=for-the-badge&logo=context-api&logoColor=white"><img alt="pocketbase" src="https://img.shields.io/badge/pocketbase-B8DBE4?style=for-the-badge&logo=pocketbase&logoColor=black"><img src="https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"><img src="https://img.shields.io/badge/githubpages-222222?style=for-the-badge&logo=githubpages&logoColor=white">
+<img alt="reactrouter" src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white"> <img alt="contextapi" src="https://img.shields.io/badge/Context_api-FF4154?style=for-the-badge&logo=context-api&logoColor=white"><img alt="pocketbase" src="https://img.shields.io/badge/pocketbase-B8DBE4?style=for-the-badge&logo=pocketbase&logoColor=black"><img src="https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"><img src="https://img.shields.io/badge/githubpages-222222?style=for-the-badge&logo=githubpages&logoColor=white"><img src="https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white">
 
 ##### 소통
 
 <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"> <img alt="ECMAScript" src="https://img.shields.io/badge/kakaotalk-yellow?style=for-the-badge&logo=kakao&logoColor=white">
-<br>
 
-### 📂 8. File Tree
+</br>
+</br>
+
+### 📂 8. 파일 구성
 
 ```
 📦src
@@ -200,17 +220,20 @@
 
 ##### 인덱스 페이지
 
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/a025d9f7-82de-4f1c-a7fd-19887052f923" width="50%">
+<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/a025d9f7-82de-4f1c-a7fd-19887052f923" width="230"></br>
+
 - 스와이퍼 활용</br>
 - 건너뛰기 클릭 시 메인 페이지로 이동</br>
 - 로그인, 회원가입 클릭 시 각 페이지로 이동</br>
-- 로그인이 되어있을시, 로그인, 회원가입은 비활성화되고 건너뛰기 버튼만 존재</br>
+- 로그인이 되어있을시, 로그인, 회원가입은 비활성화되고 건너뛰기 버튼만 존재
 
+</br>
 </br>
 
 ##### 메인 페이지
 
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/9ca7c94e-596d-4f67-abc4-74de0062b2f7" width="50%">
+<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/9ca7c94e-596d-4f67-abc4-74de0062b2f7" width="230"></br>
+
 - 후원 신청 배너 : 클릭 시 메일 작성 연동</br>
 - 후원 상품 배너 : 스와이퍼 사용, 클릭 시 해당 상품 페이지로 이동</br>
 - 추천 보호소 목록 : 스와이퍼 사용, 클릭 시 해당 보호소 홈페이지로 이동</br>
@@ -219,37 +242,43 @@
 
 </br>
 </br>
+
 ##### - 어바웃 페이지
 
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/2244f39b-2ed3-4138-9359-bf8626e60d6c" width="50%">
+<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/2244f39b-2ed3-4138-9359-bf8626e60d6c" width="230"></br>
+
 - 상품 구매하기 : 클릭 시 상품 목록 페이지로 이동</br>
 - 직접 후원하기, 후원 신청하기, 함께 활동하기 클릭 시 메일 창 열림 (각각 다른 내용의 메일 서식)
-</br>
-</br>
+  </br>
+  </br>
 
 ##### 상품 목록 페이지
 
-</br>
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/be8763ec-ef1e-43fa-b754-cc4c074e4eac" width="50%">
+<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/be8763ec-ef1e-43fa-b754-cc4c074e4eac" width="230"></br>
+
 - 후원 상품 목록 : 카테고리 클릭 시 해당 카테고리에 맞는 상품만 렌더링 됨</br>
 - 상세 페이지의 댓글 수 연동해 표시</br>
 - 상품 별 라벨 추가</br>
 - 찜 아이콘(하트) 클릭 시 포켓베이스의 사용자 데이터에 해당 상품이 저장됨
-</br>
-</br>
+  </br>
+  </br>
 
 ##### 상품 검색 페이지
 
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/5bd23cbe-272e-4d38-be85-f51337f3751a" width="50%">
+<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/5bd23cbe-272e-4d38-be85-f51337f3751a" width="230"></br>
+
 - 상품 검색 기능 : 단어 입력 시 해당 단어가 포함된 상품들을 보여줌</br>
 - 카테고리 : 카테고리 클릭 시 관련 상품들을 보여주고, 카테고리 클릭 후 검색하면 해당 카테고리에 관련된 단어가 포함된 상품들을 렌더링함</br>
 - 관련된 상품이 존재하지 않을경우 사용자에게 알려줌</br>
-- 찜 아이콘(하트) 클릭 시 포켓베이스의 사용자 데이터에 해당 상품이 저장됨</br>
+- 찜 아이콘(하트) 클릭 시 포켓베이스의 사용자 데이터에 해당 상품이 저장됨
+
+</br>
 </br>
 
 ##### 상품 상세 페이지
 
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/6ee6b5f6-f83a-4e22-9d37-028d5b95b76f" width="50%">
+<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/6ee6b5f6-f83a-4e22-9d37-028d5b95b76f" width="230"></br>
+
 - 장바구니 추가 : 수량 선택 후 장바구니 추가 버튼 클릭 시 사용자의 데이터에 추가한 상품이 담기게 됨</br>
 - 찜 아이콘(하트) 클릭 시 포켓베이스의 사용자 데이터에 해당 상품이 저장됨</br>
 - 댓글 작성, 수정, 삭제 : 댓글을 작성할 수 있고, 자신이 작성한 댓글을 수정/삭제할 수 있음
@@ -259,39 +288,47 @@
 
 ##### 장바구니 페이지
 
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/d6581e84-3250-4731-94b7-68658d87d7fd" width="50%">
+<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/d6581e84-3250-4731-94b7-68658d87d7fd" width="230"></br>
+
 - 장바구니 상품 추가 : 상세 페이지에서 사용자가 담은 상품이 선택한 수량과 함께 렌더링 됨</br>
 - 장바구니 상품 수량조절 : 상품 수량 조절 기능 및 금액에 따른 변화
+
 </br>
 </br>
 
 ##### 보호소 지도 페이지
 
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/182c0299-71f9-41f5-9874-eb02c4414061" width="50%">
+<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/72969123/182c0299-71f9-41f5-9874-eb02c4414061" width="230"></br>
+
 - 주변 보호소 찾기 : 지도 API를 사용해 사용자의 위치를 바탕으로 주변에 위치하는 보호소를 알려줌</br>
 - 보호소 사이트 연결 : 보호소들의 정보를 알려주고 클릭시 해당 보호소의 홈페이지로 이동</br>
 - 추천 보호소와 연결 : 추천 보호소로 바로 전화 연결이 가능하고, 해당 보호소의 위치를 볼 수 있음
+
 </br>
 </br>
 
 ##### 로그인
 
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/779f7834-2f4c-454b-b929-786d191f764c" width="50%">
+<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/779f7834-2f4c-454b-b929-786d191f764c" width="230"></br>
+
 - 로그인 : 사용자의 데이터가 존재하는지 확인하고, 로그인 성공시 마이페이지로 이동</br>
 - 카카오 계정 로그인 가능
+
 </br>
 </br>
 
 ##### 회원가입 페이지
 
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/bde8ae5b-b27c-414b-bb36-a04fa193b68b" width="50%">
+<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/bde8ae5b-b27c-414b-bb36-a04fa193b68b" width="230"></br>
+
 - 회원가입 : 정규표현식을 활용해 유효성 검사를 거치고, 데이터가 등록된다.
+
 </br>
 </br>
 
 ##### 마이 페이지
 
-<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/2c7e57cd-cf78-4d1d-96a6-8871bbc6954d" width="50%">
+<img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/2c7e57cd-cf78-4d1d-96a6-8871bbc6954d" width="230"></br>
 
 - 찜한 상품 목록 : 상품 목록 페이지와 상세 페이지에서 찜한 상품들을 보여줌</br>
 - 사용자 정보 제공, 변경 가능 : 사용자의 닉네임과 아이디, 프로필 사진 수정 가능</br>
@@ -300,46 +337,21 @@
   </br>
   </br>
 
-### 🎥 10. 시연 영상
+### 🎶 10. 시연 영상
 
-[![Video Label](https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/00ebbc8a-4bce-4921-b9b0-8e381c952f60)](https://youtu.be/uonvHOAkEX8)
+![Video Label](https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/00ebbc8a-4bce-4921-b9b0-8e381c952f60)
 
-> 자세한 영상을 보고싶으시다면 영상을 클릭해주세요 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/c7e2e745-95ac-4c0e-b359-20a8028399d7" width="100px">&nbsp;<span style="color:red">YouTube</span>&nbsp;로 이동됩니다.
-
-</br>
-
-### 💊 11. 성능 검사
-
-> 문제사항
-
-<img src="https://cdn.discordapp.com/attachments/1120944741626941470/1123475261707538452/48.png">
-
-> 성능 향상을 위한 노력 / 해결 방안
-
-###### [문제점]
-
-1.
-
-###### [해결방안]
-
-1.
-
-> 문제해결
-
-<img src="https://cdn.discordapp.com/attachments/1120944741626941470/1123475289561903205/PageSpeed_Insights_-_Chrome_2023-06-28_1_42_49_5.png">
-<br><br>
-<br><br>
+> 자세한 영상을 보고싶으시다면 YouTube을 클릭해주세요 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/c7e2e745-95ac-4c0e-b359-20a8028399d7" width="150"> &nbsp; <a href="https://youtu.be/uonvHOAkEX8" style="color:red">YouTube</a>&nbsp;로 이동됩니다.
 
 <br>
-
 <br>
 
-### ✏️ 12. 프로젝트 소감
+### 🎥 11. 프로젝트 소감
 
 <table>
   <tr>
     <th>김승연</th>
-    <td> 리액트를 수업을 처음 접했을 때 너무 어려워서 프로젝트를 잘 진행할 수 있을까 하는 걱정이 엄청 많았는데 팀원분들이 잘 이끌어주시고 서로 모르는 것을 공유하고 함께 고민하면서 리액트와 더 친해질 수 있는 좋은 시간이었던 것 같습니다! 약 3주정도 되는 긴 시간 동안 서로 응원해주고 으쌰으쌰하면서 진행한 덕분에 
+    <td> 리액트 수업을 처음 접했을 때 너무 어려워서 프로젝트를 잘 진행할 수 있을까 하는 걱정이 엄청 많았는데 팀원분들이 잘 이끌어주시고 서로 모르는 것을 공유하고 함께 고민하면서 리액트와 더 친해질 수 있는 좋은 시간이었던 것 같습니다! 약 3주정도 되는 긴 시간 동안 서로 응원해주고 으쌰으쌰하면서 진행한 덕분에 
 화목한 분위기 속에서 기분 좋게 프로젝트에
 임할 수 있었던 것 같습니다. 그동안 모두 수고
 많으셨고 감사했습니다!</td>
@@ -350,7 +362,7 @@
     </tr>
       <tr>
     <th>이규정</th>
-     <td>처음 리액트 수업을 시작하고 수업을 제대로 이해못하면서 내가 이 프로젝트를 해낼수있을까 이로인해 팀원들에게 큰 민폐를 주는것 아닌가라는 생각으로 프로젝트를 임하게되었습니다. 하지만, 점차 시간이 지나며 리액트를 직접 사용하는것으로 경험해보고 좋은 팀원들덕분에 많은 응원과 도움을 받으며 리액트와 조금씩 친해지는 제모습을 보며 많은 뿌듯함을 느꼈습니다. 아직 리액트를 완벽히 이해한것은 아니지만 조금씩 조금씩 앞으로 나아가는 모습이 보이는것만으로도 많은 성장을 했다고 느끼게되었습니다. 팀원분들 그리고 팀원이 아님에도 도움을 주신분들 정말 감사드리고 1달이라는 짧으면 짧고 길면 긴 기간 정말 고생하셨습니다!!</td>
+     <td>처음 리액트 수업을 시작하고 수업을 제대로 이해못하면서 내가 이 프로젝트를 해낼수있을까? 이로인해 팀원들에게 큰 민폐를 주는것 아닌가라는 생각으로 프로젝트를 임하게되었습니다. 하지만, 점차 시간이 지나며 리액트를 직접 사용하는것으로 경험해보고 좋은 팀원들덕분에 많은 응원과 도움을 받으며 리액트와 조금씩 친해지는 제모습을 보며 많은 뿌듯함을 느꼈습니다.아직 리액트를 완벽히 이해한것은 아니지만 조금씩  조금씩 앞으로 나아가는 모습이 보이는것만으로도 많은  성장을했다고 느끼게되었습니다. 팀원분들 그리고 팀원이 아님에도 도움을 주신분들 정말 감사드리고 1달이라는 짧으면 짧고 길면 긴 기간 정말 고생하셨습니다!!</td>
       </tr>
    <tr>
     <th>조희정</th>
@@ -359,7 +371,7 @@
   </table>
 <br>
 
-### 🦾 프로젝트 사용법
+### 🦾 12. 프로젝트 사용법
 
 - 패키지 설치
 

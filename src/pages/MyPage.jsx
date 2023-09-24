@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import MyPageLikedProductsSection from '../components/Mypage/MyPageLikedProductsSection';
 import MyPageProfileSection from '../components/Mypage/MyPageProfileSection';
 import DefaultUser from '/assets/imgs/profileImg_default.png';
+import { Helmet } from 'react-helmet-async';
 
 const kakaoLogout = async () => {
   const CLIENT_ID = import.meta.env.VITE_KAKAO_API_KEY;
@@ -186,26 +187,31 @@ function MyPage() {
   };
 
   return (
-    <article className="max-w-screen-pet-l mx-auto flex flex-col items-center pt-[100px] min-h-screen bg-pet-bg">
-      <MyPageProfileSection
-        isEditMode={isEditMode}
-        updatedUser={updatedUser}
-        avatarUrl={avatarUrl}
-        isLoading={isLoading}
-        handleProfileChange={handleProfileChange}
-        handleAvatarChange={handleAvatarChange}
-        handleSaveProfile={handleSaveProfile}
-        setIsEditMode={setIsEditMode}
-        handleSignOut={handleSignOut}
-        handleCancelMembership={handleCancelMembership}
-      />
-      <MyPageLikedProductsSection
-        userData={userData}
-        isLoading={isLoading}
-        handleSignOut={handleSignOut}
-        handleCancelMembership={handleCancelMembership}
-      />
-    </article>
+    <>
+      <Helmet>
+        <title>펫:브릿지 - 마이페이지</title>
+      </Helmet>
+      <article className="max-w-screen-pet-l mx-auto flex flex-col items-center pt-[100px] min-h-screen bg-pet-bg">
+        <MyPageProfileSection
+          isEditMode={isEditMode}
+          updatedUser={updatedUser}
+          avatarUrl={avatarUrl}
+          isLoading={isLoading}
+          handleProfileChange={handleProfileChange}
+          handleAvatarChange={handleAvatarChange}
+          handleSaveProfile={handleSaveProfile}
+          setIsEditMode={setIsEditMode}
+          handleSignOut={handleSignOut}
+          handleCancelMembership={handleCancelMembership}
+        />
+        <MyPageLikedProductsSection
+          userData={userData}
+          isLoading={isLoading}
+          handleSignOut={handleSignOut}
+          handleCancelMembership={handleCancelMembership}
+        />
+      </article>
+    </>
   );
 }
 

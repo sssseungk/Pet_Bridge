@@ -3,6 +3,7 @@ import CartItem from '@/components/Cart/CartItem';
 import Modal from '@/components/Cart/Modal';
 import { useAuth } from '@/contexts/Auth';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import 'swiper/css';
@@ -130,6 +131,9 @@ function Cart() {
   };
   return (
     <>
+      <Helmet>
+        <title>펫:브릿지 - 장바구니</title>
+      </Helmet>
       <h2 className="sr-only ">장바구니</h2>
       <div className="pt-10 m-auto max-w-screen-pet-l bg-pet-bg">
         <Swiper
