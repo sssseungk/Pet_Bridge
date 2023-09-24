@@ -18,7 +18,7 @@ dependencies:
     specifier: ^4.33.0
     version: 4.33.0(react-dom@18.2.0)(react@18.2.0)
   '@tanstack/react-query-devtools':
-    specifier: ^4.33.0
+    specifier: '4.33'
     version: 4.33.0(@tanstack/react-query@4.33.0)(react-dom@18.2.0)(react@18.2.0)
   '@vheemstra/vite-plugin-imagemin':
     specifier: ^1.0.11

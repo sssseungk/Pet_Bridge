@@ -14,7 +14,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@tanstack/react-query": "^4.33.0",
-    "@tanstack/react-query-devtools": "^4.33.0",
+    "@tanstack/react-query-devtools": "4.33",
     "@vheemstra/vite-plugin-imagemin": "^1.0.11",
     "framer-motion": "^10.16.4",
     "imagemin-gifsicle": "^7.0.0",
