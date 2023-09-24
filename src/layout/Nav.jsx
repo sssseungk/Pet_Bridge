@@ -15,8 +15,6 @@ function Nav() {
     return null;
   }
 
-  // '/place', '/map', '/productlist', '/productdetail' 경로에 진입했다면 
-  // 각각의 localStorage 값들을 설정합니다.
   if (['/place', '/map'].includes(location.pathname)) {
     localStorage.setItem('visitedPlaceOrMap', 'true');
   }
@@ -30,7 +28,6 @@ function Nav() {
   }
 
   const getIcon = (paths, activeIcon, defaultIcon) => {
-    // 각각의 경로에서 해당하는 localStorage 값에 따라서 다른 아이콘을 반환합니다.
     return paths.includes(location.pathname)
       ? ((paths.includes('/place') || paths.includes('/map')) && localStorage.getItem('visitedPlaceOrMap'))
         || ((paths.includes('/productlist') || paths.includes('/productdetail')) && localStorage.getItem('visitedProductListOrDetail'))

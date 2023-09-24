@@ -37,7 +37,6 @@ function Heart({ productId }) {
         updatedLikedUsers = userData.LikedProducts.filter(
           (id) => id !== productId
         );
-         // 찜하기 취소 알림
       toast('찜한 상품이 해제되었습니다.', {
         position: 'top-right',
         icon: '💔',
@@ -48,7 +47,6 @@ function Heart({ productId }) {
       });
       } else {
         updatedLikedUsers = [...userData.LikedProducts, productId];
-        // 찜하기 추가 알림
       toast('찜한 상품에 추가되었습니다.', {
         position: 'top-right',
         icon: '💖',

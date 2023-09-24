@@ -39,7 +39,7 @@ function HomeListCompo(props) {
     window.addEventListener('resize', handleResize);
     handleResize();
 
-    return () => window.removeEventListener('resize', handleResize); // cleanup function
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (

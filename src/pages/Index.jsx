@@ -17,7 +17,6 @@ function Index() {
   const [showCountUp, setShowCountUp] = useState(false);
 
   const handleSlideChange = (swiper) => {
-    // 현재 슬라이드 인덱스가 마지막 슬라이드인 경우 showCountUp 값을 true로 변경
     if (swiper.isEnd) {
       setShowCountUp(true);
     }

@@ -9,7 +9,6 @@ import Home_dog from '/assets/imgs/Home_dog.png';
 function HomeCumulativeAmount(props) {
   const { user, signOut } = useAuth();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
-  // 로그아웃 핸들러
   const handleSignOut = async () => {
     if (window.confirm('로그아웃 하시겠습니까?')) {
       setIsLoggingOut(true);

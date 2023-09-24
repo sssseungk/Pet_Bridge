@@ -71,7 +71,6 @@ function MyPage() {
     }
   }, [user, navigate, isLoggingOut]);
 
-  // 로그아웃 핸들러
   const handleSignOut = async () => {
     if (window.confirm('로그아웃 하시겠습니까?')) {
       setIsLoggingOut(true);
@@ -96,7 +95,6 @@ function MyPage() {
     }
   };
 
-  // 회원탈퇴 핸들러
   const handleCancelMembership = async () => {
     if (window.confirm('정말로 탈퇴하시겠습니까? 🥲')) {
       await cancelMembership(user.id);
@@ -112,10 +110,8 @@ function MyPage() {
     }
   };
 
-  // 프로필 수정 모드 상태
   const [isEditMode, setIsEditMode] = useState(false);
 
-  // 변경할 사용자 정보 상태
   const [updatedUser, setUpdatedUser] = useState({
     username: user?.username,
     email: user?.email,
@@ -131,24 +127,22 @@ function MyPage() {
     });
   }, [user]);
 
-  // 프로필(이미지X) 변경 핸들러
   const handleProfileChange = (e) => {
     setUpdatedUser({ ...updatedUser, [e.target.name]: e.target.value });
   };
-  // 프로필(이미지) 변경 핸들러
+
   const handleAvatarChange = (e) => {
     if (e.target.files[0]) {
       const newImageUrl = URL.createObjectURL(e.target.files[0]);
-      setAvatarUrl(newImageUrl); // avatarUrl 상태 업데이트
+      setAvatarUrl(newImageUrl);
 
       setUpdatedUser({
         ...updatedUser,
-        avatar: newImageUrl, // 새로운 이미지 URL 사용
+        avatar: newImageUrl,
         avatarFile: e.target.files[0],
       });
     }
   };
-  // 프로필 변경정보 저장 핸들러
   const handleSaveProfile = async () => {
     try {
       const formData = new FormData();
@@ -159,10 +153,8 @@ function MyPage() {
         formData.append('avatar', updatedUser.avatarFile);
       }
 
-      // 사용자 정보 업데이트
       await updateUser(user.id, formData);
 
-      // 업데이트된 사용자 정보 다시 불러오기
       const refreshedUser = await pb.collection('users').getOne(user.id);
       const avatarUrl = pb.files.getUrl(refreshedUser, refreshedUser.avatar);
 
