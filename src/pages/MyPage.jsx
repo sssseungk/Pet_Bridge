@@ -9,7 +9,7 @@ import DefaultUser from '/assets/imgs/profileImg_default.png';
 
 const kakaoLogout = async () => {
   const CLIENT_ID = import.meta.env.VITE_KAKAO_API_KEY;
-  const LOGOUT_REDIRECT_URI = 'http://localhost:5173/';
+  const LOGOUT_REDIRECT_URI = 'https://frontendschool6.github.io/Pet_Bridge/';
   try {
     location.replace(
       `https://kauth.kakao.com/oauth/logout?client_id=${CLIENT_ID}&logout_redirect_uri=${LOGOUT_REDIRECT_URI}Pet_Bridge/home`
