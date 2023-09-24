@@ -14,7 +14,7 @@ function ProductListNav({ onCategorySelect }) {
   return (
     <>
       <h2 className="sr-only">카테고리</h2>
-      <ul className="max-w-screen-pet-l mx-auto bg-pet-bg font-bold flex gap-4 justify-evenly flex-wrap pt-2 border-gray-1 sticky top-14 z-10">
+      <ul className="max-w-screen-pet-l mx-auto bg-pet-bg font-bold flex gap-4 justify-evenly flex-wrap pt-2 border-gray-1 sticky top-13 z-10">
         {categories.map((category) => (
           <li key={category} className="">
             <button onClick={() => handleCategoryClick(category)}>
