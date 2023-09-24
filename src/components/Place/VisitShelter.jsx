@@ -1,22 +1,37 @@
-import pb from '@/api/pocketbase';
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import Spinner from '../Common/Spinner';
 import PlaceList from './PlaceList';
 
 function VisitShelter() {
-  const [placeLists, setPlaceLists] = useState([]);
+  async function fetchPlaceList() {
+    const response = await fetch(
+      `${import.meta.env.VITE_PB_API}/collections/place/records`
+    );
+    return await response.json();
+  }
 
-  useEffect(() => {
-    async function fetchPlaces() {
-      try {
-        const renderPlaceList = await pb.collection('place').getFullList();
-        setPlaceLists(renderPlaceList);
-      } catch (error) {
-        console.error(error);
-        throw error;
-      }
+  const { isLoading, data, isError, error } = useQuery(
+    ['places'],
+    fetchPlaceList,
+    {
+      retry: 2,
+      staleTime: 1 * 60 * 1000,
+      refetchOnWindowFocus: true,
     }
-    fetchPlaces();
-  }, []);
+  );
+
+  if (isLoading) {
+    return (
+      <div className="grid place-content-center h-full">
+        <Spinner size={160} />
+      </div>
+    );
+  }
+
+  if (isError) {
+    return <div role="alert">{error.toString()}</div>;
+  }
+
   return (
     <>
       <section className="my-0 mx-[20px]">
@@ -24,9 +39,10 @@ function VisitShelter() {
           보호소 사이트 방문하기
         </h2>
         <ul>
-          {placeLists?.map((place, i) => (
-            <PlaceList place={place} key={`${place}_${i}`} />
-          ))}
+          {data &&
+            data?.items?.map((place, i) => (
+              <PlaceList place={place} key={`${place}_${i}`} />
+            ))}
         </ul>
       </section>
     </>

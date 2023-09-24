@@ -107,11 +107,11 @@ const PlaceModal = ({ isOpen, onClose, location }) => {
 export default PlaceModal;
 
 MapComponent.propTypes = {
-  location: PropTypes.object.isRequired,
+  location: PropTypes.object,
 };
 
 PlaceModal.propTypes = {
-  isOpen: PropTypes.object.isRequired,
-  onClose: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  location: PropTypes.object,
 };
