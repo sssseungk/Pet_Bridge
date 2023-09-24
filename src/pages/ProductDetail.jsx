@@ -15,29 +15,22 @@ function ProductDetail() {
   const { user } = useAuth();
   const { productTitle } = useParams();
   const { data } = useProductItem(productTitle);
-
-  // * 상품 수량 관리
   const [quantity, setQuantity] = useState(1);
 
-  // * 수량 증가 함수
   const increaseCount = () => {
     setQuantity(quantity + 1);
   };
 
-  // * 수량 감소 함수
   const decreaseCount = () => {
     if (quantity > 1) {
-      // 최소 1개 이상이어야 함.
       setQuantity(quantity - 1);
     }
   };
 
-  // * 장바구니 담기
   useEffect(() => {
     if (!user) return;
     const fetchCart = async () => {
       try {
-        // userCart 컬렉션에서 사용자 관련 레코드들 가져온다.
         const cartData = await pb
           .collection('userCart')
           .getFullList(`userName="${user.name}"`);
@@ -52,7 +45,6 @@ function ProductDetail() {
     fetchCart();
   }, [user?.id]);
 
-  // * 장바구니 저장
   const handleAddCart = async () => {
     if (!user) {
       toast('로그인이 필요합니다.', {
@@ -66,17 +58,14 @@ function ProductDetail() {
       return;
     }
     try {
-      // 현재 사용자의 모든 장바구니 아이템 가져오기
       const userCartItems = await pb
         .collection('userCart')
         .getFullList(`userId="${user.id}"`);
 
-      // 선택한 상품이 이미 있는지 확인하기 (현재 사용자에 한함)
       const existingCartItem = userCartItems.find(
         (item) => item.productId === data.id && item.userId === user.id
       );
 
-      // 만약 이미 존재한다면, 토스트 메시지 띄우고 함수 종료
       if (existingCartItem) {
         toast('이미 추가된 상품입니다.', {
           position: 'top-right',
@@ -103,7 +92,6 @@ function ProductDetail() {
         .getFullList(`userName="${user.name}"`);
       console.log(expandedCartData);
 
-      // ! 코드 새로 추가 (헤더 아이콘용)------------------------
       const cartData = await pb
         .collection('userCart')
         .getFullList(`userName="${user.name}"`);
@@ -114,7 +102,6 @@ function ProductDetail() {
       await pb
         .collection('users')
         .update(user.id, { userCart: userRelatedCarts });
-      // ! 여기 까지-----------------------------------
       toast('상품이 추가되었습니다.', {
         position: 'top-right',
         icon: '🛒',
@@ -133,14 +120,14 @@ function ProductDetail() {
       <Helmet>
         <title>펫:브릿지 - 상품 상세페이지</title>
       </Helmet>
-      <div className="max-w-screen-pet-l m-auto pt-3 px-5">
+      <div className="max-w-screen-pet-l m-auto pt-3">
         <img
           id="productDescription"
           src={getPbImageURL(data, 'photo')}
           alt="상품사진"
-          className="m-auto h-auto"
+          className="m-auto h-auto px-5"
         />
-        <div className="flex justify-between">
+        <div className="flex justify-between px-5">
           <div className="text-xl pt-5">{data.title}</div>
           <div className="flex mt-5">
             <Heart productId={productTitle} />
@@ -153,7 +140,7 @@ function ProductDetail() {
             </div>
           </div>
         </div>
-        <div className="flex justify-between pb-4">
+        <div className="flex justify-between pb-4 px-5">
           {data.price ? (
             <div className="text-lg mt-4">
               {data.price.toLocaleString('ko-KR')} 원
@@ -175,13 +162,13 @@ function ProductDetail() {
         <img
           id="productDetails"
           src={getPbImageURL(data, 'photo_detail')}
-          className="m-auto py-4 border-b"
+          className="m-auto py-4 border-b px-5"
           alt="상품사진"
         />
         <h2 className="text-2xl my-3 mx-4 bg-pet-bg">리뷰</h2>
         <ReviewItem />
         <Link to={`/cart`} onClick={() => window.scrollTo(0, 0)}>
-          <button className="w-full m-auto h-12 bg-primary rounded-lg items-center mb-3 text-base bottom-16 left-0 right-0 sticky">
+          <button className="w-full m-auto h-12 bg-primary rounded-lg items-center mb-3 text-base bottom-16 left-0 right-0 sticky px-5">
             장바구니
           </button>
         </Link>
