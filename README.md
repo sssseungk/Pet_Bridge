@@ -5,19 +5,25 @@
 
 ## 📲 배포주소
 
-주소 : <a href="https://frontendschool6.github.io/Pet_Bridge/"> 펫:브릿지 </a>
+주소 : <a href="https://frontendschool6.github.io/Pet_Bridge/"> 펫:브릿지 </a></br>
+발표자료 : <a href="">최종발표 PPT</a>
+
+</br>
+</br>
 
 ### 📄 목차
-[1. 서비스 소개](#🐶-1-서비스-소개)
-[2. 프로젝트 일정](#⚡-2.-프로젝트-일정)
-[3. 팀 구성](###-🐾-3.-팀-구성)
-[4. 역할 분담](###-💻-4.-역할-분담)
-[5. 프로젝트 목표](###-🏅-5.-프로젝트-목표)
-[6. 프로젝트 일정](###-⚡-2.-프로젝트-일정)
-[7. 프로젝트 일정](###-⚡-2.-프로젝트-일정)
-[8. File Tree](###-📂-8.-File-Tree)
-[9. 프로젝트 일정](###-⚡-2.-프로젝트-일정)
-
+[1. 서비스 소개](#-1-서비스-소개)</br>
+[2. 프로젝트 일정](#-2-프로젝트-일정)</br>
+[3. 팀 구성](#-3-팀-구성)</br>
+[4. 역할 분담](#-4-역할-분담)</br>
+[5. 프로젝트 목표](#-5-프로젝트-목표)</br>
+[6. 팀 내 규칙 및 준수 사항](#-6-팀-내-규칙-및-준수-사항)</br>
+[7. 개발 환경 및 기술 스택](#-7-개발-환경-및-기술-스택)</br>
+[8. 파일 구성](#-8-파일-구성)</br>
+[9. 결과물](#-9-결과물)</br>
+[10. 프로젝트 시연](#-10-시연-영상)</br>
+[11. 프로젝트 소감](#-11-프로젝트-소감)</br>
+[12. 프로젝트 사용법](#-12-프로젝트-사용법)</br>
 
 </br>
 </br>
@@ -49,6 +55,7 @@
 
 </br>
 </br>
+
 ### 💻 4. 역할 분담
 
 | 이름   | 담당 기능                                                    |
@@ -81,11 +88,11 @@
 
 - ##### <a href = https://github.com/FRONTENDSCHOOL6/Pet_Bridge/wiki/coading-convention>코딩 컨벤션</a>
 - ##### <a href = https://github.com/FRONTENDSCHOOL6/Pet_Bridge/wiki/commit-convention>커밋 컨벤션</a>
-- ##### <a href = https://github.com/FRONTENDSCHOOL6/Pet_Bridge/wiki/%5B23.09.08%5D-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%8A%A4%ED%81%AC%EB%9F%BC>데일리 컨벤션</a>
+- ##### <a href = https://github.com/FRONTENDSCHOOL6/Pet_Bridge/wiki/%5B23.09.08%5D-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%8A%A4%ED%81%AC%EB%9F%BC>데일리 스크럼</a>
 <br>
 <br>
 
-### ⚒️ 7. 개발 환경 및 기술 스택
+### 🎃 7. 개발 환경 및 기술 스택
 
 ##### 환경
 
@@ -102,9 +109,11 @@
 ##### 소통
 
 <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"> <img alt="ECMAScript" src="https://img.shields.io/badge/kakaotalk-yellow?style=for-the-badge&logo=kakao&logoColor=white">
-<br>
 
-### 📂 8. File Tree
+</br>
+</br>
+
+### 📂 8. 파일 구성
 
 ```
 📦src
@@ -316,41 +325,16 @@
   </br>
   </br>
 
-### 🎥 10. 시연 영상
+### 🎶 10. 시연 영상
 
-[![Video Label](https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/00ebbc8a-4bce-4921-b9b0-8e381c952f60)](https://youtu.be/uonvHOAkEX8)
+![Video Label](https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/00ebbc8a-4bce-4921-b9b0-8e381c952f60)
 
-> 자세한 영상을 보고싶으시다면 영상을 클릭해주세요 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/c7e2e745-95ac-4c0e-b359-20a8028399d7" width="150"> &nbsp; <span style="color:red">YouTube</span>&nbsp;로 이동됩니다.
-
-</br>
-
-### 💊 11. 성능 검사
-
-> 문제사항
-
-<img src="https://cdn.discordapp.com/attachments/1120944741626941470/1123475261707538452/48.png">
-
-> 성능 향상을 위한 노력 / 해결 방안
-
-###### [문제점]
-
-1.
-
-###### [해결방안]
-
-1.
-
-> 문제해결
-
-<img src="https://cdn.discordapp.com/attachments/1120944741626941470/1123475289561903205/PageSpeed_Insights_-_Chrome_2023-06-28_1_42_49_5.png">
-<br><br>
-<br><br>
+> 자세한 영상을 보고싶으시다면 YouTube을 클릭해주세요 <img src="https://github.com/FRONTENDSCHOOL6/Pet_Bridge/assets/115642699/c7e2e745-95ac-4c0e-b359-20a8028399d7" width="150"> &nbsp; <a href="https://youtu.be/uonvHOAkEX8" style="color:red">YouTube</a>&nbsp;로 이동됩니다.
 
 <br>
-
 <br>
 
-### ✏️ 12. 프로젝트 소감
+### 🎥 11. 프로젝트 소감
 
 <table>
   <tr>
@@ -375,7 +359,7 @@
   </table>
 <br>
 
-### 🦾 프로젝트 사용법
+### 🦾 12. 프로젝트 사용법
 
 - 패키지 설치
 
