@@ -8,6 +8,8 @@ function Footer() {
   switch (location.pathname) {
     case '/':
     case '/map':
+    case '/signin':
+    case '/signup':
       return null;
 
     default:
